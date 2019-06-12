@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/product_bar_main"
-        tools:context=".ProductActivity">
+        tools:context=".product.ProductActivity">
 
     <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"

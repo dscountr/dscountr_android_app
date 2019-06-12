@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.main.dscountr.Model
 import com.main.dscountr.R
 
 internal class RvAdapter internal constructor(context: Context, private val resource: Int, private val itemList: Array<String>?) : ArrayAdapter<RvAdapter.ItemHolder>(context, resource) {

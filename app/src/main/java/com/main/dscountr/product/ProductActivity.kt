@@ -1,4 +1,4 @@
-package com.main.dscountr
+package com.main.dscountr.product
 
 import android.os.Bundle
 import android.view.Menu
@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.main.dscountr.R
 import com.main.dscountr.adapter.MyListAdapter
 import kotlinx.android.synthetic.main.product_content_main.*
 
@@ -24,7 +25,9 @@ class ProductActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     )
 
     val imageId = arrayOf<Int>(
-        R.drawable.juice, R.drawable.naturesownproduct9, R.drawable.juice
+        R.drawable.juice,
+        R.drawable.naturesownproduct9,
+        R.drawable.juice
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +38,9 @@ class ProductActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+            this, drawerLayout, toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
