@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.main.dscountr.R
+import com.main.dscountr.view.HomeActivity
 import com.main.dscountr.view.MainActivity
 import kotlinx.android.synthetic.main.user_login.*
 
@@ -15,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
 
         btn_login.setOnClickListener {
             // Handler code here.
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
 
