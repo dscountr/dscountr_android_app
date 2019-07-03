@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:fontFamily="@font/roboto_regular"
+        android:textStyle="normal"
+        android:textColor="#9b9b9b"
+        android:lineSpacingExtra="5sp"
+        android:layout_margin="20dp"
+        tools:text="Enter your mobile number."/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:fontFamily="@font/roboto_regular"
+        android:textStyle="normal"
+        android:textColor="@color/colorEditCancelUndoButtonLinks"
+        android:lineSpacingExtra="5sp"
+        android:layout_centerHorizontal="true"
+        tools:text="Privacy and Terms"/>
+
+    <Button
+        android:layout_width="280dp"
+        android:layout_height="35dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="11sp"
+        android:fontFamily="@font/roboto_medium"
+        android:lineSpacingExtra="4sp"
+        android:textStyle="normal"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="true"
+        android:background="@color/colorRegistrationButton"
+        tools:text="Continue"/>
 
 </RelativeLayout>
