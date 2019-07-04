@@ -65,7 +65,7 @@
             android:textStyle="normal"
             android:layout_centerHorizontal="true"
             android:textAllCaps="true"
-            android:background="@color/colorRegistrationButton"/>
+            android:background="@drawable/btn_ripple_effect"/>
     </RelativeLayout>
 
     <RelativeLayout
