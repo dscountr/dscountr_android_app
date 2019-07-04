@@ -9,7 +9,7 @@
                 android:top="-2dp">
                 <shape android:shape="rectangle" >
                     <stroke
-                        android:width="2dp"
+                        android:width="1dp"
                         android:color="@color/colorBottomBorder" />
 
                     <solid android:color="#00FFFFFF" />
@@ -27,7 +27,7 @@
                 android:top="-2dp">
                 <shape android:shape="rectangle" >
                     <stroke
-                        android:width="2dp"
+                        android:width="1dp"
                         android:color="@color/colorBottomBorder" />
 
                     <solid android:color="#00FFFFFF" />
@@ -45,7 +45,7 @@
                 android:top="-2dp">
                 <shape android:shape="rectangle" >
                     <stroke
-                        android:width="2dp"
+                        android:width="1dp"
                         android:color="@color/colorBottomBorder" />
 
                     <solid android:color="#00FFFFFF" />
