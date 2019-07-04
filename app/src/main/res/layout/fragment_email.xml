@@ -1,7 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="20dp"
+    android:background="@color/colorWhite">
+
+    <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
+        android:id="@+id/tlenterEmail"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        app:errorTextAppearance="@style/Error_Appearance"
+        android:layout_centerHorizontal="true"
+        app:hintTextAppearance="@style/TextAppearence.TextInputLayout.Primary">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/enterEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_edittext"
+            android:hint="@string/enter_your_email_address"
+            android:inputType="phone"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="14sp"
+            android:fontFamily="@font/roboto_regular"
+            android:textStyle="normal"
+            android:lineSpacingExtra="5sp"
+            android:textColorHint="@color/colorBottomBorder"
+            android:textColor="@color/colorProductName" />
+    </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
+
+    <TextView
+        android:id="@+id/tvWhyEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:fontFamily="@font/roboto_regular"
+        android:textStyle="normal"
+        android:textColor="@color/colorEditCancelUndoButtonLinks"
+        android:lineSpacingExtra="5sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tlenterEmail"
+        android:text="@string/why_email"
+        android:layout_marginTop="30dp"/>
+
+    <Button
+        android:id="@+id/btnEmail"
+        android:layout_width="280dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/tvWhyEmail"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="11sp"
+        android:text="@string/continue_reg"
+        android:fontFamily="@font/roboto_medium"
+        android:lineSpacingExtra="4sp"
+        android:textStyle="normal"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="true"
+        android:background="@drawable/btn_ripple_effect"/>
 
 </RelativeLayout>

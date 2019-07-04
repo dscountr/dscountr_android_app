@@ -9,4 +9,6 @@
     <string name="enter_verification_code">Enter the 4 digits code sent to your mobile number.</string>
     <string name="resend_verification_code"><u>Resend the verification code</u></string>
     <string name="back">Back</string>
+    <string name="why_email"><u>Why do we need your email?</u></string>
+    <string name="enter_your_email_address">Enter your email address.</string>
 </resources>
