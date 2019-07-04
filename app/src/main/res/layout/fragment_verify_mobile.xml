@@ -13,7 +13,7 @@
         android:layout_marginRight="20dp">
         <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
             android:id="@+id/tlenterNumberVerification"
-            android:layout_width="360dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             app:errorTextAppearance="@style/Error_Appearance"

@@ -50,7 +50,7 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.miRegistrationHelp:
-                Toast.makeText(getActivity(), "Verification code help.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Mobile verification code help.",Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return false;
