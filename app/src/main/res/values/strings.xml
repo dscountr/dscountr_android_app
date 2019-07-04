@@ -12,4 +12,8 @@
     <string name="why_email"><u>Why do we need your email?</u></string>
     <string name="enter_your_email_address">Enter your email address.</string>
     <string name="add_your_date_of_birth">Add your date of birth.</string>
+    <string name="select_your_gender">Select your gender (male/female)</string>
+    <string name="finish">Finish</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 </resources>
