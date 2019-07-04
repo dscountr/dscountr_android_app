@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
@@ -21,10 +22,11 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
         // Inflate the layout for this fragment
         View mobile = inflater.inflate(R.layout.fragment_mobile, container, false);
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
-        toolbar.inflateMenu(R.menu.mobile_menu);
         toolbar.setOnMenuItemClickListener(this);
         Button btnNumber = mobile.findViewById(R.id.btnNumber);
+        TextView tvTerms = mobile.findViewById(R.id.tvTerms);
         btnNumber.setOnClickListener(this);
+        tvTerms.setOnClickListener(this);
 
         return mobile;
     }
@@ -43,7 +45,7 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.miMobileNumber:
+            case R.id.miRegistrationHelp:
                 Toast.makeText(getActivity(), "Mobile number help.",Toast.LENGTH_SHORT).show();
                 return true;
             default:

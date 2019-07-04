@@ -12,7 +12,7 @@
     <color name="colorEditCancelUndoButtonLinks">#1080D0</color> // edit, cancel, undo buttons and links
     <color name="colorBottomBorder">#9B9B9B</color> // bottom boarder
     <color name="colorRegistrationButton">#008489</color>
-    <color name="colorDot">#D4AF37</color>
-    // buttons
+    <color name="colorDot">#D4AF37</color> // buttons
+    <color name="colorShadow">#1A000000</color> // shadows
 
 </resources>

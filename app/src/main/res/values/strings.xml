@@ -2,8 +2,11 @@
     <string name="app_name">Dscountr.</string>
     <string name="enter_your_mobile_number">Enter your mobile number.</string>
     <string name="continue_reg">Continue</string>
-    <string name="privacy_and_terms"><u>Privacy and Terms</u></string>
+    <string name="privacy_terms"><u>Privacy and Terms</u></string>
     <string name="dscountr">Dscountr</string>
     <string name="dot">.</string>
     <string name="mobile_number">Mobile Number</string>
+    <string name="enter_verification_code">Enter the 4 digits code sent to your mobile number.</string>
+    <string name="resend_verification_code"><u>Resend the verification code</u></string>
+    <string name="back">Back</string>
 </resources>

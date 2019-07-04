@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/miMobileNumber"
+        android:id="@+id/miRegistrationHelp"
         android:orderInCategory="9"
         android:icon="@drawable/ic_help_white_24dp"
         android:title="@string/mobile_number"
