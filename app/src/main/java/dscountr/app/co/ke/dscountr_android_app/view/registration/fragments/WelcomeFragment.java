@@ -15,16 +15,16 @@ import android.widget.Toast;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
 
-public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
+public class WelcomeFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View gender = inflater.inflate(R.layout.fragment_gender, container, false);
+        View gender = inflater.inflate(R.layout.fragment_welcome, container, false);
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         toolbar.setOnMenuItemClickListener(this);
-        Button btnGender = gender.findViewById(R.id.btnGender);
-        btnGender.setOnClickListener(this);
+        Button btnStartNow = gender.findViewById(R.id.btnStartNow);
+        btnStartNow.setOnClickListener(this);
 
         LinearLayout llVerifyBack = gender.findViewById(R.id.llVerifyBack);
         llVerifyBack.setOnClickListener(this);
@@ -57,7 +57,7 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnGender:
+            case R.id.btnStartNow:
                 loadFragment(new WelcomeFragment());
                 break;
             case R.id.llVerifyBack:

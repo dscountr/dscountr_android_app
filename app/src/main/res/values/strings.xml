@@ -16,4 +16,8 @@
     <string name="finish">Finish</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="welcome_julie">Welcome, Julie!</string>
+    <string name="enjoy_great_discounts">Enjoy great discounts and rewards everyday on your shopping</string>
+    <string name="start_now">Start now</string>
+    <string name="have_any_questions">If you have any questions, open <font fgcolor='#FF1080D0'><u>Help &amp; Support</u></font> for assistance or you can contact us directly to help you.</string>
 </resources>
