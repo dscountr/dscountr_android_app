@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="?attr/selectableItemBackgroundBorderless">
+
+    <ImageView
+        android:id="@+id/ivNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginStart="15.1dp"
+        android:src="@drawable/ic_notifications_white_24dp"
+        android:contentDescription="@string/profile"
+        android:layout_marginLeft="15.1dp"
+        android:layout_centerVertical="true"/>
+
+    <RelativeLayout
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:textSize="8sp"
+            android:text="2"
+            android:padding="2dp"
+            android:textAlignment="center"
+            android:lineSpacingExtra="2sp"
+            android:fontFamily="@font/roboto_medium"
+            android:background="@drawable/notification_count"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+</RelativeLayout>
