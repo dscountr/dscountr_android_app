@@ -7,6 +7,9 @@ import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -17,14 +20,19 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.NumberPicker;
 import android.widget.Toast;
 
+import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -38,9 +46,10 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
     private static String dob = null;
     private android.support.v4.app.FragmentManager fragmentManager;
     @SuppressLint("StaticFieldLeak")
-    private static TextInputEditText enterDoB;
+    private static TextInputEditText enterDOB;
     private TextInputLayout tlenterDOB;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -49,13 +58,30 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
         toolbar.setOnMenuItemClickListener(this);
         Button btnEmail = date_of_birth.findViewById(R.id.btnBOB);
         btnEmail.setOnClickListener(this);
+        hideKeyboard();
 
         // get fragment manager so we can launch from fragment
         fragmentManager = ((AppCompatActivity)getActivity()).getSupportFragmentManager();
 
         tlenterDOB = date_of_birth.findViewById(R.id.tlenterDOB);
-        enterDoB = date_of_birth.findViewById(R.id.enterDOB);
-        enterDoB.addTextChangedListener(this);
+        enterDOB = date_of_birth.findViewById(R.id.enterDOB);
+        enterDOB.addTextChangedListener(this);
+
+        enterDOB.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+                    hideKeyboard();
+                    showDatePicker();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        dob = "01-01-1990";
+        enterDOB.setText(dob);
+        enterDOB.setSelection(dob.length());
 
         return date_of_birth;
     }
@@ -79,14 +105,15 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
 
     @Override
     public void afterTextChanged(Editable s) {
-        String dateOfBirth = enterDoB.getText().toString();
+        String dateOfBirth = enterDOB.getText().toString();
         if (TextUtils.isEmpty(dateOfBirth)) {
             tlenterDOB.setError("Please add your date of birth.");
-            enterDoB.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
+            enterDOB.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
         } else {
             // set Error To Null
             tlenterDOB.setError(null);
             tlenterDOB.setErrorEnabled(false);
+            enterDOB.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.bottom_edittext));
         }
     }
 
@@ -125,9 +152,47 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
                 day = 1;
             }
 
+            DatePickerDialog dpd = new DatePickerDialog(getActivity(), R.style.DatePickerDialogTheme, this,year,month,day); // AlertDialog.THEME_HOLO_LIGHT //
+            colorizeDatePicker(dpd.getDatePicker());
+            //Set a title for DatePickerDialog
+           // dpd.setTitle("Set Date of Birth");
+
             // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(),
-                    AlertDialog.THEME_HOLO_LIGHT, this,year,month,day);
+            return dpd;
+        }
+
+        private void colorizeDatePicker(DatePicker datePicker) {
+            Resources system = Resources.getSystem();
+            int dayId = system.getIdentifier("day", "id", "android");
+            int monthId = system.getIdentifier("month", "id", "android");
+            int yearId = system.getIdentifier("year", "id", "android");
+
+            NumberPicker dayPicker = datePicker.findViewById(dayId);
+            NumberPicker monthPicker = datePicker.findViewById(monthId);
+            NumberPicker yearPicker = datePicker.findViewById(yearId);
+
+            setDividerColor(dayPicker);
+            setDividerColor(monthPicker);
+            setDividerColor(yearPicker);
+        }
+
+        private void setDividerColor(NumberPicker picker) {
+            if (picker == null)
+                return;
+
+            final int count = picker.getChildCount();
+            for (int i = 0; i < count; i++) {
+                try {
+                    Field dividerField = picker.getClass().getDeclaredField("mSelectionDivider");
+                    dividerField.setAccessible(true);
+                    ColorDrawable colorDrawable = new ColorDrawable(picker.getResources().getColor(R.color.colorPrimary));
+                    dividerField.set(picker, colorDrawable);
+                    picker.invalidate();
+                } catch (Exception e) {
+                    Log.w("setDividerColor", e);
+                }
+            }
+
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -135,7 +200,8 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
             String setMonth = checkDigit(month, "month");
             String setDay = checkDigit(day, "day");
             dob = setDay + "-" + setMonth + "-" + year;
-            enterDoB.setText(dob);
+            enterDOB.setText(dob);
+            enterDOB.setSelection(enterDOB.getText().length());
         }
 
         private String checkDigit(int number, String type) {
@@ -174,12 +240,17 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
             case R.id.btnBOB:
                 loadFragment(new GenderFragment());
                 break;
-            case R.id.enterDOB:
-                showDatePicker();
-                break;
             default:
                 break;
 
+        }
+    }
+
+    private void hideKeyboard() {
+        View view = getActivity().getCurrentFocus();
+        if (view != null) {
+            ((InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).
+                    hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
 
