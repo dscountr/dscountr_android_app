@@ -3,6 +3,7 @@ package dscountr.app.co.ke.dscountr_android_app.view.registration.fragments;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.view.MainActivity;
 
 public class WelcomeFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
 
@@ -58,7 +60,9 @@ public class WelcomeFragment extends Fragment implements Toolbar.OnMenuItemClick
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnStartNow:
-                loadFragment(new WelcomeFragment());
+                Intent main = new Intent(getActivity(), MainActivity.class);
+                startActivity(main);
+                getActivity().finish();
                 break;
             case R.id.llVerifyBack:
                 Toast.makeText(getActivity(), "You clicked the back button.",Toast.LENGTH_SHORT).show();
