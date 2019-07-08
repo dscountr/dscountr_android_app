@@ -2,13 +2,10 @@ package dscountr.app.co.ke.dscountr_android_app.view.utils;
 
 import android.content.Context;
 import android.graphics.ColorFilter;
-import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
-
-import dscountr.app.co.ke.dscountr_android_app.R;
 
 public class NoChangingBackgroundTextInputLayout extends TextInputLayout {
     public NoChangingBackgroundTextInputLayout(Context context) {
@@ -29,8 +26,6 @@ public class NoChangingBackgroundTextInputLayout extends TextInputLayout {
         super.setError(error);
         //Reset EditText's background color to default.
         updateBackgroundColorFilter(defaultColorFilter);
-        Typeface tf = getResources().getFont(R.font.roboto_regular);
-        setTypeface(tf);
     }
 
     @Override
@@ -39,8 +34,6 @@ public class NoChangingBackgroundTextInputLayout extends TextInputLayout {
         super.drawableStateChanged();
         //Reset EditText's background color to default.
         updateBackgroundColorFilter(defaultColorFilter);
-        Typeface tf = getResources().getFont(R.font.roboto_regular);
-        setTypeface(tf);
     }
 
     private void updateBackgroundColorFilter(ColorFilter colorFilter) {

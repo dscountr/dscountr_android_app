@@ -45,4 +45,18 @@
         <item name="android:textColorPrimaryDisableOnly">@color/colorAccent</item>
     </style>
 
+   <style name="DatePickerDialogTheme" parent="@android:style/Theme.Holo.Light.Dialog">  <!--// Theme.Material.Light.Dialog.Alert to get the properties for the original alertdialog-->
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:windowMinWidthMajor">@dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@dimen/dialog_min_width_minor</item>
+
+
+        <item name="android:textSize">14sp</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
 </resources>
