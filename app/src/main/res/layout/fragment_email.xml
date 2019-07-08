@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bottom_edittext"
                 android:hint="@string/enter_your_email_address"
-                android:inputType="phone"
+                android:inputType="textEmailAddress"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:textSize="14sp"
