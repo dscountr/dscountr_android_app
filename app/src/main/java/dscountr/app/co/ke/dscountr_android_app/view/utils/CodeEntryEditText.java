@@ -164,7 +164,7 @@ public class CodeEntryEditText extends EditText {
         getPaint().getTextWidths(getText(), 0, textLength, textWidths);
 
         for (int i = 0; i < mNumChars; i++) {
-            updateColorForLines(i <= textLength, i == textLength, i);
+            updateColorForLines(i <= textLength, i == textLength);
             canvas.drawLine(startX, bottom, startX + mCharSize, bottom, mLinesPaint);
 
             if (getText().length() > i) {
@@ -188,7 +188,7 @@ public class CodeEntryEditText extends EditText {
     /**
      * @param next Is the current char the next character to be input?
      */
-    private void updateColorForLines(boolean next, boolean current, int firstStroke) {
+    private void updateColorForLines(boolean next, boolean current) {
 
         if (next) {
             mLinesPaint.setStrokeWidth(mLineStrokeSelected);
@@ -198,7 +198,7 @@ public class CodeEntryEditText extends EditText {
             mLinesPaint.setColor(ContextCompat.getColor(context, R.color.colorBottomBorder));
         }
 
-        if (current && firstStroke != 0) {
+        if (current) {
             mLinesPaint.setStrokeWidth(mLineStrokeSelected);
             mLinesPaint.setColor(ContextCompat.getColor(context, R.color.colorEditCancelUndoButtonLinks));
         }
