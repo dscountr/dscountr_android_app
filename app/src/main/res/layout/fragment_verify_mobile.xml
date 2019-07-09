@@ -18,31 +18,35 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp">
-                <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
-                    android:id="@+id/tlenterNumberVerification"
+
+                <TextView
+                    android:id="@+id/tvMobileLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textStyle="normal"
+                    android:textColor="@color/colorBottomBorder"
+                    android:lineSpacingExtra="5sp"
+                    android:text="@string/enter_verification_code"/>
+
+                <dscountr.app.co.ke.dscountr_android_app.view.utils.CodeEntryEditText
+                    android:id="@+id/enterNumberVerification"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    app:errorTextAppearance="@style/Error_Appearance"
-                    android:layout_centerHorizontal="true"
-                    app:hintTextAppearance="@style/TextAppearence.TextInputLayout.Primary">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/enterNumberVerification"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom_edittext"
-                        android:hint="@string/enter_verification_code"
-                        android:inputType="number"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:textSize="14sp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:textStyle="normal"
-                        android:lineSpacingExtra="5sp"
-                        android:textColorHint="@color/colorBottomBorder"
-                        android:textColor="@color/colorProductName" />
-                </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
+                    android:cursorVisible="false"
+                    android:digits="1234567890"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:textIsSelectable="false"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:lineSpacingExtra="5sp"
+                    android:layout_below="@+id/tvMobileLabel"
+                    android:background="@drawable/bottom_edittext"/>
 
                 <TextView
                     android:id="@+id/tvResendVerificationCode"
@@ -54,7 +58,7 @@
                     android:textColor="@color/colorEditCancelUndoButtonLinks"
                     android:lineSpacingExtra="5sp"
                     android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/tlenterNumberVerification"
+                    android:layout_below="@+id/enterNumberVerification"
                     android:text="@string/resend_verification_code"
                     android:layout_marginTop="30dp"/>
 
