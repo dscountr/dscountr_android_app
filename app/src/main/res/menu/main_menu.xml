@@ -9,7 +9,9 @@
         android:icon="@drawable/ic_search_white_24dp"
         android:title="@string/search"
         app:showAsAction="ifRoom"
-        tools:ignore="AlwaysShowAction" />
+        tools:ignore="AlwaysShowAction"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="12sp"/>
 
     <item
         android:id="@+id/miNotification"
@@ -17,7 +19,9 @@
         android:icon="@drawable/ic_notifications_white_24dp"
         android:title="@string/notification"
         app:showAsAction="ifRoom"
-        app:actionLayout="@layout/layout_menu_notification"/>
+        app:actionLayout="@layout/layout_menu_notification"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="12sp"/>
 
     <item
         android:id="@+id/miProfile"
@@ -25,7 +29,9 @@
         android:icon="@drawable/ic_account_circle_gray_24dp"
         android:title="@string/profile"
         app:showAsAction="never"
-        app:actionLayout="@layout/layout_menu_profile"/>
+        app:actionLayout="@layout/layout_menu_profile"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="12sp"/>
 
     <item
         android:id="@+id/miDiscount"
@@ -33,7 +39,8 @@
         android:icon="@drawable/ic_local_offer_gray_24dp"
         android:title="@string/my_discount_list"
         app:showAsAction="never"
-        app:actionLayout="@layout/layout_menu_discount"/>
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="12sp"/>
 
     <item
         android:id="@+id/miWatch"
@@ -41,7 +48,8 @@
         android:icon="@drawable/ic_favorite_gray_24dp"
         android:title="@string/my_watch_list"
         app:showAsAction="never"
-        app:actionLayout="@layout/layout_menu_watch"/>
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="12sp"/>
 
     <item
         android:id="@+id/miBasket"
@@ -49,7 +57,8 @@
         android:icon="@drawable/ic_shopping_basket_gray_24dp"
         android:title="@string/my_basket"
         app:showAsAction="never"
-        app:actionLayout="@layout/layout_menu_basket"/>
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="12sp"/>
 
     <item
         android:id="@+id/miSettings"
@@ -57,7 +66,8 @@
         android:icon="@drawable/ic_settings_gray_24dp"
         android:title="@string/settings"
         app:showAsAction="never"
-        app:actionLayout="@layout/layout_menu_settings"/>
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="12sp"/>
 
     <item
         android:id="@+id/miHelpSupport"
@@ -65,7 +75,8 @@
         android:icon="@drawable/ic_help_gray_24dp"
         android:title="@string/help_support"
         app:showAsAction="never"
-        app:actionLayout="@layout/layout_menu_help_support"/>
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="12sp"/>
 
     <item
         android:id="@+id/miSignIn"
@@ -73,5 +84,6 @@
         android:icon="@drawable/ic_exit_to_app_gray_24dp"
         android:title="@string/sign_in"
         app:showAsAction="never"
-        app:actionLayout="@layout/layout_menu_sign_in"/>
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="12sp"/>
 </menu>

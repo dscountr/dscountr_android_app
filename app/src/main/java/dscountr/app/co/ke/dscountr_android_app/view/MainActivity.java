@@ -9,14 +9,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.lang.reflect.Method;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.view.registration.fragments.GenderFragment;
 
-public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener{
+public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener, View.OnClickListener {
     private Toolbar toolbar;
+    private static String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
 
         toolbar = findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.main_menu);
+        toolbar.setOnMenuItemClickListener(this);
         initToolBar();
     }
 
@@ -67,5 +72,20 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
     public void initToolBar(){
         MenuBuilder menuBuilder = (MenuBuilder) toolbar.getMenu();
         menuBuilder.setOptionalIconsVisible(true);
+        MenuItem menuItem = toolbar.getMenu().findItem(R.id.miNotification);
+        RelativeLayout rlNotification = menuItem.getActionView().findViewById(R.id.rlNotification);
+        rlNotification.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.rlNotification:
+                Toast.makeText(MainActivity.this, "Notifications.",Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+
+        }
     }
 }
