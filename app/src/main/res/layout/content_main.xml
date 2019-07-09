@@ -101,6 +101,25 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true" />
             </RelativeLayout>
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:measureAllChildren="false"
+                android:scrollbars="none"
+                android:layout_marginTop="14.5dp"
+                android:layout_marginBottom="18dp"
+                android:background="@color/colorMainBackground">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvFeaturedRetailers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:paddingBottom="20dp"
+                    android:clipToPadding="false"/>
+
+            </HorizontalScrollView>
         </LinearLayout>
     </LinearLayout>
 

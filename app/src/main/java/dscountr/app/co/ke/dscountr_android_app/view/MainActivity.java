@@ -4,23 +4,27 @@ import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.menu.MenuBuilder;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
-import dscountr.app.co.ke.dscountr_android_app.view.registration.fragments.GenderFragment;
+import dscountr.app.co.ke.dscountr_android_app.model.FeaturedRetailers;
+import dscountr.app.co.ke.dscountr_android_app.view.adapters.FeaturedRetailersAdapter;
 
 public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener, View.OnClickListener {
     private Toolbar toolbar;
     private static String TAG = MainActivity.class.getSimpleName();
+    private RecyclerView rvFeaturedRetailers;
+    private FeaturedRetailersAdapter mAdapter;
+    ArrayList<FeaturedRetailers> featuredRetailers = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,15 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         toolbar.inflateMenu(R.menu.main_menu);
         toolbar.setOnMenuItemClickListener(this);
         initToolBar();
+
+        rvFeaturedRetailers = findViewById(R.id.rvFeaturedRetailers);
+
+        mAdapter = new FeaturedRetailersAdapter(this, featuredRetailers);
+
+        rvFeaturedRetailers.setHasFixedSize(true);
+        rvFeaturedRetailers.setLayoutManager(new LinearLayoutManager(this));
+        rvFeaturedRetailers.setItemAnimator(new DefaultItemAnimator());
+        rvFeaturedRetailers.setAdapter(mAdapter);
     }
 
     @Override
