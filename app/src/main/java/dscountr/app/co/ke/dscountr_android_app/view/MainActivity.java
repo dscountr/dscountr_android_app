@@ -1,22 +1,31 @@
 package dscountr.app.co.ke.dscountr_android_app.view;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
+
+import java.lang.reflect.Method;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
 
 public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener{
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.main_menu);
+        initToolBar();
     }
 
     @Override
@@ -52,5 +61,11 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
             default:
                 return false;
         }
+    }
+
+    @SuppressLint("RestrictedApi")
+    public void initToolBar(){
+        MenuBuilder menuBuilder = (MenuBuilder) toolbar.getMenu();
+        menuBuilder.setOptionalIconsVisible(true);
     }
 }
