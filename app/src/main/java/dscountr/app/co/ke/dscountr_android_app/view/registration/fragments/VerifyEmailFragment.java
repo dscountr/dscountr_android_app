@@ -15,8 +15,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.view.utils.CodeEntryEditText;
 
 public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
+
+    String phone_number = null, phone_number_verification_code = null, email = null;
+    CodeEntryEditText enterEmailVerification;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,6 +36,15 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
         TextView tvResendVerificationCode = verify_email.findViewById(R.id.tvResendVerificationCode);
         tvResendVerificationCode.setOnClickListener(this);
         llVerifyBack.setOnClickListener(this);
+
+        Bundle args = this.getArguments();
+        if(args != null){
+            phone_number = args.getString("phone_number");
+            phone_number_verification_code = args.getString("phone_number_verification_code");
+            email = args.getString("email");
+        }
+
+        enterEmailVerification = verify_email.findViewById(R.id.enterEmailVerification);
 
         return verify_email;
     }
@@ -62,7 +75,7 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnEmailVerificaton:
-                loadFragment(new DateOfBirthFragment());
+                verifyEmailCode();
                 break;
             case R.id.llVerifyBack:
                 Toast.makeText(getActivity(), "You clicked the back button.",Toast.LENGTH_SHORT).show();
@@ -73,6 +86,22 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
             default:
                 break;
 
+        }
+    }
+
+    private void verifyEmailCode(){
+        String email_verification_code = enterEmailVerification.getText().toString();
+        if (email_verification_code.length() != 6){
+            Toast.makeText(getActivity(), "Verification code isn't complete.",Toast.LENGTH_SHORT).show();
+        }else{
+            Bundle bundle = new Bundle();
+            bundle.putString("phone_number", phone_number);
+            bundle.putString("phone_number_verification_code", phone_number_verification_code);
+            bundle.putString("email", email);
+            bundle.putString("email_verification_code", email_verification_code);
+            Fragment verifyEmail = new DateOfBirthFragment();
+            verifyEmail.setArguments(bundle);
+            loadFragment(verifyEmail);
         }
     }
 

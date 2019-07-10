@@ -3,8 +3,14 @@ package dscountr.app.co.ke.dscountr_android_app.view.registration.fragments;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,10 +19,16 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.i18n.phonenumbers.NumberParseException;
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.Phonenumber;
+
 import dscountr.app.co.ke.dscountr_android_app.R;
 
 public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
 
+    TextInputEditText enterNumber;
+    TextInputLayout tlenterNumber;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -27,6 +39,9 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
         TextView tvTerms = mobile.findViewById(R.id.tvTerms);
         btnNumber.setOnClickListener(this);
         tvTerms.setOnClickListener(this);
+
+        enterNumber = mobile.findViewById(R.id.enterNumber);
+        tlenterNumber = mobile.findViewById(R.id.tlenterNumber);
 
         return mobile;
     }
@@ -57,7 +72,7 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnNumber:
-                loadFragment(new VerifyMobileFragment());
+                phoneNumberValidation();
                 break;
             case R.id.tvTerms:
                 Toast.makeText(getActivity(), "Our terms and conditions.",Toast.LENGTH_SHORT).show();
@@ -66,6 +81,69 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
                 break;
 
         }
+    }
+
+    private void phoneNumberValidation(){
+        String phone_number = enterNumber.getText().toString();
+        if(TextUtils.isEmpty(phone_number)){
+            tlenterNumber.setError("Please enter phone number.");
+            enterNumber.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
+        }else if(!isValidPhoneNumber(phone_number)){
+            tlenterNumber.setError("Please enter valid phone number.");
+            enterNumber.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
+        }else{
+            // set Error To Null
+            tlenterNumber.setError(null);
+            tlenterNumber.setErrorEnabled(false);
+            enterNumber.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.bottom_edittext));
+
+            Bundle bundle = new Bundle();
+            bundle.putString("phone_number", phone_number);
+            Fragment verifyMobile = new VerifyMobileFragment();
+            verifyMobile.setArguments(bundle);
+            loadFragment(verifyMobile);
+        }
+    }
+
+    /**
+     * Validation of Phone Number
+     */
+    public boolean isValidPhoneNumber(String target) {
+        PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+        try {
+            Phonenumber.PhoneNumber numberProto = phoneUtil.parse(target, getDeviceCountryCode());
+            return phoneUtil.isValidNumber(numberProto);
+        } catch (NumberParseException e) {
+            System.err.println("NumberParseException was thrown: " + e.toString());
+        }
+
+        return false;
+    }
+
+    private String getDeviceCountryCode() {
+        String countryCode;
+
+        // try to get country code from TelephonyManager service
+        TelephonyManager tm = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
+        if(tm != null) {
+            // query first getSimCountryIso()
+            countryCode = tm.getSimCountryIso();
+            if (countryCode != null && countryCode.length() == 2)
+                return countryCode.toUpperCase();
+
+            if (tm.getPhoneType() != TelephonyManager.PHONE_TYPE_CDMA) {
+                // for 3G devices (with SIM) query getNetworkCountryIso()
+                countryCode = tm.getNetworkCountryIso();
+            }
+
+            if (countryCode != null && countryCode.length() == 2)
+                return countryCode.toUpperCase();
+        }
+
+        // if network country not available (tablets maybe), get country code from Google Location
+
+        // general fallback to "KE"
+        return "KE";
     }
 
     @Override

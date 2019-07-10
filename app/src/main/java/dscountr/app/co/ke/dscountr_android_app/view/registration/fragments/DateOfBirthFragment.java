@@ -48,6 +48,7 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
     @SuppressLint("StaticFieldLeak")
     private static TextInputEditText enterDOB;
     private TextInputLayout tlenterDOB;
+    String phone_number = null, phone_number_verification_code = null, email = null, email_verification_code = null;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -83,6 +84,14 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
         enterDOB.setText(dob);
         enterDOB.setSelection(dob.length());
 
+        Bundle args = this.getArguments();
+        if(args != null){
+            phone_number = args.getString("phone_number");
+            phone_number_verification_code = args.getString("phone_number_verification_code");
+            email = args.getString("email");
+            email_verification_code = args.getString("email_verification_code");
+        }
+
         return date_of_birth;
     }
 
@@ -109,12 +118,34 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
         if (TextUtils.isEmpty(dateOfBirth)) {
             tlenterDOB.setError("Please add your date of birth.");
             enterDOB.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
-        } else {
+        }else if(!isThisDateValid(dateOfBirth, "dd-mm-yyyy")){
+            tlenterDOB.setError("Please add a valid date of birth.");
+            enterDOB.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
+        }else {
             // set Error To Null
             tlenterDOB.setError(null);
             tlenterDOB.setErrorEnabled(false);
             enterDOB.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.bottom_edittext));
         }
+    }
+
+    public boolean isThisDateValid(String dateToValidate, String dateFromat){
+        if(dateToValidate == null){
+            return false;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(dateFromat);
+        sdf.setLenient(false);
+        try {
+            //if not valid, it will throw ParseException
+            Date date = sdf.parse(dateToValidate);
+            System.out.println(date);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
     }
 
     public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
@@ -238,11 +269,37 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnBOB:
-                loadFragment(new GenderFragment());
+                validateDateOfBirth();
                 break;
             default:
                 break;
 
+        }
+    }
+
+    private void validateDateOfBirth(){
+        String date_of_birth = enterDOB.getText().toString();
+        if (TextUtils.isEmpty(date_of_birth)) {
+            tlenterDOB.setError("Please add your date of birth.");
+            enterDOB.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
+        }else if(!isThisDateValid(date_of_birth, "dd-mm-yyyy")){
+            tlenterDOB.setError("Please add a valid date of birth.");
+            enterDOB.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
+        }else {
+            // set Error To Null
+            tlenterDOB.setError(null);
+            tlenterDOB.setErrorEnabled(false);
+            enterDOB.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.bottom_edittext));
+
+            Bundle bundle = new Bundle();
+            bundle.putString("phone_number", phone_number);
+            bundle.putString("phone_number_verification_code", phone_number_verification_code);
+            bundle.putString("email", email);
+            bundle.putString("email_verification_code", email_verification_code);
+            bundle.putString("date_of_birth", date_of_birth);
+            Fragment verifyGender = new GenderFragment();
+            verifyGender.setArguments(bundle);
+            loadFragment(verifyGender);
         }
     }
 

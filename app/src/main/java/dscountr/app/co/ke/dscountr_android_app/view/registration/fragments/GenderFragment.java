@@ -3,33 +3,78 @@ package dscountr.app.co.ke.dscountr_android_app.view.registration.fragments;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.model.User;
+import dscountr.app.co.ke.dscountr_android_app.presenter.configs.Configs;
+import dscountr.app.co.ke.dscountr_android_app.presenter.retrofit.MainApplication;
+import dscountr.app.co.ke.dscountr_android_app.view.MainActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
+
+    public static String TAG = GenderFragment.class.getSimpleName();
+    String phone_number = null, phone_number_verification_code = null, email = null, email_verification_code = null, date_of_birth = null, gender = null;
+    RadioButton radioMale, radioFemale;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View gender = inflater.inflate(R.layout.fragment_gender, container, false);
+        View view_gender = inflater.inflate(R.layout.fragment_gender, container, false);
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         toolbar.setOnMenuItemClickListener(this);
-        Button btnGender = gender.findViewById(R.id.btnGender);
+        Button btnGender = view_gender.findViewById(R.id.btnGender);
         btnGender.setOnClickListener(this);
 
-        LinearLayout llVerifyBack = gender.findViewById(R.id.llVerifyBack);
+        LinearLayout llVerifyBack = view_gender.findViewById(R.id.llVerifyBack);
         llVerifyBack.setOnClickListener(this);
 
-        return gender;
+        Bundle args = this.getArguments();
+        if(args != null){
+            phone_number = args.getString("phone_number");
+            phone_number_verification_code = args.getString("phone_number_verification_code");
+            email = args.getString("email");
+            email_verification_code = args.getString("email_verification_code");
+            date_of_birth = args.getString("date_of_birth");
+        }
+
+        RadioGroup rgChannel = view_gender.findViewById(R.id.rgChannel);
+        radioMale = view_gender.findViewById(R.id.radioMale);
+        radioFemale = view_gender.findViewById(R.id.radioFemale);
+//        if (){
+//            radioMale.setChecked(true);
+//            radioFemale.setChecked(false);
+//        }else{
+//            radioFemale.setChecked(true);
+//            radioMale.setChecked(false);
+//        }
+        // Add the Listener to the RadioGroup
+        rgChannel.setOnCheckedChangeListener( new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // Get the selected Radio Button
+                RadioButton radioButton  = group.findViewById(checkedId);
+                gender = radioButton.getText().toString();
+            }
+        });
+
+        return view_gender;
     }
 
     private void loadFragment(Fragment fragment) {
@@ -58,7 +103,7 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnGender:
-                loadFragment(new WelcomeFragment());
+                validateGender();
                 break;
             case R.id.llVerifyBack:
                 Toast.makeText(getActivity(), "You clicked the back button.",Toast.LENGTH_SHORT).show();
@@ -67,6 +112,38 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
                 break;
 
         }
+    }
+
+    private void validateGender(){
+        if (gender != null){
+            userRegistration(email, "", phone_number, date_of_birth, gender, "");
+        }else{
+            Toast.makeText(getActivity(), "Please select your gender to proceed.",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void userRegistration(String email, String username, String phone_number, String date_of_birth, String gender, String password){
+        User user = new User(email, username, phone_number, date_of_birth, gender,  password);
+
+        MainApplication.apiManager.registerUser(user, new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                User responseUser = response.body();
+                if (response.isSuccessful() && responseUser != null) {
+                    Log.e(TAG, responseUser.getPhone_number());
+                    Toast.makeText(getActivity(), "Registration successful.", Toast.LENGTH_LONG).show();
+                    loadFragment(new WelcomeFragment());
+                } else {
+                    Toast.makeText(getActivity(),String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.e(TAG, "Error is " + t.toString());
+                Toast.makeText(getActivity(),  "Error is " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override

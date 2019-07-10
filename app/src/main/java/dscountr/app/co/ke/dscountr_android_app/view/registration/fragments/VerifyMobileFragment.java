@@ -15,8 +15,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.view.utils.CodeEntryEditText;
 
 public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
+
+    String phone_number = null;
+    CodeEntryEditText enterNumberVerification;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,6 +35,13 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
         TextView tvResendVerificationCode = verify_mobile.findViewById(R.id.tvResendVerificationCode);
         tvResendVerificationCode.setOnClickListener(this);
         llVerifyBack.setOnClickListener(this);
+
+        Bundle args = this.getArguments();
+        if(args != null){
+            phone_number = args.getString("phone_number");
+        }
+
+        enterNumberVerification = verify_mobile.findViewById(R.id.enterNumberVerification);
 
         return verify_mobile;
     }
@@ -61,7 +72,7 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnNumberVerificaton:
-                loadFragment(new EmailFragment());
+                verifyCode();
                 break;
             case R.id.llVerifyBack:
                 Toast.makeText(getActivity(), "You clicked the back button.",Toast.LENGTH_SHORT).show();
@@ -72,6 +83,20 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
             default:
                 break;
 
+        }
+    }
+
+    private void verifyCode(){
+        String phone_number_verification_code = enterNumberVerification.getText().toString();
+        if (phone_number_verification_code.length() != 4){
+            Toast.makeText(getActivity(), "Verification code isn't complete.",Toast.LENGTH_SHORT).show();
+        }else{
+            Bundle bundle = new Bundle();
+            bundle.putString("phone_number", phone_number);
+            bundle.putString("phone_number_verification_code", phone_number_verification_code);
+            Fragment emailFragment = new EmailFragment();
+            emailFragment.setArguments(bundle);
+            loadFragment(emailFragment);
         }
     }
 
