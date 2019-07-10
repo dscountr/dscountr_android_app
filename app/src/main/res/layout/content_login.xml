@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="20dp"
     android:scrollbars="none"
-    android:background="@color/colorWhite"
+    tools:showIn="@layout/activity_login"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:paddingBottom="10dp"
-    android:clipToPadding="false">
+    android:clipToPadding="false"
+    android:background="@color/colorWhite">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:id="@+id/tvWelcomeBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorSectionTitle"
+            android:lineSpacingExtra="5sp"
+            android:text="@string/welcome_back"/>
+
         <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
             android:id="@+id/tlenterNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tvWelcomeBack"
             app:errorTextAppearance="@style/Error_Appearance"
             android:layout_centerHorizontal="true"
             app:hintTextAppearance="@style/TextAppearence.TextInputLayout.Primary">
@@ -67,6 +83,52 @@
             android:layout_centerHorizontal="true"
             android:textAllCaps="true"
             android:background="@drawable/btn_ripple_effect"/>
+
+
+        <View
+            android:id="@+id/vNumberHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height= "0.5dp"
+            android:layout_marginTop="55.5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/colorBottomBorder"
+            android:layout_below="@+id/btnNumber"/>
+
+        <TextView
+            android:id="@+id/tvNewCustomer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="13sp"
+            android:textColor="@android:color/black"
+            android:lineSpacingExtra="5sp"
+            android:layout_marginTop="13.5dp"
+            android:layout_below="@+id/vNumberHorizontal"
+            android:text="@string/are_you_a_new_customer"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/colorEditCancelUndoButtonLinks"
+            android:lineSpacingExtra="5sp"
+            android:text="@string/sign_up"
+            android:layout_marginTop="13.5dp"
+            android:layout_marginStart="76dp"
+            android:layout_below="@+id/vNumberHorizontal"
+            android:layout_toEndOf="@+id/tvNewCustomer"
+            android:layout_toRightOf="@+id/tvNewCustomer"
+            android:layout_marginLeft="76dp" />
+
+        <View
+            android:id="@+id/vNewCustomerHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height= "0.5dp"
+            android:layout_marginTop="13.5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/colorBottomBorder"
+            android:layout_below="@+id/tvNewCustomer"/>
     </RelativeLayout>
 
 </ScrollView>

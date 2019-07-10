@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".view.MainActivity">
+    tools:context=".view.LoginActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_height="wrap_content"
@@ -51,18 +51,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main"/>
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bvNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="?android:attr/windowBackground"
-        android:foreground="?attr/selectableItemBackground"
-        app:itemBackground="@color/colorWhite"
-        app:itemIconTint="@color/colorDisabled"
-        app:itemTextColor="@color/colorEditCancelUndoButtonLinks"
-        app:menu="@menu/bottom_navigation" />
+    <include layout="@layout/content_login"/>
 
 </android.support.design.widget.CoordinatorLayout>

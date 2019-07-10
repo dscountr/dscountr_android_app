@@ -46,4 +46,7 @@
     <string name="earn_credits">Earn credits</string>
     <string name="earn_credits_description">Do you want discounts but have not decided what to buy? Earn credits you can use later to unlock offers.</string>
     <string name="featured_in_personal_use">Featured In Personal Care</string>
+    <string name="welcome_back">Welcome back!</string>
+    <string name="are_you_a_new_customer">Are you a new customer?</string>
+    <string name="sign_up">Sign up</string>
 </resources>
