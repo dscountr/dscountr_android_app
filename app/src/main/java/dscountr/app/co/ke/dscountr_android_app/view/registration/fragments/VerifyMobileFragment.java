@@ -6,6 +6,7 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -112,8 +113,10 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
 
     private void verifyCode(){
         String phone_number_verification_code = enterNumberVerification.getText().toString();
-        if (phone_number_verification_code.length() < 6){
-            Toast.makeText(getActivity(), "Verification code isn't complete.",Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(phone_number_verification_code)){
+            Toast.makeText(getActivity(), "Please enter phone verification code.",Toast.LENGTH_SHORT).show();
+        }else if (phone_number_verification_code.length() < 6){
+            Toast.makeText(getActivity(), "Phone verification code isn't complete.",Toast.LENGTH_SHORT).show();
         }else{
             verifyVerificationCode(phone_number_verification_code);
         }

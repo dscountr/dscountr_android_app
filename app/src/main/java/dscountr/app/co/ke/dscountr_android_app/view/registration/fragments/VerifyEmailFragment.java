@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -92,8 +93,10 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
 
     private void verifyEmailCode(){
         String email_verification_code = enterEmailVerification.getText().toString();
-        if (email_verification_code.length() < 6){
-            Toast.makeText(getActivity(), "Verification code isn't complete.",Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(email_verification_code)){
+            Toast.makeText(getActivity(), "Please enter email verification code.",Toast.LENGTH_SHORT).show();
+        }else if (email_verification_code.length() < 6){
+            Toast.makeText(getActivity(), "Email verification code isn't complete.",Toast.LENGTH_SHORT).show();
         }else{
             Bundle bundle = new Bundle();
             bundle.putString("phone_number", phone_number);
