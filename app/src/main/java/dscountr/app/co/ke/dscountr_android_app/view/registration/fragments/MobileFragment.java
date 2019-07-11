@@ -24,7 +24,11 @@ import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
 
+import java.util.Arrays;
+import java.util.List;
+
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.view.utils.CountryData;
 
 public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
 
@@ -99,7 +103,10 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
             enterNumber.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.bottom_edittext));
 
             Bundle bundle = new Bundle();
-            bundle.putString("phone_number", phone_number);
+            List list = Arrays.asList(CountryData.countryISO);
+            int position = list.indexOf(getDeviceCountryCode());
+            String code = CountryData.countryAreaCodes[position];
+            bundle.putString("phone_number", "+" + code + phone_number);
             Fragment verifyMobile = new VerifyMobileFragment();
             verifyMobile.setArguments(bundle);
             loadFragment(verifyMobile);

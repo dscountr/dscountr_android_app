@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,6 +37,7 @@ import dscountr.app.co.ke.dscountr_android_app.view.utils.CodeEntryEditText;
 
 public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
 
+    public static String TAG = VerifyMobileFragment.class.getSimpleName();
     String phone_number = null;
     CodeEntryEditText enterNumberVerification;
     //firebase auth object
@@ -176,6 +178,7 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
                     break;
             }
         }
+        Log.e(TAG, mobile);
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 mobile,
                 60,
