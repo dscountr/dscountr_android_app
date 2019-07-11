@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.view.registration.fragments.MobileFragment;
 
@@ -19,7 +21,16 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.registration_menu);
-        // load Video Fragment
+        // load Fragment
+//        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+//            Intent intent = new Intent(this, ProfileActivity.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//
+//            startActivity(intent);
+//        }else{
+//            loadFragment(new MobileFragment());
+//        }
+        FirebaseAuth.getInstance().signOut();
         loadFragment(new MobileFragment());
     }
 

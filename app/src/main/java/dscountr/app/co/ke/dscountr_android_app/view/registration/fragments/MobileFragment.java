@@ -93,7 +93,7 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
         if(TextUtils.isEmpty(phone_number)){
             tlenterNumber.setError("Please enter phone number.");
             enterNumber.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
-        }else if(!isValidPhoneNumber(phone_number)  || phone_number.length() != 10){
+        }else if(!isValidPhoneNumber(phone_number)){
             tlenterNumber.setError("Please enter valid phone number.");
             enterNumber.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
         }else{
@@ -106,7 +106,7 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
             List list = Arrays.asList(CountryData.countryISO);
             int position = list.indexOf(getDeviceCountryCode());
             String code = CountryData.countryAreaCodes[position];
-            bundle.putString("phone_number", "+" + code + phone_number);
+            bundle.putString("phone_number", phone_number.startsWith("+") ? phone_number : "+" + code + phone_number);
             Fragment verifyMobile = new VerifyMobileFragment();
             verifyMobile.setArguments(bundle);
             loadFragment(verifyMobile);
