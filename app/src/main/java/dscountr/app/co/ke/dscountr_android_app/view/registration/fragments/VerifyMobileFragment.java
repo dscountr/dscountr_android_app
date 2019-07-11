@@ -112,7 +112,7 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
 
     private void verifyCode(){
         String phone_number_verification_code = enterNumberVerification.getText().toString();
-        if (phone_number_verification_code.length() != 4){
+        if (phone_number_verification_code.length() < 6){
             Toast.makeText(getActivity(), "Verification code isn't complete.",Toast.LENGTH_SHORT).show();
         }else{
             verifyVerificationCode(phone_number_verification_code);

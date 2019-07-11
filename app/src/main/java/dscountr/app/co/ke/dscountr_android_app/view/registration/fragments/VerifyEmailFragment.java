@@ -92,7 +92,7 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
 
     private void verifyEmailCode(){
         String email_verification_code = enterEmailVerification.getText().toString();
-        if (email_verification_code.length() != 6){
+        if (email_verification_code.length() < 6){
             Toast.makeText(getActivity(), "Verification code isn't complete.",Toast.LENGTH_SHORT).show();
         }else{
             Bundle bundle = new Bundle();

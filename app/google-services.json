@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "208502461536",
+    "firebase_url": "https://dscountr-49c53.firebaseio.com",
+    "project_id": "dscountr-49c53",
+    "storage_bucket": "dscountr-49c53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208502461536:android:ba3ba901eaa7d56e",
+        "android_client_info": {
+          "package_name": "dscountr.app.co.ke.dscountr_android_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208502461536-7aqoh8ij7e6l0aguldcpvg0ndfrthn90.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dscountr.app.co.ke.dscountr_android_app",
+            "certificate_hash": "3f6c8a267c9b110152b7cff5a10de59535c8604b"
+          }
+        },
+        {
+          "client_id": "208502461536-dumtq4sr1t166t9gerbc5d8250imj3s3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF90BfoY8SO8JvhtLpYcnSacWlAI-KRTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208502461536-dumtq4sr1t166t9gerbc5d8250imj3s3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
