@@ -3,10 +3,7 @@ package dscountr.app.co.ke.dscountr_android_app.view.registration.fragments;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -18,11 +15,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
+
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.model.User;
-import dscountr.app.co.ke.dscountr_android_app.presenter.configs.Configs;
 import dscountr.app.co.ke.dscountr_android_app.presenter.retrofit.MainApplication;
-import dscountr.app.co.ke.dscountr_android_app.view.MainActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

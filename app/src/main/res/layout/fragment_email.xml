@@ -21,7 +21,7 @@
             android:layout_centerHorizontal="true"
             app:hintTextAppearance="@style/TextAppearence.TextInputLayout.Primary">
 
-            <android.support.design.widget.TextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/enterEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

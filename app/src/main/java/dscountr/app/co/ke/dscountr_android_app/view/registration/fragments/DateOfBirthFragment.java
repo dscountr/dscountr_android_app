@@ -1,7 +1,6 @@
 package dscountr.app.co.ke.dscountr_android_app.view.registration.fragments;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.Fragment;
@@ -11,12 +10,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -32,6 +25,14 @@ import android.widget.DatePicker;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -44,7 +45,7 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
 
     public static String TAG = DateOfBirthFragment.class.getSimpleName();
     private static String dob = null;
-    private android.support.v4.app.FragmentManager fragmentManager;
+    private androidx.fragment.app.FragmentManager fragmentManager;
     @SuppressLint("StaticFieldLeak")
     private static TextInputEditText enterDOB;
     private TextInputLayout tlenterDOB;

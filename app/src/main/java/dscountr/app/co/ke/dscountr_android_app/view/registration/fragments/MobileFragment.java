@@ -5,10 +5,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -19,6 +15,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
@@ -88,7 +89,7 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
         if(TextUtils.isEmpty(phone_number)){
             tlenterNumber.setError("Please enter phone number.");
             enterNumber.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
-        }else if(!isValidPhoneNumber(phone_number)){
+        }else if(!isValidPhoneNumber(phone_number)  || phone_number.length() != 10){
             tlenterNumber.setError("Please enter valid phone number.");
             enterNumber.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
         }else{

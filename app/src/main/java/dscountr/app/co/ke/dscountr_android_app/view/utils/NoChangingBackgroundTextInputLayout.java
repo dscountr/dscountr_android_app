@@ -2,10 +2,12 @@ package dscountr.app.co.ke.dscountr_android_app.view.utils;
 
 import android.content.Context;
 import android.graphics.ColorFilter;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
+
+import androidx.annotation.Nullable;
+import androidx.core.graphics.drawable.DrawableCompat;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 public class NoChangingBackgroundTextInputLayout extends TextInputLayout {
     public NoChangingBackgroundTextInputLayout(Context context) {
