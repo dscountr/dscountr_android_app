@@ -17,12 +17,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.model.User;
 import dscountr.app.co.ke.dscountr_android_app.presenter.retrofit.MainApplication;
+import dscountr.app.co.ke.dscountr_android_app.view.utils.DateUtils;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 
 public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
 
@@ -48,7 +54,19 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
             phone_number_verification_code = args.getString("phone_number_verification_code");
             email = args.getString("email");
             email_verification_code = args.getString("email_verification_code");
-            date_of_birth = args.getString("date_of_birth");
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-mm-yyyy");
+            try {
+                Date value = formatter.parse(args.getString("date_of_birth"));
+                SimpleDateFormat dateStartedFormatter = new SimpleDateFormat("yyyy-mm-dd");
+                date_of_birth = dateStartedFormatter.format(value);
+            } catch (ParseException e) {
+                e.printStackTrace();
+                date_of_birth = "1990-01-01";
+            }
+
+
+            Log.e(TAG, phone_number);
+            Log.e(TAG, date_of_birth);
         }
 
         RadioGroup rgChannel = view_gender.findViewById(R.id.rgChannel);
@@ -113,14 +131,14 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
 
     private void validateGender(){
         if (gender != null){
-            userRegistration(email, "", phone_number, date_of_birth, gender, "");
+            userRegistration(email, "", phone_number, date_of_birth, gender.substring(0, 1));
         }else{
             Toast.makeText(getActivity(), "Please select your gender to proceed.",Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void userRegistration(String email, String username, String phone_number, String date_of_birth, String gender, String password){
-        User user = new User(email, username, phone_number, date_of_birth, gender,  password);
+    private void userRegistration(String email, String username, String phone_number, String date_of_birth, String gender){
+        User user = new User(email, username, phone_number, date_of_birth, gender);
 
         MainApplication.apiManager.registerUser(user, new Callback<User>() {
             @Override
@@ -131,6 +149,7 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
                     Toast.makeText(getActivity(), "Registration successful.", Toast.LENGTH_LONG).show();
                     loadFragment(new WelcomeFragment());
                 } else {
+                    Log.e(TAG, response.message());
                     Toast.makeText(getActivity(),String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
                 }
             }

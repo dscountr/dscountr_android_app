@@ -63,6 +63,7 @@ public class WelcomeFragment extends Fragment implements Toolbar.OnMenuItemClick
             case R.id.btnStartNow:
                 Intent main = new Intent(getActivity(), MainActivity.class);
                 startActivity(main);
+                getActivity().overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                 getActivity().finish();
                 break;
             case R.id.llVerifyBack:

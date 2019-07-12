@@ -7,15 +7,13 @@ public class User {
     private String phone_number;
     private String date_of_birth;
     private String gender;
-    private String password;
 
-    public User(String email, String username, String phone_number, String date_of_birth, String gender, String password) {
+    public User(String email, String username, String phone_number, String date_of_birth, String gender) {
         this.email = email;
         this.username = username;
         this.phone_number = phone_number;
         this.date_of_birth = date_of_birth;
         this.gender = gender;
-        this.password = password;
     }
 
     public String getEmail() {
@@ -36,9 +34,5 @@ public class User {
 
     public String getGender() {
         return gender;
-    }
-
-    public String getPassword() {
-        return password;
     }
 }

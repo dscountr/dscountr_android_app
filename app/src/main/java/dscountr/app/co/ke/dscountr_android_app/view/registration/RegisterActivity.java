@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.view.registration.fragments.MobileFragment;
+import dscountr.app.co.ke.dscountr_android_app.view.registration.fragments.WelcomeFragment;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -22,16 +23,12 @@ public class RegisterActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.registration_menu);
         // load Fragment
-//        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-//            Intent intent = new Intent(this, ProfileActivity.class);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//
-//            startActivity(intent);
-//        }else{
-//            loadFragment(new MobileFragment());
-//        }
-        FirebaseAuth.getInstance().signOut();
-        loadFragment(new MobileFragment());
+//        FirebaseAuth.getInstance().signOut();
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            loadFragment(new WelcomeFragment());
+        }else{
+            loadFragment(new MobileFragment());
+        }
     }
 
     private void loadFragment(Fragment fragment) {
