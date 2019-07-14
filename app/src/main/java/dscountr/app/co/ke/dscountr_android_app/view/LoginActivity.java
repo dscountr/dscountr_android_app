@@ -1,5 +1,6 @@
 package dscountr.app.co.ke.dscountr_android_app.view;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
@@ -38,6 +39,7 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
     public static String TAG = LoginActivity.class.getSimpleName();
     TextInputEditText enterNumber;
     TextInputLayout tlenterNumber;
+    private ProgressDialog pd = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +102,14 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
             List list = Arrays.asList(CountryData.countryISO);
             int position = list.indexOf(getDeviceCountryCode());
             String code = CountryData.countryAreaCodes[position];
+            if (pd == null){
+                pd = new ProgressDialog(LoginActivity.this);
+                pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                pd.setTitle("User login");
+                pd.setMessage("Please wait...");
+                pd.setIndeterminate(false);
+            }
+            pd.show();
             userLogin("%2B" + code + phone_number);
         }
     }
@@ -157,6 +167,11 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
                     SharedPrefManager.getInstance(getApplicationContext()).setKeyToken(responseUser.getToken());
                 } else {
                     Toast.makeText(LoginActivity.this,String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
+                }
+
+                if(pd != null && pd.isShowing()){
+                    pd = null;
+                    pd.dismiss();
                 }
             }
 

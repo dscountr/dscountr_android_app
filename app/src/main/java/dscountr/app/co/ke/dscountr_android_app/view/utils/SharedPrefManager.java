@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class SharedPrefManager {
 
     @SuppressLint("StaticFieldLeak")
@@ -81,6 +83,7 @@ public class SharedPrefManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
+        FirebaseAuth.getInstance().signOut();
         return true;
     }
 }

@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.view.registration.fragments.MobileFragment;
 import dscountr.app.co.ke.dscountr_android_app.view.registration.fragments.WelcomeFragment;
+import dscountr.app.co.ke.dscountr_android_app.view.utils.SharedPrefManager;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -23,8 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.registration_menu);
         // load Fragment
-//        FirebaseAuth.getInstance().signOut();
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+        if (FirebaseAuth.getInstance().getCurrentUser() != null || SharedPrefManager.getInstance(getApplicationContext()).getKeyPhoneNumber() != null) {
             loadFragment(new WelcomeFragment());
         }else{
             loadFragment(new MobileFragment());

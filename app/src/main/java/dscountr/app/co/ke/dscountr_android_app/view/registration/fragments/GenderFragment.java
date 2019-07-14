@@ -3,6 +3,7 @@ package dscountr.app.co.ke.dscountr_android_app.view.registration.fragments;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,8 +18,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.gson.JsonObject;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -30,8 +29,7 @@ import java.util.Date;
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.model.User;
 import dscountr.app.co.ke.dscountr_android_app.presenter.retrofit.MainApplication;
-import dscountr.app.co.ke.dscountr_android_app.view.utils.DateUtils;
-import okhttp3.ResponseBody;
+import dscountr.app.co.ke.dscountr_android_app.view.utils.SharedPrefManager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,6 +40,7 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
     public static String TAG = GenderFragment.class.getSimpleName();
     String phone_number = null, phone_number_verification_code = null, email = null, email_verification_code = null, date_of_birth = null, gender = null;
     RadioButton radioMale, radioFemale;
+    private ProgressDialog pd = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -138,6 +137,14 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
 
     private void validateGender(){
         if (gender != null){
+            if (pd == null){
+                pd = new ProgressDialog(getActivity());
+                pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                pd.setTitle("User registration");
+                pd.setMessage("Please wait...");
+                pd.setIndeterminate(false);
+            }
+            pd.show();
             userRegistration(email, phone_number, date_of_birth, gender.substring(0, 1));
         }else{
             Toast.makeText(getActivity(), "Please select your gender to proceed.",Toast.LENGTH_SHORT).show();
@@ -154,6 +161,7 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
                 if (response.isSuccessful() && responseUser != null) {
                     Log.e(TAG, responseUser.getPhone_number());
                     Toast.makeText(getActivity(), "Registration successful.", Toast.LENGTH_LONG).show();
+                    SharedPrefManager.getInstance(getActivity()).setKeyUser(responseUser.getEmail(), responseUser.getPhone_number(), responseUser.getGender(), responseUser.getDate_of_birth());
                     loadFragment(new WelcomeFragment());
                 } else {
                     try {
@@ -177,6 +185,10 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
                         e.printStackTrace();
                         Toast.makeText(getActivity(),String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
                     }
+                }
+                if(pd != null && pd.isShowing()){
+                    pd = null;
+                    pd.dismiss();
                 }
             }
 
