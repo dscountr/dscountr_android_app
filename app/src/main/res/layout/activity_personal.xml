@@ -46,7 +46,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorFaceBook"
         android:layout_gravity="bottom">
         <RelativeLayout

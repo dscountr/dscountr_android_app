@@ -21,12 +21,17 @@ public class ProfileActivity extends AppCompatActivity implements Toolbar.OnMenu
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.profile_menu);
         toolbar.setOnMenuItemClickListener(this);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
 
         RelativeLayout rlProfile = findViewById(R.id.rlProfile);
         rlProfile.setOnClickListener(this);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     @Override

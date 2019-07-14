@@ -3,6 +3,7 @@ package dscountr.app.co.ke.dscountr_android_app.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -25,9 +26,7 @@ public class PersonalActivity extends AppCompatActivity implements Toolbar.OnMen
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.profile_menu);
         toolbar.setOnMenuItemClickListener(this);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_gray_24dp);
 
         sharedPrefManager =  SharedPrefManager.getInstance(getApplicationContext());
 
@@ -38,6 +37,13 @@ public class PersonalActivity extends AppCompatActivity implements Toolbar.OnMen
         tvProfileEmail = findViewById(R.id.tvProfileEmail);
 
         loadProfile();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private void loadProfile(){
