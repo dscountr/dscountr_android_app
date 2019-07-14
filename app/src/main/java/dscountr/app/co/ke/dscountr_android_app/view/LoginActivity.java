@@ -105,7 +105,7 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
             if (pd == null){
                 pd = new ProgressDialog(LoginActivity.this);
                 pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                pd.setTitle("User login");
+                pd.setTitle("User sign in");
                 pd.setMessage("Please wait...");
                 pd.setIndeterminate(false);
             }
@@ -163,8 +163,9 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
                 User responseUser = response.body();
                 if (response.isSuccessful() && responseUser != null) {
                     Log.e(TAG, responseUser.getPhone_number());
-                    Toast.makeText(LoginActivity.this, "Login successful.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Sign in successful.", Toast.LENGTH_LONG).show();
                     SharedPrefManager.getInstance(getApplicationContext()).setKeyToken(responseUser.getToken());
+                    finish();
                 } else {
                     Toast.makeText(LoginActivity.this,String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
                 }

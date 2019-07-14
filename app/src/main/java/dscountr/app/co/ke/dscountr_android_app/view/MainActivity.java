@@ -25,6 +25,7 @@ import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.model.FeaturedRetailers;
 import dscountr.app.co.ke.dscountr_android_app.view.adapters.FeaturedRetailersAdapter;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.BottomNavigationBehavior;
+import dscountr.app.co.ke.dscountr_android_app.view.utils.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener, View.OnClickListener {
     private Toolbar toolbar;
@@ -93,7 +94,11 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
                 Toast.makeText(MainActivity.this, "Notifications.",Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.miProfile:
-                Toast.makeText(MainActivity.this, "Profile.",Toast.LENGTH_SHORT).show();
+                if (SharedPrefManager.getInstance(getApplicationContext()).getKeyToken() != null){
+                    Toast.makeText(MainActivity.this, "Profile is under development.",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(MainActivity.this, "Sign in to view your profile.",Toast.LENGTH_SHORT).show();
+                }
                 return true;
             case R.id.miDiscount:
                 Toast.makeText(MainActivity.this, "My Discount List.",Toast.LENGTH_SHORT).show();
