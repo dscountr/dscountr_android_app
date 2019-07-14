@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:showIn="@layout/activity_personal"
+    android:scrollbars="none"
+    android:background="@android:color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".view.PersonalActivity"
+    android:paddingBottom="95dp"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/placeholder_female"
+            android:layout_marginTop="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14.5dp"
+                android:layout_marginTop="14.5dp"
+                android:text="@string/name"
+                android:textSize="12sp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/colorSectionTitle"
+                android:lineSpacingExtra="4sp"/>
+
+            <TextView
+                android:id="@+id/tvProfileNameValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="100dp"
+                android:layout_marginLeft="100dp"
+                android:fontFamily="@font/roboto_medium"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/julia_memon"
+                android:textColor="@color/colorSectionTitle"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorBottomBorder"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14.5dp"
+                android:layout_marginTop="14.5dp"
+                android:text="@string/date_of_birth"
+                android:textSize="12sp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/colorSectionTitle"
+                android:lineSpacingExtra="4sp"/>
+
+            <TextView
+                android:id="@+id/tvProfileDOBValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="12sp"
+                android:textColor="@color/colorSectionTitle"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="65dp"
+                android:layout_marginLeft="65dp"
+                android:text="@string/_23_march_1991"
+                android:lineSpacingExtra="4sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorBottomBorder"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14.5dp"
+                android:layout_marginTop="14.5dp"
+                android:text="@string/gender"
+                android:textSize="12sp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/colorSectionTitle"
+                android:lineSpacingExtra="4sp"/>
+
+            <TextView
+                android:id="@+id/tvProfileGenderValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="12sp"
+                android:textColor="@color/colorSectionTitle"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="94dp"
+                android:layout_marginLeft="94dp"
+                android:text="@string/f"
+                android:lineSpacingExtra="4sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorBottomBorder"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14.5dp"
+                android:layout_marginTop="14.5dp"
+                android:text="@string/mobile__number"
+                android:textSize="12sp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/colorSectionTitle"
+                android:lineSpacingExtra="4sp"/>
+
+            <TextView
+                android:id="@+id/tvProfileMobileValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="12sp"
+                android:textColor="@color/colorSectionTitle"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:text="@string/_254_723_456789"
+                android:lineSpacingExtra="4sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorBottomBorder"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14.5dp"
+                android:layout_marginTop="14.5dp"
+                android:text="@string/email"
+                android:textSize="12sp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/colorSectionTitle"
+                android:lineSpacingExtra="4sp"/>
+
+            <TextView
+                android:id="@+id/tvProfileEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="12sp"
+                android:textColor="@color/colorSectionTitle"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="102dp"
+                android:layout_marginLeft="102dp"
+                android:text="@string/jmemon12_hotmail_com"
+                android:lineSpacingExtra="4sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorBottomBorder"/>
+
+    </LinearLayout>
+
+</ScrollView>

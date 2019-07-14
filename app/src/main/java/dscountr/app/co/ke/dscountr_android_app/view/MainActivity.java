@@ -95,7 +95,8 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
                 return true;
             case R.id.miProfile:
                 if (SharedPrefManager.getInstance(getApplicationContext()).getKeyToken() != null){
-                    Toast.makeText(MainActivity.this, "Profile is under development.",Toast.LENGTH_SHORT).show();
+                    Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
+                    startActivity(profile);
                 }else{
                     Toast.makeText(MainActivity.this, "Sign in to view your profile.",Toast.LENGTH_SHORT).show();
                 }

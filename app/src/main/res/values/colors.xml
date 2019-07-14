@@ -16,5 +16,6 @@
     <color name="colorShadow">#1A000000</color> // shadows
     <color name="colorSectionTitle">#3D3D3D</color>
     <color name="colorTintPrimary">#AA00A99D</color>
+    <color name="colorFaceBook">#2D4A86</color>
 
 </resources>

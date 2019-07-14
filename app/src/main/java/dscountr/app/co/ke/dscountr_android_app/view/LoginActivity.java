@@ -110,7 +110,7 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
                 pd.setIndeterminate(false);
             }
             pd.show();
-            userLogin("%2B" + code + phone_number);
+            userLogin("+" + code + phone_number);
         }
     }
 
@@ -171,8 +171,8 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
                 }
 
                 if(pd != null && pd.isShowing()){
-                    pd = null;
                     pd.dismiss();
+                    pd = null;
                 }
             }
 

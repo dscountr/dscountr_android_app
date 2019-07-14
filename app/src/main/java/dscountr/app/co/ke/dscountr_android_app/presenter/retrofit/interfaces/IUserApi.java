@@ -15,6 +15,6 @@ public interface IUserApi {
     Call<User> registerUser(@Body User user);
 
     @Headers("Content-Type: application/json")
-    @GET("login")
+    @GET("login/")
     Call<User> loginUser(@Query("phone_number") String phone_number);
 }

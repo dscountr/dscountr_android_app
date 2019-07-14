@@ -187,8 +187,8 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
                     }
                 }
                 if(pd != null && pd.isShowing()){
-                    pd = null;
                     pd.dismiss();
+                    pd = null;
                 }
             }
 
