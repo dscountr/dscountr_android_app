@@ -17,6 +17,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,6 +31,7 @@ import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.model.User;
 import dscountr.app.co.ke.dscountr_android_app.presenter.retrofit.MainApplication;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.DateUtils;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -131,14 +138,14 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
 
     private void validateGender(){
         if (gender != null){
-            userRegistration(email, "", phone_number, date_of_birth, gender.substring(0, 1));
+            userRegistration(email, phone_number, date_of_birth, gender.substring(0, 1));
         }else{
             Toast.makeText(getActivity(), "Please select your gender to proceed.",Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void userRegistration(String email, String username, String phone_number, String date_of_birth, String gender){
-        User user = new User(email, username, phone_number, date_of_birth, gender);
+    private void userRegistration(String email, String phone_number, String date_of_birth, String gender){
+        User user = new User(email, phone_number, date_of_birth, gender);
 
         MainApplication.apiManager.registerUser(user, new Callback<User>() {
             @Override
@@ -149,8 +156,27 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
                     Toast.makeText(getActivity(), "Registration successful.", Toast.LENGTH_LONG).show();
                     loadFragment(new WelcomeFragment());
                 } else {
-                    Log.e(TAG, response.message());
-                    Toast.makeText(getActivity(),String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
+                    try {
+                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+
+                        if(jObjError.has("email")){
+                            Toast.makeText(getActivity(), jObjError.getString("email"), Toast.LENGTH_LONG).show();
+                        }else if(jObjError.has("gender")){
+                            Toast.makeText(getActivity(),jObjError.getString("gender"), Toast.LENGTH_LONG).show();
+                        }else if(jObjError.has("date_of_birth")){
+                            Toast.makeText(getActivity(),jObjError.getString("date_of_birth"), Toast.LENGTH_LONG).show();
+                        }else if(jObjError.has("phone_number")){
+                            Toast.makeText(getActivity(),jObjError.getString("phone_number"), Toast.LENGTH_LONG).show();
+                        }else{
+                            Toast.makeText(getActivity(),String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getActivity(),String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getActivity(),String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
+                    }
                 }
             }
 

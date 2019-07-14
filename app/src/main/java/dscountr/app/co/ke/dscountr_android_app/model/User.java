@@ -3,14 +3,12 @@ package dscountr.app.co.ke.dscountr_android_app.model;
 public class User {
 
     private String email;
-    private String username;
     private String phone_number;
     private String date_of_birth;
     private String gender;
 
-    public User(String email, String username, String phone_number, String date_of_birth, String gender) {
+    public User(String email, String phone_number, String date_of_birth, String gender) {
         this.email = email;
-        this.username = username;
         this.phone_number = phone_number;
         this.date_of_birth = date_of_birth;
         this.gender = gender;
@@ -18,10 +16,6 @@ public class User {
 
     public String getEmail() {
         return email;
-    }
-
-    public String getUsername() {
-        return username;
     }
 
     public String getPhone_number() {
