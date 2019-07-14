@@ -93,7 +93,7 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
         if(TextUtils.isEmpty(phone_number)){
             tlenterNumber.setError("Please enter phone number.");
             enterNumber.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
-        }else if(!isValidPhoneNumber(phone_number)){
+        }else if(!isValidPhoneNumber(phone_number) || phone_number.length() != 10){
             tlenterNumber.setError("Please enter valid phone number.");
             enterNumber.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
         }else{

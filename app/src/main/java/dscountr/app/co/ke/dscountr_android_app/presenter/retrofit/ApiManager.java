@@ -34,4 +34,9 @@ public class ApiManager {
         Call<User> userCall = service.registerUser(user);
         userCall.enqueue(callback);
     }
+
+    public void loginUser(String phone_number, Callback<User> callback) {
+        Call<User> userCall = service.loginUser(phone_number);
+        userCall.enqueue(callback);
+    }
 }
