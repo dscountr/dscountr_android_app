@@ -33,7 +33,7 @@
                     android:id="@+id/rgChannel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_marginTop="23dp"
                     android:layout_below="@+id/tvGenderLabel">
                     <RadioButton
@@ -51,11 +51,10 @@
                         android:layout_height="wrap_content"
                         android:text="@string/female"
                         android:textSize="14sp"
-                        android:layout_marginStart="20dp"
                         android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/colorBottomBorder"
                         android:theme="@style/MyRadioButton"
-                        android:layout_marginLeft="20dp" />
+                        />
                 </RadioGroup>
 
 
@@ -65,16 +64,16 @@
                     android:layout_width="280dp"
                     android:layout_height="35dp"
                     android:layout_below="@+id/rgChannel"
-                    android:layout_marginTop="86dp"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="11sp"
-                    android:text="@string/finish"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="486dp"
+                    android:background="@drawable/signin_button"
                     android:fontFamily="@font/roboto_medium"
                     android:lineSpacingExtra="4sp"
-                    android:textStyle="normal"
-                    android:layout_centerHorizontal="true"
-                    android:textAllCaps="true"
-                    android:background="@drawable/btn_ripple_effect"/>
+                    android:text="@string/finish"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:textStyle="normal"/>
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>

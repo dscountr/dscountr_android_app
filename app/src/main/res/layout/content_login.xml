@@ -27,12 +27,23 @@
             android:lineSpacingExtra="5sp"
             android:text="@string/welcome_back"/>
 
+        <TextView
+            android:id="@+id/tvEnterMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginTop="32dp"
+            android:textColor="@color/colorSectionTitle"
+            android:lineSpacingExtra="5sp"
+            android:layout_below="@+id/tvWelcomeBack"
+            android:text="@string/enter_your_number"/>
+
         <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
             android:id="@+id/tlenterNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_below="@+id/tvWelcomeBack"
+            android:layout_below="@+id/tvEnterMobile"
             app:errorTextAppearance="@style/Error_Appearance"
             android:layout_centerHorizontal="true"
             app:hintTextAppearance="@style/TextAppearence.TextInputLayout.Primary">
@@ -41,13 +52,14 @@
                 android:id="@+id/enterNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bottom_edittext"
+                android:background="@drawable/textview_bg"
                 android:hint="@string/enter_your_mobile_number"
                 android:inputType="phone"
                 android:digits="0123456789"
                 android:maxLength="10"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingLeft="24dp"
                 android:textSize="14sp"
                 android:fontFamily="@font/roboto_regular"
                 android:textStyle="normal"
@@ -67,7 +79,7 @@
             android:lineSpacingExtra="5sp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/tlenterNumber"
-            android:text="@string/privacy_terms"
+            android:text="@string/service_terms"
             android:layout_marginTop="30dp"/>
 
         <Button
@@ -84,7 +96,8 @@
             android:textStyle="normal"
             android:layout_centerHorizontal="true"
             android:textAllCaps="true"
-            android:background="@drawable/btn_ripple_effect"/>
+            android:background="@drawable/signin_button"
+            app:textAllCaps="false"/>
 
 
         <View
