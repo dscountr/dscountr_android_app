@@ -7,12 +7,16 @@ public class User {
     private String date_of_birth;
     private String gender;
     private String token;
+    private String first_name;
+    private String last_name;
 
-    public User(String email, String phone_number, String date_of_birth, String gender) {
+    public User(String email, String phone_number, String date_of_birth, String gender, String first_name, String last_name) {
         this.email = email;
         this.phone_number = phone_number;
         this.date_of_birth = date_of_birth;
         this.gender = gender;
+        this.first_name = first_name;
+        this.last_name = last_name;
     }
 
     public User(String phone_number, String email, String token) {
@@ -43,5 +47,13 @@ public class User {
 
     public String getToken() {
         return token;
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
     }
 }

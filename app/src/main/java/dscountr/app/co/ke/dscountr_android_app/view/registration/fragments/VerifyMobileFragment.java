@@ -236,9 +236,9 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
                             Bundle bundle = new Bundle();
                             bundle.putString("phone_number", phone_number);
                             bundle.putString("phone_number_verification_code", enterNumberVerification.getText().toString());
-                            Fragment emailFragment = new EmailFragment();
-                            emailFragment.setArguments(bundle);
-                            loadFragment(emailFragment);
+                            Fragment nameFragment = new FullNamesFragment();
+                            nameFragment.setArguments(bundle);
+                            loadFragment(nameFragment);
 
                         } else {
 

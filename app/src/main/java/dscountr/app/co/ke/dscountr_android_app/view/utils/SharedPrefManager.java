@@ -19,6 +19,8 @@ public class SharedPrefManager {
     private static final String KEY_GENDER = "keygender";
     private static final String KEY_DATE_OF_BIRTH = "keydateofbirth";
     private static final String KEY_EMAIL = "keyemail";
+    private static final String KEY_FIRST_NAME = "keyfirstname";
+    private static final String KEY_LAST_NAME = "keylastname";
     private static final String KEY_TOKEN = "keytoken";
 
     private SharedPrefManager(Context context) {
@@ -52,13 +54,25 @@ public class SharedPrefManager {
         return sharedPreferences.getString(KEY_DATE_OF_BIRTH, null);
     }
 
-    public void setKeyUser(String email, String phone_number, String gender, String date_of_birth) {
+    public String getKeyFirstName() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_FIRST_NAME, null);
+    }
+
+    public String getKeyLastName() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_LAST_NAME, null);
+    }
+
+    public void setKeyUser(String email, String phone_number, String gender, String date_of_birth, String first_name, String last_name) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(KEY_EMAIL, email);
         editor.putString(KEY_PHONE_NUMBER, phone_number);
         editor.putString(KEY_GENDER, gender);
         editor.putString(KEY_DATE_OF_BIRTH, date_of_birth);
+        editor.putString(KEY_FIRST_NAME, first_name);
+        editor.putString(KEY_LAST_NAME, last_name);
         editor.apply();
     }
 

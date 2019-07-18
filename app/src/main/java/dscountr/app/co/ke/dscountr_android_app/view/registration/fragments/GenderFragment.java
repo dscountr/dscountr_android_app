@@ -38,7 +38,7 @@ import retrofit2.Response;
 public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
 
     public static String TAG = GenderFragment.class.getSimpleName();
-    String phone_number = null, phone_number_verification_code = null, email = null, email_verification_code = null, date_of_birth = null, gender = null;
+    String phone_number = null, phone_number_verification_code = null, email = null, email_verification_code = null, date_of_birth = null, gender = null, first_name = null, last_name = null;
     RadioButton radioMale, radioFemale;
     private ProgressDialog pd = null;
 
@@ -59,6 +59,8 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
             phone_number = args.getString("phone_number");
             phone_number_verification_code = args.getString("phone_number_verification_code");
             email = args.getString("email");
+            first_name = args.getString("first_name");
+            last_name = args.getString("last_name");
             email_verification_code = args.getString("email_verification_code");
             SimpleDateFormat formatter = new SimpleDateFormat("dd-mm-yyyy");
             try {
@@ -73,6 +75,8 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
 
             Log.e(TAG, phone_number);
             Log.e(TAG, date_of_birth);
+            Log.e(TAG, first_name);
+            Log.e(TAG, last_name);
         }
 
         RadioGroup rgChannel = view_gender.findViewById(R.id.rgChannel);
@@ -145,28 +149,30 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
                 pd.setIndeterminate(false);
             }
             pd.show();
-            userRegistration(email, phone_number, date_of_birth, gender.substring(0, 1));
+            userRegistration(email, phone_number, date_of_birth, gender.substring(0, 1),first_name, last_name);
         }else{
             Toast.makeText(getActivity(), "Please select your gender to proceed.",Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void userRegistration(String email, String phone_number, String date_of_birth, String gender){
-        User user = new User(email, phone_number, date_of_birth, gender);
+    private void userRegistration(String email, String phone_number, String date_of_birth, String gender, String first_name, String last_name){
+        User user = new User(email, phone_number, date_of_birth, gender, first_name, last_name);
 
         MainApplication.apiManager.registerUser(user, new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 User responseUser = response.body();
+//                Log.e(TAG, response.body().toString());
                 if (response.isSuccessful() && responseUser != null) {
+//                    Log.e(TAG, responseUser.toString());
                     Log.e(TAG, responseUser.getPhone_number());
                     Toast.makeText(getActivity(), "Registration successful.", Toast.LENGTH_LONG).show();
-                    SharedPrefManager.getInstance(getActivity()).setKeyUser(responseUser.getEmail(), responseUser.getPhone_number(), responseUser.getGender(), responseUser.getDate_of_birth());
+                    SharedPrefManager.getInstance(getActivity()).setKeyUser(responseUser.getEmail(), responseUser.getPhone_number(), responseUser.getGender(), responseUser.getDate_of_birth(), responseUser.getFirst_name(), responseUser.getLast_name());
                     loadFragment(new WelcomeFragment());
                 } else {
                     try {
                         JSONObject jObjError = new JSONObject(response.errorBody().string());
-
+                        Log.e(TAG, "There is an error");
                         if(jObjError.has("email")){
                             Toast.makeText(getActivity(), jObjError.getString("email"), Toast.LENGTH_LONG).show();
                         }else if(jObjError.has("gender")){
@@ -175,6 +181,10 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
                             Toast.makeText(getActivity(),jObjError.getString("date_of_birth"), Toast.LENGTH_LONG).show();
                         }else if(jObjError.has("phone_number")){
                             Toast.makeText(getActivity(),jObjError.getString("phone_number"), Toast.LENGTH_LONG).show();
+                        }else if(jObjError.has("first_name")){
+                            Toast.makeText(getActivity(),jObjError.getString("first_name"), Toast.LENGTH_LONG).show();
+                        }else if(jObjError.has("last_name")){
+                            Toast.makeText(getActivity(),jObjError.getString("last_name"), Toast.LENGTH_LONG).show();
                         }else{
                             Toast.makeText(getActivity(),String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
                         }

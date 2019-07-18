@@ -47,8 +47,12 @@ public class PersonalActivity extends AppCompatActivity implements Toolbar.OnMen
     }
 
     private void loadProfile(){
-        tvProfileNameValue.setText("Missing!");
-        tvProfileNameValue.setTextColor(Color.parseColor("#FC4500"));
+        if (sharedPrefManager.getKeyFirstName() != null){
+            tvProfileNameValue.setText(String.format("%s %s", sharedPrefManager.getKeyFirstName(), sharedPrefManager.getKeyLastName()));
+        }else{
+            tvProfileNameValue.setText("Missing!");
+            tvProfileNameValue.setTextColor(Color.parseColor("#FC4500"));
+        }
         if (sharedPrefManager.getKeyDateOfBirth() != null){
             tvProfileDOBValue.setText(sharedPrefManager.getKeyDateOfBirth());
         }else{

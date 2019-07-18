@@ -31,7 +31,7 @@ import dscountr.app.co.ke.dscountr_android_app.view.utils.CodeEntryEditText;
 public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
 
     public static String TAG = VerifyEmailFragment.class.getSimpleName();
-    String phone_number = null, phone_number_verification_code = null, email = null;
+    String phone_number = null, phone_number_verification_code = null, first_name = null, last_name = null, email = null;
     CodeEntryEditText enterEmailVerification;
     //firebase auth object
     private FirebaseAuth mAuth;
@@ -60,6 +60,8 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
         if(args != null){
             phone_number = args.getString("phone_number");
             phone_number_verification_code = args.getString("phone_number_verification_code");
+            first_name = args.getString("first_name");
+            last_name = args.getString("last_name");
             email = args.getString("email");
             sendVerificationCode(email);
         }
@@ -119,6 +121,8 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
             Bundle bundle = new Bundle();
             bundle.putString("phone_number", phone_number);
             bundle.putString("phone_number_verification_code", phone_number_verification_code);
+            bundle.putString("first_name", first_name);
+            bundle.putString("last_name", last_name);
             bundle.putString("email", email);
             bundle.putString("email_verification_code", enterEmailVerification.getText().toString());
             Fragment verifyEmail = new DateOfBirthFragment();
@@ -198,6 +202,8 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
                                 Bundle bundle = new Bundle();
                                 bundle.putString("phone_number", phone_number);
                                 bundle.putString("phone_number_verification_code", phone_number_verification_code);
+                                bundle.putString("first_name", first_name);
+                                bundle.putString("last_name", last_name);
                                 bundle.putString("email", email);
                                 bundle.putString("email_verification_code", enterEmailVerification.getText().toString());
                                 Fragment verifyEmail = new DateOfBirthFragment();

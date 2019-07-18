@@ -26,15 +26,15 @@
                 android:id="@+id/tvProfileWelcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:textColor="@color/colorDot"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="22dp"
+                android:fontFamily="@font/roboto_medium"
                 android:lineSpacingExtra="5sp"
                 android:text="@string/welcome_julie"
-                android:layout_marginTop="22dp"
-                android:layout_marginStart="30dp"
                 android:textAlignment="center"
-                android:fontFamily="@font/roboto_medium"
-                android:layout_marginLeft="30dp" />
+                android:textColor="@color/colorDot"
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/tvProfileWelcomeDescription"

@@ -26,7 +26,7 @@ import dscountr.app.co.ke.dscountr_android_app.R;
 
 public class EmailFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
 
-    String phone_number = null, phone_number_verification_code = null;
+    String phone_number = null, phone_number_verification_code = null, first_name = null, last_name = null;
     TextInputLayout tlenterEmail;
     TextInputEditText enterEmail;
     String EMAIL_PATTERN = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
@@ -46,6 +46,8 @@ public class EmailFragment extends Fragment implements Toolbar.OnMenuItemClickLi
         if(args != null){
             phone_number = args.getString("phone_number");
             phone_number_verification_code = args.getString("phone_number_verification_code");
+            first_name = args.getString("first_name");
+            last_name = args.getString("last_name");
         }
 
         tlenterEmail = email.findViewById(R.id.tlenterEmail);
@@ -106,9 +108,11 @@ public class EmailFragment extends Fragment implements Toolbar.OnMenuItemClickLi
 
             Bundle bundle = new Bundle();
             bundle.putString("phone_number", phone_number);
-            bundle.putString("phone_number_verification_code", phone_number_verification_code);
+//            bundle.putString("phone_number_verification_code", phone_number_verification_code);
             bundle.putString("email", email);
-            Fragment verifyMobile = new VerifyEmailFragment();
+            bundle.putString("first_name", first_name);
+            bundle.putString("last_name", last_name);
+            Fragment verifyMobile = new DateOfBirthFragment();
             verifyMobile.setArguments(bundle);
             loadFragment(verifyMobile);
         }

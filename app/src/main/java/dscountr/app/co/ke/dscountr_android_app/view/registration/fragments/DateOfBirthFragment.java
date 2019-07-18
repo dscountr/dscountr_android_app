@@ -49,7 +49,7 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
     @SuppressLint("StaticFieldLeak")
     private static TextInputEditText enterDOB;
     private TextInputLayout tlenterDOB;
-    String phone_number = null, phone_number_verification_code = null, email = null, email_verification_code = null;
+    String phone_number = null, phone_number_verification_code = null, email = null, email_verification_code = null, first_name = null, last_name = null;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -91,6 +91,8 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
             phone_number_verification_code = args.getString("phone_number_verification_code");
             email = args.getString("email");
             email_verification_code = args.getString("email_verification_code");
+            first_name = args.getString("first_name");
+            last_name = args.getString("last_name");
         }
 
         return date_of_birth;
@@ -294,9 +296,11 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
 
             Bundle bundle = new Bundle();
             bundle.putString("phone_number", phone_number);
-            bundle.putString("phone_number_verification_code", phone_number_verification_code);
+//            bundle.putString("phone_number_verification_code", phone_number_verification_code);
             bundle.putString("email", email);
-            bundle.putString("email_verification_code", email_verification_code);
+//            bundle.putString("email_verification_code", email_verification_code);
+            bundle.putString("first_name", first_name);
+            bundle.putString("last_name", last_name);
             bundle.putString("date_of_birth", date_of_birth);
             Fragment verifyGender = new GenderFragment();
             verifyGender.setArguments(bundle);

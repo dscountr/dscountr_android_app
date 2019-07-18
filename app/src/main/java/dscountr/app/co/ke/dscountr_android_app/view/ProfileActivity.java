@@ -4,16 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.view.utils.SharedPrefManager;
 
 public class ProfileActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener, View.OnClickListener{
 
+    TextView tvProfileNameValue;
+    SharedPrefManager sharePreferenceManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,15 +28,31 @@ public class ProfileActivity extends AppCompatActivity implements Toolbar.OnMenu
         toolbar.setOnMenuItemClickListener(this);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
 
+        sharePreferenceManager = SharedPrefManager.getInstance(getApplicationContext());
         RelativeLayout rlProfile = findViewById(R.id.rlProfile);
-        rlProfile.setOnClickListener(this);
 
+
+
+        tvProfileNameValue = findViewById(R.id.tvProfileWelcome);
+
+        loadWelcomeName();
+
+        rlProfile.setOnClickListener(this);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
+    }
+
+    private void loadWelcomeName(){
+        if (sharePreferenceManager.getKeyFirstName() != null){
+            tvProfileNameValue.setText(String.format("Hello %s!", sharePreferenceManager.getKeyFirstName()));
+        }else{
+            tvProfileNameValue.setText("Missing!");
+            tvProfileNameValue.setTextColor(Color.parseColor("#FC4500"));
+        }
     }
 
     @Override
