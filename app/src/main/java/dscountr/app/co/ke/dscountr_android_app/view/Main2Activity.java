@@ -3,38 +3,37 @@ package dscountr.app.co.ke.dscountr_android_app.view;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import android.os.strictmode.IntentReceiverLeakedViolation;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
+
+import androidx.appcompat.view.menu.MenuBuilder;
+import androidx.core.view.GravityCompat;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+
+import android.view.MenuItem;
+
+import com.google.android.material.navigation.NavigationView;
+
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import android.view.Menu;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuBuilder;
-import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
-
-import java.util.ArrayList;
-
 import dscountr.app.co.ke.dscountr_android_app.R;
-import dscountr.app.co.ke.dscountr_android_app.model.FeaturedRetailers;
-import dscountr.app.co.ke.dscountr_android_app.view.adapters.FeaturedRetailersAdapter;
-import dscountr.app.co.ke.dscountr_android_app.view.utils.BottomNavigationBehavior;
+import dscountr.app.co.ke.dscountr_android_app.view.registration.fragments.GenderFragment;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.SharedPrefManager;
 
-public class MainActivity extends AppCompatActivity
+public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, Toolbar.OnMenuItemClickListener, View.OnClickListener {
 
     public static String TAG = Main2Activity.class.getSimpleName();
@@ -49,16 +48,15 @@ public class MainActivity extends AppCompatActivity
         toolbar.setOnMenuItemClickListener(this);
         initToolBar();
         initNavigation();
-        setSupportActionBar(toolbar);
 
-//        TextView fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Shop now...", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+        TextView fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Start Sopping...", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -83,19 +81,19 @@ public class MainActivity extends AppCompatActivity
     public boolean onMenuItemClick(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.miSearch:
-                Toast.makeText(MainActivity.this, "Search.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Main2Activity.this, "Search.",Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.miNotification:
-                Toast.makeText(MainActivity.this, "Notifications.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Main2Activity.this, "Notifications.",Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.miNewShoppingList:
-                Toast.makeText(MainActivity.this, "New Shopping List.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Main2Activity.this, "New Shopping List.",Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.miCredits:
-                Toast.makeText(MainActivity.this, "Earn Credits",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Main2Activity.this, "Earn Credits",Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.miShopnow:
-                Toast.makeText(MainActivity.this, "Shop Now",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Main2Activity.this, "Shop Now",Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return false;
@@ -119,13 +117,13 @@ public class MainActivity extends AppCompatActivity
         View headView = navigationView.getHeaderView(0);
         RelativeLayout rlNavigationHeader = headView.findViewById(R.id.rlNavigationHeader);
         rlNavigationHeader.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e(TAG, "clicking textview");
-                Intent i = new Intent(MainActivity.this,ProfileActivity.class);
-                startActivity(i);
-            }
-        });
+        @Override
+        public void onClick(View view) {
+            Log.e(TAG, "clicking textview");
+            Intent i = new Intent(Main2Activity.this,ProfileActivity.class);
+            startActivity(i);
+        }
+    });
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -158,7 +156,7 @@ public class MainActivity extends AppCompatActivity
         switch (v.getId()) {
             case R.id.rlNotification:
                 Log.e(TAG, "clicking notification");
-                Toast.makeText(MainActivity.this, "Notifications.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Main2Activity.this, "Notifications.",Toast.LENGTH_SHORT).show();
                 break;
 
             default:

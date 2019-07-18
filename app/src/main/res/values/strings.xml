@@ -84,4 +84,25 @@
     <string name="verify_phone">Verify Mobile Number</string>
     <string name="enter_your_first_name">First Name</string>
     <string name="enter_your_last_name">Last Name</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Julia Memon</string>
+    <string name="nav_header_subtitle">View profile</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_categories">Product Categories</string>
+    <string name="menu_retailer">Select Retailer</string>
+    <string name="menu_notifications">Notifications</string>
+    <string name="menu_discount_list">Discount List</string>
+    <string name="menu_wish_list">Wish List</string>
+    <string name="menu_shopping_list">Shopping List</string>
+    <string name="menu_new_shopping_list">New Shopping List</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_support">Help &amp; Support</string>
+    <string name="menu_sign_out">Sign Out</string>
+    <string name="fb_shop_now">Shop Now</string>
+    <string name="icon">icon</string>
 </resources>
