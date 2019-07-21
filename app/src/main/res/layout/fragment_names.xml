@@ -17,13 +17,13 @@
             android:id="@+id/tvNumberLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
             android:layout_marginBottom="40dp"
-            android:fontFamily="@font/roboto_regular"
-            android:textStyle="normal"
-            android:textColor="@color/colorBottomBorder"
+            android:fontFamily="@font/montserrat_regular"
             android:lineSpacingExtra="5sp"
-            android:text="@string/enter_phone_number"/>
+            android:text="@string/enter_phone_number"
+            android:textColor="@color/colorBottomBorder"
+            android:textSize="14sp"
+            android:textStyle="normal" />
 
         <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
             android:id="@+id/tlfirstName"
@@ -38,21 +38,23 @@
                 android:id="@+id/firstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/tvMobileLabel"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/textview_bg"
+                android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/enter_your_first_name"
                 android:inputType="text"
-                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="5sp"
                 android:maxLength="10"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:textSize="14sp"
-                android:fontFamily="@font/roboto_regular"
-                android:textStyle="normal"
-                android:lineSpacingExtra="5sp"
-                android:textColorHint="@color/colorBottomBorder"
                 android:textColor="@color/colorProductName"
-                android:layout_below="@+id/tvMobileLabel"/>
+                android:textColorHint="@color/colorBottomBorder"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:paddingStart="20dp" />
         </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
 
         <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
@@ -69,21 +71,23 @@
                 android:id="@+id/lastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/tlfirstName"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/textview_bg"
+                android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/enter_your_last_name"
                 android:inputType="text"
-                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="5sp"
                 android:maxLength="10"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:textSize="14sp"
-                android:fontFamily="@font/roboto_regular"
-                android:textStyle="normal"
-                android:lineSpacingExtra="5sp"
-                android:textColorHint="@color/colorBottomBorder"
                 android:textColor="@color/colorProductName"
-                android:layout_below="@+id/tlfirstName"/>
+                android:textColorHint="@color/colorBottomBorder"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:paddingStart="20dp" />
         </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
 
         <Button
@@ -94,7 +98,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="445dp"
             android:background="@drawable/button_bg"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/montserrat_regular"
             android:lineSpacingExtra="4sp"
             android:text="@string/continue_btn"
             android:textAllCaps="false"

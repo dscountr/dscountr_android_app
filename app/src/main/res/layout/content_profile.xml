@@ -29,7 +29,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="22dp"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/montserrat_semi_bold"
                 android:lineSpacingExtra="5sp"
                 android:text="@string/welcome_julie"
                 android:textAlignment="center"
@@ -40,17 +40,17 @@
                 android:id="@+id/tvProfileWelcomeDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="11sp"
-                android:textColor="@color/colorWhite"
-                android:lineSpacingExtra="4sp"
-                android:text="@string/view_profile_info"
-                android:layout_marginTop="2dp"
-                android:textAlignment="center"
-                android:fontFamily="@font/roboto_regular"
                 android:layout_below="@+id/tvProfileWelcome"
                 android:layout_marginStart="30dp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginBottom="23dp"/>
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="23dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/view_profile_info"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="11sp" />
         </RelativeLayout>
 
         <LinearLayout
@@ -86,27 +86,27 @@
                                 android:id="@+id/tvBonusValue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/_346"
-                                android:textSize="15sp"
-                                android:fontFamily="@font/roboto_bold"
-                                android:textColor="@android:color/black"
-                                android:textAlignment="center"
+                                android:layout_centerHorizontal="true"
+                                android:fontFamily="@font/montserrat_semi_bold"
                                 android:lineSpacingExtra="5sp"
-                                android:textStyle="bold"
-                                android:layout_centerHorizontal="true"/>
+                                android:text="@string/_346"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tvBonusLabel"
-                                android:layout_below="@+id/tvBonusValue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/bonus_points"
-                                android:textColor="@color/colorProductName"
-                                android:layout_marginTop="5dp"
-                                android:textSize="11sp"
-                                android:fontFamily="@font/roboto_regular"
+                                android:layout_below="@+id/tvBonusValue"
                                 android:layout_centerHorizontal="true"
-                                android:textAlignment="center"/>
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/montserrat_light"
+                                android:text="@string/bonus_points"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorProductName"
+                                android:textSize="11sp" />
                         </RelativeLayout>
                     </RelativeLayout>
 
@@ -134,27 +134,27 @@
                                 android:id="@+id/tvCreditsValue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/_5"
-                                android:textSize="15sp"
-                                android:fontFamily="@font/roboto_bold"
-                                android:textColor="@android:color/black"
-                                android:textAlignment="center"
+                                android:layout_centerHorizontal="true"
+                                android:fontFamily="@font/montserrat_semi_bold"
                                 android:lineSpacingExtra="5sp"
-                                android:textStyle="bold"
-                                android:layout_centerHorizontal="true"/>
+                                android:text="@string/_5"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tvCreditsLabel"
-                                android:layout_below="@+id/tvCreditsValue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/credits"
-                                android:textColor="@color/colorProductName"
-                                android:layout_marginTop="5dp"
-                                android:textSize="11sp"
-                                android:fontFamily="@font/roboto_regular"
+                                android:layout_below="@+id/tvCreditsValue"
                                 android:layout_centerHorizontal="true"
-                                android:textAlignment="center"/>
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/montserrat_light"
+                                android:text="@string/credits"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorProductName"
+                                android:textSize="11sp" />
                         </RelativeLayout>
                     </RelativeLayout>
 
@@ -177,31 +177,32 @@
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true">
+
                             <TextView
                                 android:id="@+id/tvLeaderboardValue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/_16"
-                                android:textSize="15sp"
-                                android:fontFamily="@font/roboto_bold"
-                                android:textColor="@android:color/black"
-                                android:textAlignment="center"
+                                android:layout_centerHorizontal="true"
+                                android:fontFamily="@font/montserrat_semi_bold"
                                 android:lineSpacingExtra="5sp"
-                                android:textStyle="bold"
-                                android:layout_centerHorizontal="true"/>
+                                android:text="@string/_16"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tvLeaderboardLabel"
-                                android:layout_below="@+id/tvLeaderboardValue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/leader_board"
-                                android:textColor="@color/colorProductName"
-                                android:layout_marginTop="5dp"
-                                android:textSize="11sp"
-                                android:fontFamily="@font/roboto_regular"
+                                android:layout_below="@+id/tvLeaderboardValue"
                                 android:layout_centerHorizontal="true"
-                                android:textAlignment="center"/>
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/montserrat_light"
+                                android:text="@string/leader_board"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorProductName"
+                                android:textSize="11sp" />
                         </RelativeLayout>
 
                     </RelativeLayout>
@@ -213,18 +214,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/colorSectionTitle"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="9.5dp"
+                    android:fontFamily="@font/montserrat_semi_bold"
                     android:lineSpacingExtra="4sp"
+                    android:padding="5dp"
                     android:text="@string/my_account"
                     android:textAllCaps="true"
-                    android:padding="5dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="9.5dp"/>
+                    android:textColor="@color/colorSectionTitle"
+                    android:textSize="11sp" />
 
             </RelativeLayout>
 
@@ -252,14 +254,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
-                        android:textSize="12sp"
-                        android:textColor="@color/colorSectionTitle"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="23dp"
                         android:layout_marginLeft="23dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:lineSpacingExtra="4sp"
                         android:text="@string/payment_methods"
-                        android:lineSpacingExtra="4sp"/>
+                        android:textColor="@color/colorSectionTitle"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -280,14 +282,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
-                        android:textSize="12sp"
-                        android:textColor="@color/colorSectionTitle"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="23dp"
                         android:layout_marginLeft="23dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:lineSpacingExtra="4sp"
                         android:text="@string/purchase_history"
-                        android:lineSpacingExtra="4sp"/>
+                        android:textColor="@color/colorSectionTitle"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -308,14 +310,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
-                        android:textSize="12sp"
-                        android:textColor="@color/colorSectionTitle"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="23dp"
                         android:layout_marginLeft="23dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:lineSpacingExtra="4sp"
                         android:text="@string/leader_board"
-                        android:lineSpacingExtra="4sp"/>
+                        android:textColor="@color/colorSectionTitle"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -336,14 +338,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
-                        android:textSize="12sp"
-                        android:textColor="@color/colorSectionTitle"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="23dp"
                         android:layout_marginLeft="23dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:lineSpacingExtra="4sp"
                         android:text="@string/recently_viewed"
-                        android:lineSpacingExtra="4sp"/>
+                        android:textColor="@color/colorSectionTitle"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -353,18 +355,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/colorSectionTitle"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="9.5dp"
+                    android:fontFamily="@font/montserrat_semi_bold"
                     android:lineSpacingExtra="4sp"
+                    android:padding="5dp"
                     android:text="@string/share"
                     android:textAllCaps="true"
-                    android:padding="5dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="9.5dp"/>
+                    android:textColor="@color/colorSectionTitle"
+                    android:textSize="11sp" />
 
             </RelativeLayout>
 
@@ -396,28 +399,28 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textSize="12sp"
-                            android:textColor="@color/colorSectionTitle"
-                            android:layout_toEndOf="@+id/ivInviteFriend"
+                            android:layout_centerVertical="true"
                             android:layout_marginStart="23dp"
                             android:layout_marginLeft="23dp"
-                            android:layout_centerVertical="true"
-                            android:text="@string/payment_methods"
+                            android:layout_toEndOf="@+id/ivInviteFriend"
+                            android:layout_toRightOf="@+id/ivInviteFriend"
+                            android:fontFamily="@font/montserrat_regular"
                             android:lineSpacingExtra="4sp"
-                            android:layout_toRightOf="@+id/ivInviteFriend" />
+                            android:text="@string/payment_methods"
+                            android:textColor="@color/colorSectionTitle"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="10sp"
-                            android:textColor="@color/colorBottomBorder"
-                            android:fontFamily="@font/roboto_medium"
-                            android:lineSpacingExtra="3sp"
-                            android:text="@string/earn_20_points"
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"/>
+                            android:layout_centerVertical="true"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:lineSpacingExtra="3sp"
+                            android:text="@string/earn_20_points"
+                            android:textColor="@color/colorBottomBorder"
+                            android:textSize="10sp" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -439,14 +442,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
-                        android:textSize="12sp"
-                        android:textColor="@color/colorSectionTitle"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="23dp"
                         android:layout_marginLeft="23dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:lineSpacingExtra="4sp"
                         android:text="@string/transfer_points"
-                        android:lineSpacingExtra="4sp"/>
+                        android:textColor="@color/colorSectionTitle"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
             </LinearLayout>

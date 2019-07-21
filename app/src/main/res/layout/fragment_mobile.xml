@@ -12,17 +12,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/tvMobileLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
             android:layout_marginBottom="40dp"
-            android:fontFamily="@font/roboto_regular"
-            android:textStyle="normal"
-            android:textColor="@color/colorBottomBorder"
+            android:fontFamily="@font/montserrat_regular"
             android:lineSpacingExtra="5sp"
-            android:text="@string/enter_number"/>
+            android:text="@string/enter_number"
+            android:textColor="@color/colorBottomBorder"
+            android:textSize="14sp"
+            android:textStyle="normal" />
 
         <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
             android:id="@+id/tlenterNumber"
@@ -37,37 +38,38 @@
                 android:id="@+id/enterNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/tvMobileLabel"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/textview_bg"
+                android:digits="0123456789"
+                android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/enter_your_mobile_number"
                 android:inputType="phone"
-                android:digits="0123456789"
-                android:layout_marginTop="10dp"
-                android:maxLength="10"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:textSize="14sp"
-                android:fontFamily="@font/roboto_regular"
-                android:textStyle="normal"
                 android:lineSpacingExtra="5sp"
-                android:textColorHint="@color/colorBottomBorder"
+                android:maxLength="10"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp"
                 android:textColor="@color/colorProductName"
-                android:layout_below="@+id/tvMobileLabel"/>
+                android:textColorHint="@color/colorBottomBorder"
+                android:textSize="14sp"
+                android:textStyle="normal" />
         </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
 
         <TextView
             android:id="@+id/tvTerms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:fontFamily="@font/roboto_regular"
-            android:textStyle="normal"
-            android:textColor="@color/colorEditCancelUndoButtonLinks"
-            android:lineSpacingExtra="5sp"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/tlenterNumber"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:lineSpacingExtra="5sp"
             android:text="@string/service_terms"
-            android:layout_marginTop="30dp"/>
+            android:textColor="@color/colorEditCancelUndoButtonLinks"
+            android:textSize="13sp"
+            android:textStyle="normal" />
 
         <Button
             android:id="@+id/btnNumber"
@@ -77,13 +79,13 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="486dp"
             android:background="@drawable/button_bg"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/montserrat_regular"
             android:lineSpacingExtra="4sp"
             android:text="@string/continue_btn"
             android:textAllCaps="false"
             android:textColor="@color/buttonColor"
             android:textSize="16sp"
-            android:textStyle="normal"/>
+            android:textStyle="normal" />
     </RelativeLayout>
 
 </ScrollView>

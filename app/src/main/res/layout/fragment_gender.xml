@@ -17,17 +17,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp">
+
                 <TextView
                     android:id="@+id/tvGenderLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textStyle="normal"
-                    android:textColor="@color/colorBottomBorder"
+                    android:fontFamily="@font/montserrat_regular"
                     android:lineSpacingExtra="5sp"
-                    android:text="@string/select_your_gender"/>
+                    android:text="@string/select_your_gender"
+                    android:textColor="@color/colorBottomBorder"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
 
                 <RadioGroup
                     android:id="@+id/rgChannel"
@@ -36,27 +37,27 @@
                     android:orientation="vertical"
                     android:layout_marginTop="23dp"
                     android:layout_below="@+id/tvGenderLabel">
+
                     <RadioButton
                         android:id="@+id/radioMale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
                         android:text="@string/male"
-                        android:textSize="14sp"
-                        android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/colorBottomBorder"
-                        android:theme="@style/MyRadioButton"/>
+                        android:textSize="14sp"
+                        android:theme="@style/MyRadioButton" />
+
                     <RadioButton
                         android:id="@+id/radioFemale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
                         android:text="@string/female"
-                        android:textSize="14sp"
-                        android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/colorBottomBorder"
-                        android:theme="@style/MyRadioButton"
-                        />
+                        android:textSize="14sp"
+                        android:theme="@style/MyRadioButton" />
                 </RadioGroup>
-
 
 
                 <Button
@@ -67,13 +68,13 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="486dp"
                     android:background="@drawable/signin_button"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/montserrat_regular"
                     android:lineSpacingExtra="4sp"
                     android:text="@string/finish"
                     android:textAllCaps="false"
                     android:textColor="@color/colorWhite"
                     android:textSize="16sp"
-                    android:textStyle="normal"/>
+                    android:textStyle="normal" />
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>

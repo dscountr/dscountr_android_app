@@ -23,15 +23,15 @@
                     android:id="@+id/tvWelcome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="normal"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="54.5dp"
+                    android:fontFamily="@font/montserrat_extra_bold"
                     android:lineSpacingExtra="6sp"
                     android:text="@string/welcome_julie"
-                    android:layout_marginTop="54.5dp"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginLeft="35dp" />
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
 
                 <View
                     android:id="@+id/vWelcome"
@@ -46,18 +46,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/roboto_medium_italic"
                     android:layout_below="@+id/vWelcome"
-                    android:textStyle="italic"
-                    android:textColor="@color/colorMainBackgroundSomePages"
-                    android:layout_marginTop="20.5dp"
                     android:layout_marginStart="35dp"
                     android:layout_marginLeft="35dp"
+                    android:layout_marginTop="20.5dp"
                     android:layout_marginEnd="56dp"
+                    android:layout_marginRight="56dp"
+                    android:fontFamily="@font/montserrat_regular"
                     android:lineSpacingExtra="5sp"
                     android:text="@string/enjoy_great_discounts"
-                    android:layout_marginRight="56dp" />
+                    android:textColor="@color/colorMainBackgroundSomePages"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
 
             </RelativeLayout>
 
@@ -70,17 +70,18 @@
                 android:layout_below="@+id/rlWelcome"
                 android:layout_marginStart="35dp"
                 android:layout_marginEnd="32dp">
+
                 <TextView
                     android:id="@+id/tvWelcomeMessage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:layout_marginTop="70dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textStyle="normal"
-                    android:textColor="@color/colorBottomBorder"
+                    android:fontFamily="@font/montserrat_regular"
                     android:lineSpacingExtra="5sp"
-                    android:text="@string/have_any_questions"/>
+                    android:text="@string/have_any_questions"
+                    android:textColor="@color/colorBottomBorder"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
 
                 <Button
                     android:id="@+id/btnStartNow"
@@ -90,13 +91,13 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="300dp"
                     android:background="@drawable/button_bg"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/montserrat_regular"
                     android:lineSpacingExtra="4sp"
                     android:text="@string/start_now"
                     android:textAllCaps="false"
                     android:textColor="@color/buttonColor"
                     android:textSize="16sp"
-                    android:textStyle="normal"/>
+                    android:textStyle="normal" />
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>

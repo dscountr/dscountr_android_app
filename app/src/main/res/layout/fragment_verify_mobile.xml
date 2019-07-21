@@ -24,13 +24,13 @@
                     android:id="@+id/tvMobileLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textStyle="normal"
-                    android:textColor="@color/colorBottomBorder"
+                    android:fontFamily="@font/montserrat_regular"
                     android:lineSpacingExtra="5sp"
-                    android:text="@string/enter_verification_code"/>
+                    android:text="@string/enter_verification_code"
+                    android:textColor="@color/colorBottomBorder"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
 
                 <dscountr.app.co.ke.dscountr_android_app.view.utils.CodeEntryEditText
                     android:id="@+id/enterNumberVerification"
@@ -53,15 +53,15 @@
                     android:id="@+id/tvResendVerificationCode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textStyle="normal"
-                    android:textColor="@color/colorEditCancelUndoButtonLinks"
-                    android:lineSpacingExtra="5sp"
-                    android:layout_centerHorizontal="true"
                     android:layout_below="@+id/enterNumberVerification"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:lineSpacingExtra="5sp"
                     android:text="@string/resend_verification_code"
-                    android:layout_marginTop="30dp"/>
+                    android:textColor="@color/colorEditCancelUndoButtonLinks"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
 
                 <Button
                     android:id="@+id/btnNumberVerificaton"
@@ -71,13 +71,13 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="440dp"
                     android:background="@drawable/button_bg"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/montserrat_regular"
                     android:lineSpacingExtra="4sp"
                     android:text="@string/verify_phone"
                     android:textAllCaps="false"
                     android:textColor="@color/buttonColor"
                     android:textSize="16sp"
-                    android:textStyle="normal"/>/>
+                    android:textStyle="normal" />/>
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>

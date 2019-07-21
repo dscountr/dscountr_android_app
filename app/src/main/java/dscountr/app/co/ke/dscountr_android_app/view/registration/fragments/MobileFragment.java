@@ -107,7 +107,7 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
             int position = list.indexOf(getDeviceCountryCode());
             String code = CountryData.countryAreaCodes[position];
             bundle.putString("phone_number", phone_number.startsWith("+") ? phone_number : "+" + code + phone_number);
-            Fragment verifyMobile = new FullNamesFragment();
+            Fragment verifyMobile = new VerifyMobileFragment();
             verifyMobile.setArguments(bundle);
             loadFragment(verifyMobile);
         }

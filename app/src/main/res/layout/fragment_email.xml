@@ -26,32 +26,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/textview_bg"
+                android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/enter_your_email_address"
                 android:inputType="textEmailAddress"
+                android:lineSpacingExtra="5sp"
+                android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:textSize="14sp"
-                android:fontFamily="@font/roboto_regular"
-                android:textStyle="normal"
-                android:lineSpacingExtra="5sp"
+                android:textColor="@color/colorProductName"
                 android:textColorHint="@color/colorBottomBorder"
-                android:textColor="@color/colorProductName" />
+                android:textSize="14sp"
+                android:textStyle="normal" />
         </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
 
         <TextView
             android:id="@+id/tvWhyEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:fontFamily="@font/roboto_regular"
-            android:textStyle="normal"
-            android:textColor="@color/colorEditCancelUndoButtonLinks"
-            android:lineSpacingExtra="5sp"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/tlenterEmail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:lineSpacingExtra="5sp"
             android:text="@string/why_email"
-            android:layout_marginTop="30dp"/>
+            android:textColor="@color/colorEditCancelUndoButtonLinks"
+            android:textSize="13sp"
+            android:textStyle="normal" />
 
         <Button
             android:id="@+id/btnEmail"
@@ -61,13 +61,13 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="486dp"
             android:background="@drawable/button_bg"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/montserrat_regular"
             android:lineSpacingExtra="4sp"
             android:text="@string/continue_btn"
             android:textAllCaps="false"
             android:textColor="@color/buttonColor"
             android:textSize="16sp"
-            android:textStyle="normal"/>
+            android:textStyle="normal" />
 
     </RelativeLayout>
 </ScrollView>

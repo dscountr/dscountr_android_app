@@ -20,23 +20,24 @@
             android:id="@+id/tvWelcomeBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="15sp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/colorSectionTitle"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:lineSpacingExtra="5sp"
-            android:text="@string/welcome_back"/>
+            android:text="@string/welcome_back"
+            android:textColor="@color/colorSectionTitle"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/tvEnterMobile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:layout_marginTop="32dp"
-            android:textColor="@color/colorSectionTitle"
-            android:lineSpacingExtra="5sp"
             android:layout_below="@+id/tvWelcomeBack"
-            android:text="@string/enter_your_number"/>
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:lineSpacingExtra="5sp"
+            android:text="@string/enter_your_number"
+            android:textColor="@color/colorSectionTitle"
+            android:textSize="15sp" />
 
         <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
             android:id="@+id/tlenterNumber"
@@ -53,51 +54,51 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/textview_bg"
+                android:digits="0123456789"
+                android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/enter_your_mobile_number"
                 android:inputType="phone"
-                android:digits="0123456789"
+                android:lineSpacingExtra="5sp"
                 android:maxLength="10"
+                android:paddingLeft="24dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:paddingLeft="24dp"
-                android:textSize="14sp"
-                android:fontFamily="@font/roboto_regular"
-                android:textStyle="normal"
-                android:lineSpacingExtra="5sp"
+                android:textColor="@color/colorProductName"
                 android:textColorHint="@color/colorBottomBorder"
-                android:textColor="@color/colorProductName" />
+                android:textSize="14sp"
+                android:textStyle="normal" />
         </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
 
         <TextView
             android:id="@+id/tvTerms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:fontFamily="@font/roboto_regular"
-            android:textStyle="normal"
-            android:textColor="@color/colorEditCancelUndoButtonLinks"
-            android:lineSpacingExtra="5sp"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/tlenterNumber"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:lineSpacingExtra="5sp"
             android:text="@string/service_terms"
-            android:layout_marginTop="30dp"/>
+            android:textColor="@color/colorEditCancelUndoButtonLinks"
+            android:textSize="13sp"
+            android:textStyle="normal" />
 
         <Button
             android:id="@+id/btnNumber"
             android:layout_width="280dp"
             android:layout_height="35dp"
             android:layout_below="@+id/tvTerms"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
+            android:background="@drawable/signin_button"
+            android:fontFamily="@font/montserrat_regular"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/continue_reg"
+            android:textAllCaps="true"
             android:textColor="@color/colorWhite"
             android:textSize="11sp"
-            android:text="@string/continue_reg"
-            android:fontFamily="@font/roboto_medium"
-            android:lineSpacingExtra="4sp"
             android:textStyle="normal"
-            android:layout_centerHorizontal="true"
-            android:textAllCaps="true"
-            android:background="@drawable/signin_button"
-            app:textAllCaps="false"/>
+            app:textAllCaps="false" />
 
 
         <View
@@ -113,28 +114,28 @@
             android:id="@+id/tvNewCustomer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="13sp"
-            android:textColor="@android:color/black"
-            android:lineSpacingExtra="5sp"
-            android:layout_marginTop="13.5dp"
             android:layout_below="@+id/vNumberHorizontal"
-            android:text="@string/are_you_a_new_customer"/>
+            android:layout_marginTop="13.5dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:lineSpacingExtra="5sp"
+            android:text="@string/are_you_a_new_customer"
+            android:textColor="@android:color/black"
+            android:textSize="13sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:fontFamily="@font/roboto_medium"
-            android:textColor="@color/colorEditCancelUndoButtonLinks"
-            android:lineSpacingExtra="5sp"
-            android:text="@string/sign_up"
-            android:layout_marginTop="13.5dp"
-            android:layout_marginStart="76dp"
             android:layout_below="@+id/vNumberHorizontal"
+            android:layout_marginStart="76dp"
+            android:layout_marginLeft="76dp"
+            android:layout_marginTop="13.5dp"
             android:layout_toEndOf="@+id/tvNewCustomer"
             android:layout_toRightOf="@+id/tvNewCustomer"
-            android:layout_marginLeft="76dp" />
+            android:fontFamily="@font/montserrat_regular"
+            android:lineSpacingExtra="5sp"
+            android:text="@string/sign_up"
+            android:textColor="@color/colorEditCancelUndoButtonLinks"
+            android:textSize="13sp" />
 
         <View
             android:id="@+id/vNewCustomerHorizontal"

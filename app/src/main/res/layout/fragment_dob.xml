@@ -29,18 +29,18 @@
 
                 android:drawableEnd="@drawable/ic_event_gray_24dp"
                 android:drawableRight="@drawable/ic_event_gray_24dp"
+                android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/add_your_date_of_birth"
                 android:inputType="text"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:paddingLeft="24dp"
-                android:paddingRight="24dp"
-                android:textSize="14sp"
-                android:fontFamily="@font/roboto_regular"
-                android:textStyle="normal"
                 android:lineSpacingExtra="5sp"
+                android:paddingLeft="24dp"
+                android:paddingTop="10dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/colorProductName"
                 android:textColorHint="@color/colorBottomBorder"
-                android:textColor="@color/colorProductName" />
+                android:textSize="14sp"
+                android:textStyle="normal" />
         </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
 
         <Button
@@ -51,7 +51,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="486dp"
             android:background="@drawable/button_bg"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/montserrat_regular"
             android:lineSpacingExtra="4sp"
             android:text="@string/continue_btn"
             android:textAllCaps="false"

@@ -2,6 +2,7 @@ package dscountr.app.co.ke.dscountr_android_app.view;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +38,9 @@ import dscountr.app.co.ke.dscountr_android_app.view.utils.SharedPrefManager;
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, Toolbar.OnMenuItemClickListener, View.OnClickListener {
 
+
+    SharedPrefManager sharePreferenceManager;
+    TextView navHeaderTitle;
     public static String TAG = Main2Activity.class.getSimpleName();
     private Toolbar toolbar;
 
@@ -46,14 +51,19 @@ public class Main2Activity extends AppCompatActivity
         toolbar = findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.main_menu);
         toolbar.setOnMenuItemClickListener(this);
+
+        sharePreferenceManager = SharedPrefManager.getInstance(getApplicationContext());
+//        navName = findViewById(R.id.navName);
+
         initToolBar();
         initNavigation();
+        loadFullName();
 
         TextView fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Start Sopping...", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Start Shopping...", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -74,6 +84,22 @@ public class Main2Activity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+        }
+    }
+
+    private void loadFullName(){
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+
+        navigationView.setNavigationItemSelectedListener(this);
+        View hView =  navigationView.getHeaderView(0);
+        TextView headerName = hView.findViewById(R.id.navHeaderTitle);
+
+        if (sharePreferenceManager.getKeyFirstName() != null){
+            headerName.setText(String.format("%s %s", sharePreferenceManager.getKeyFirstName(), sharePreferenceManager.getKeyLastName()));
+        }else{
+            headerName.setText("Missing!");
+            headerName.setTextColor(Color.parseColor("#FC4500"));
         }
     }
 
