@@ -95,9 +95,6 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
         }
     }
 
-    
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -185,7 +182,7 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
         Log.e(TAG, mobile);
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 mobile,
-                60,
+                120,
                 TimeUnit.SECONDS,
                 TaskExecutors.MAIN_THREAD,
                 mCallbacks);
