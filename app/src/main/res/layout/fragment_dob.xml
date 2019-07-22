@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="20dp"
-    android:scrollbars="none"
     android:background="@color/colorWhite"
+    android:clipToPadding="false"
     android:paddingBottom="10dp"
-    android:clipToPadding="false">
+    android:scrollbars="none">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvEmailLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:lineSpacingExtra="5sp"
+            android:text="@string/enter_dob"
+            android:textColor="@color/colorBottomBorder"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
         <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
             android:id="@+id/tlenterDOB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:errorTextAppearance="@style/Error_Appearance"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            app:errorTextAppearance="@style/Error_Appearance"
             app:hintTextAppearance="@style/TextAppearence.TextInputLayout.Primary">
 
             <com.google.android.material.textfield.TextInputEditText

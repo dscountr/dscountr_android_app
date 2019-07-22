@@ -34,7 +34,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener, View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener, View.OnClickListener {
 
     public static String TAG = LoginActivity.class.getSimpleName();
     TextInputEditText enterNumber;
@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
     public boolean onMenuItemClick(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.miRegistrationHelp:
-                Toast.makeText(LoginActivity.this, "Sign in help.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Sign in help.", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return false;
@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
                 phoneNumberValidation();
                 break;
             case R.id.tvTerms:
-                Toast.makeText(LoginActivity.this, "Our terms and conditions.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Our terms and conditions.", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
@@ -84,15 +84,15 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
         }
     }
 
-    private void phoneNumberValidation(){
+    private void phoneNumberValidation() {
         String phone_number = enterNumber.getText().toString();
-        if(TextUtils.isEmpty(phone_number)){
+        if (TextUtils.isEmpty(phone_number)) {
             tlenterNumber.setError("Please enter phone number.");
             enterNumber.setBackground(ContextCompat.getDrawable(LoginActivity.this, R.drawable.error_bottom_edittext));
-        }else if(!isValidPhoneNumber(phone_number) || phone_number.length() != 10){
+        } else if (!isValidPhoneNumber(phone_number) || phone_number.length() != 10) {
             tlenterNumber.setError("Please enter valid phone number.");
             enterNumber.setBackground(ContextCompat.getDrawable(LoginActivity.this, R.drawable.error_bottom_edittext));
-        }else{
+        } else {
             // set Error To Null
             tlenterNumber.setError(null);
             tlenterNumber.setErrorEnabled(false);
@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
             List list = Arrays.asList(CountryData.countryISO);
             int position = list.indexOf(getDeviceCountryCode());
             String code = CountryData.countryAreaCodes[position];
-            if (pd == null){
+            if (pd == null) {
                 pd = new ProgressDialog(LoginActivity.this);
                 pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 pd.setTitle("User sign in");
@@ -134,7 +134,7 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
 
         // try to get country code from TelephonyManager service
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        if(tm != null) {
+        if (tm != null) {
             // query first getSimCountryIso()
             countryCode = tm.getSimCountryIso();
             if (countryCode != null && countryCode.length() == 2)
@@ -155,7 +155,7 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
         return "KE";
     }
 
-    private void userLogin(String phone_number){
+    private void userLogin(String phone_number) {
 
         MainApplication.apiManager.loginUser(phone_number, new Callback<User>() {
             @Override
@@ -167,10 +167,10 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
                     SharedPrefManager.getInstance(getApplicationContext()).setKeyToken(responseUser.getToken());
                     finish();
                 } else {
-                    Toast.makeText(LoginActivity.this,String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
                 }
 
-                if(pd != null && pd.isShowing()){
+                if (pd != null && pd.isShowing()) {
                     pd.dismiss();
                     pd = null;
                 }
@@ -179,7 +179,7 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 Log.e(TAG, "Error is " + t.toString());
-                Toast.makeText(LoginActivity.this,  "Error is " + t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "Error is " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,14 +31,16 @@ import java.util.List;
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.CountryData;
 
-public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
+public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener {
 
     TextInputEditText enterNumber;
     TextInputLayout tlenterNumber;
+    CheckBox radioAgree;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View mobile = inflater.inflate(R.layout.fragment_mobile, container, false);
+        final View mobile = inflater.inflate(R.layout.fragment_mobile, container, false);
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         toolbar.setOnMenuItemClickListener(this);
         Button btnNumber = mobile.findViewById(R.id.btnNumber);
@@ -47,6 +50,7 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
 
         enterNumber = mobile.findViewById(R.id.enterNumber);
         tlenterNumber = mobile.findViewById(R.id.tlenterNumber);
+        radioAgree = mobile.findViewById(R.id.radioAgree);
 
         return mobile;
     }
@@ -66,7 +70,7 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.miRegistrationHelp:
-                Toast.makeText(getActivity(), "Mobile number help.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Mobile number help.", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return false;
@@ -80,7 +84,7 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
                 phoneNumberValidation();
                 break;
             case R.id.tvTerms:
-                Toast.makeText(getActivity(), "Our terms and conditions.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Our terms and conditions.", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
@@ -88,15 +92,19 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
         }
     }
 
-    private void phoneNumberValidation(){
+
+    private void phoneNumberValidation() {
         String phone_number = enterNumber.getText().toString();
-        if(TextUtils.isEmpty(phone_number)){
+        if (!radioAgree.isChecked()) {
+            radioAgree.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
+            Toast.makeText(getActivity(), "Please Agree to the Terms of Service and Privacy Policy", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(phone_number)) {
             tlenterNumber.setError("Please enter phone number.");
             enterNumber.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
-        }else if(!isValidPhoneNumber(phone_number) || phone_number.length() != 10){
+        } else if (!isValidPhoneNumber(phone_number) || phone_number.length() != 10) {
             tlenterNumber.setError("Please enter valid phone number.");
             enterNumber.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.error_bottom_edittext));
-        }else{
+        } else {
             // set Error To Null
             tlenterNumber.setError(null);
             tlenterNumber.setErrorEnabled(false);
@@ -133,7 +141,7 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
 
         // try to get country code from TelephonyManager service
         TelephonyManager tm = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
-        if(tm != null) {
+        if (tm != null) {
             // query first getSimCountryIso()
             countryCode = tm.getSimCountryIso();
             if (countryCode != null && countryCode.length() == 2)

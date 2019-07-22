@@ -1,8 +1,5 @@
 package dscountr.app.co.ke.dscountr_android_app.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,13 +9,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.SharedPrefManager;
 
-public class ProfileActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener, View.OnClickListener{
+public class ProfileActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener, View.OnClickListener {
 
     TextView tvProfileNameValue;
     SharedPrefManager sharePreferenceManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,6 @@ public class ProfileActivity extends AppCompatActivity implements Toolbar.OnMenu
 
         sharePreferenceManager = SharedPrefManager.getInstance(getApplicationContext());
         RelativeLayout rlProfile = findViewById(R.id.rlProfile);
-
 
 
         tvProfileNameValue = findViewById(R.id.tvProfileWelcome);
@@ -46,10 +46,10 @@ public class ProfileActivity extends AppCompatActivity implements Toolbar.OnMenu
         });
     }
 
-    private void loadWelcomeName(){
-        if (sharePreferenceManager.getKeyFirstName() != null){
+    private void loadWelcomeName() {
+        if (sharePreferenceManager.getKeyFirstName() != null) {
             tvProfileNameValue.setText(String.format("Hello %s!", sharePreferenceManager.getKeyFirstName()));
-        }else{
+        } else {
             tvProfileNameValue.setText("Missing!");
             tvProfileNameValue.setTextColor(Color.parseColor("#FC4500"));
         }
@@ -72,7 +72,7 @@ public class ProfileActivity extends AppCompatActivity implements Toolbar.OnMenu
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.miProfile:
-                Toast.makeText(ProfileActivity.this, "Sign out",Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileActivity.this, "Sign out", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return false;

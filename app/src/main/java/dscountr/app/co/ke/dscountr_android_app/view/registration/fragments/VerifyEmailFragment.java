@@ -28,7 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.CodeEntryEditText;
 
-public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
+public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener {
 
     public static String TAG = VerifyEmailFragment.class.getSimpleName();
     String phone_number = null, phone_number_verification_code = null, first_name = null, last_name = null, email = null;
@@ -57,7 +57,7 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
         buildActionCodeSettings();
 
         Bundle args = this.getArguments();
-        if(args != null){
+        if (args != null) {
             phone_number = args.getString("phone_number");
             phone_number_verification_code = args.getString("phone_number_verification_code");
             first_name = args.getString("first_name");
@@ -86,7 +86,7 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.miRegistrationHelp:
-                Toast.makeText(getActivity(), "Email verification code help.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Email verification code help.", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return false;
@@ -100,10 +100,10 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
                 verifyEmailCode();
                 break;
             case R.id.llVerifyBack:
-                Toast.makeText(getActivity(), "You clicked the back button.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "You clicked the back button.", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tvResendVerificationCode:
-                Toast.makeText(getActivity(), "Resend the email verification code.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Resend the email verification code.", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
@@ -111,13 +111,13 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
         }
     }
 
-    private void verifyEmailCode(){
+    private void verifyEmailCode() {
         String email_verification_code = enterEmailVerification.getText().toString();
-        if (TextUtils.isEmpty(email_verification_code)){
-            Toast.makeText(getActivity(), "Please enter email verification code.",Toast.LENGTH_SHORT).show();
-        }else if (email_verification_code.length() < 6){
-            Toast.makeText(getActivity(), "Email verification code isn't complete.",Toast.LENGTH_SHORT).show();
-        }else{
+        if (TextUtils.isEmpty(email_verification_code)) {
+            Toast.makeText(getActivity(), "Please enter email verification code.", Toast.LENGTH_SHORT).show();
+        } else if (email_verification_code.length() < 6) {
+            Toast.makeText(getActivity(), "Email verification code isn't complete.", Toast.LENGTH_SHORT).show();
+        } else {
             Bundle bundle = new Bundle();
             bundle.putString("phone_number", phone_number);
             bundle.putString("phone_number_verification_code", phone_number_verification_code);
@@ -145,17 +145,17 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
     public void buildActionCodeSettings() {
         // [START auth_build_action_code_settings]
         actionCodeSettings = ActionCodeSettings.newBuilder()
-                        // URL you want to redirect back to. The domain (www.example.com) for this
-                        // URL must be whitelisted in the Firebase Console.
-                        .setUrl("https://dscountr-app.co.ke/finishSignUp?cartId=1234")
-                        // This must be true
-                        .setHandleCodeInApp(true)
-                        .setIOSBundleId("dscountr.app.co.ke.ios")
-                        .setAndroidPackageName(
-                                "dscountr.app.co.ke.dscountr_android_app",
-                                true, /* installIfNotAvailable */
-                                "16"    /* minimumVersion */)
-                        .build();
+                // URL you want to redirect back to. The domain (www.example.com) for this
+                // URL must be whitelisted in the Firebase Console.
+                .setUrl("https://dscountr-app.co.ke/finishSignUp?cartId=1234")
+                // This must be true
+                .setHandleCodeInApp(true)
+                .setIOSBundleId("dscountr.app.co.ke.ios")
+                .setAndroidPackageName(
+                        "dscountr.app.co.ke.dscountr_android_app",
+                        true, /* installIfNotAvailable */
+                        "16"    /* minimumVersion */)
+                .build();
         // [END auth_build_action_code_settings]
     }
 
@@ -166,9 +166,9 @@ public class VerifyEmailFragment extends Fragment implements Toolbar.OnMenuItemC
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             enterEmailVerification.setText(phone_number_verification_code);
-                            Toast.makeText(getActivity(), "Email sent successful.",Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(getActivity(), "Failed to sent email link.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Email sent successful.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getActivity(), "Failed to sent email link.", Toast.LENGTH_SHORT).show();
                         }
                         enterEmailVerification.setText(phone_number_verification_code);
                     }

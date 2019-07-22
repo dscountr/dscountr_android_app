@@ -24,10 +24,9 @@ public class RegisterActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.registration_menu);
         // load Fragment
-//        FirebaseAuth.getInstance().signOut();
         if (FirebaseAuth.getInstance().getCurrentUser() != null || SharedPrefManager.getInstance(getApplicationContext()).getKeyPhoneNumber() != null) {
             loadFragment(new WelcomeFragment());
-        }else{
+        } else {
             loadFragment(new MobileFragment());
         }
     }

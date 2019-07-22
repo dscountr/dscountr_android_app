@@ -3,9 +3,7 @@ package dscountr.app.co.ke.dscountr_android_app.view.registration.fragments;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,12 +21,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.view.Main2Activity;
-import dscountr.app.co.ke.dscountr_android_app.view.MainActivity;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.SharedPrefManager;
 
-import static android.content.Context.MODE_PRIVATE;
-
-public class WelcomeFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
+public class WelcomeFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener {
 
     SharedPrefManager sharePreferenceManager;
     TextView tvWelcome;
@@ -55,10 +50,10 @@ public class WelcomeFragment extends Fragment implements Toolbar.OnMenuItemClick
         return gender;
     }
 
-    private void loadWelcomeName(){
-        if (sharePreferenceManager.getKeyFirstName() != null){
+    private void loadWelcomeName() {
+        if (sharePreferenceManager.getKeyFirstName() != null) {
             tvWelcome.setText(String.format("Welcome %s!", sharePreferenceManager.getKeyFirstName()));
-        }else{
+        } else {
             tvWelcome.setText("Missing!");
             tvWelcome.setTextColor(Color.parseColor("#FC4500"));
         }
@@ -79,7 +74,7 @@ public class WelcomeFragment extends Fragment implements Toolbar.OnMenuItemClick
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.miRegistrationHelp:
-                Toast.makeText(getActivity(), "Gender help.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Gender help.", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return false;
@@ -96,7 +91,7 @@ public class WelcomeFragment extends Fragment implements Toolbar.OnMenuItemClick
                 getActivity().finish();
                 break;
             case R.id.llVerifyBack:
-                Toast.makeText(getActivity(), "You clicked the back button.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "You clicked the back button.", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;

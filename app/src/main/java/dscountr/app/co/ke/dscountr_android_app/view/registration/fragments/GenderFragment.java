@@ -35,7 +35,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
+public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener {
 
     public static String TAG = GenderFragment.class.getSimpleName();
     String phone_number = null, phone_number_verification_code = null, email = null, email_verification_code = null, date_of_birth = null, gender = null, first_name = null, last_name = null;
@@ -55,7 +55,7 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
         llVerifyBack.setOnClickListener(this);
 
         Bundle args = this.getArguments();
-        if(args != null){
+        if (args != null) {
             phone_number = args.getString("phone_number");
             phone_number_verification_code = args.getString("phone_number_verification_code");
             email = args.getString("email");
@@ -82,19 +82,13 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
         RadioGroup rgChannel = view_gender.findViewById(R.id.rgChannel);
         radioMale = view_gender.findViewById(R.id.radioMale);
         radioFemale = view_gender.findViewById(R.id.radioFemale);
-//        if (){
-//            radioMale.setChecked(true);
-//            radioFemale.setChecked(false);
-//        }else{
-//            radioFemale.setChecked(true);
-//            radioMale.setChecked(false);
-//        }
+//
         // Add the Listener to the RadioGroup
-        rgChannel.setOnCheckedChangeListener( new RadioGroup.OnCheckedChangeListener() {
+        rgChannel.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // Get the selected Radio Button
-                RadioButton radioButton  = group.findViewById(checkedId);
+                RadioButton radioButton = group.findViewById(checkedId);
                 gender = radioButton.getText().toString();
             }
         });
@@ -117,7 +111,7 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.miRegistrationHelp:
-                Toast.makeText(getActivity(), "Gender help.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Gender help.", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return false;
@@ -131,7 +125,7 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
                 validateGender();
                 break;
             case R.id.llVerifyBack:
-                Toast.makeText(getActivity(), "You clicked the back button.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "You clicked the back button.", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
@@ -139,9 +133,9 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
         }
     }
 
-    private void validateGender(){
-        if (gender != null){
-            if (pd == null){
+    private void validateGender() {
+        if (gender != null) {
+            if (pd == null) {
                 pd = new ProgressDialog(getActivity());
                 pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 pd.setTitle("User registration");
@@ -149,22 +143,20 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
                 pd.setIndeterminate(false);
             }
             pd.show();
-            userRegistration(email, phone_number, date_of_birth, gender.substring(0, 1),first_name, last_name);
-        }else{
-            Toast.makeText(getActivity(), "Please select your gender to proceed.",Toast.LENGTH_SHORT).show();
+            userRegistration(email, phone_number, date_of_birth, gender.substring(0, 1), first_name, last_name);
+        } else {
+            Toast.makeText(getActivity(), "Please select your gender to proceed.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void userRegistration(String email, String phone_number, String date_of_birth, String gender, String first_name, String last_name){
+    private void userRegistration(String email, String phone_number, String date_of_birth, String gender, String first_name, String last_name) {
         User user = new User(email, phone_number, date_of_birth, gender, first_name, last_name);
 
         MainApplication.apiManager.registerUser(user, new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 User responseUser = response.body();
-//                Log.e(TAG, response.body().toString());
                 if (response.isSuccessful() && responseUser != null) {
-//                    Log.e(TAG, responseUser.toString());
                     Log.e(TAG, responseUser.getPhone_number());
                     Toast.makeText(getActivity(), "Registration successful.", Toast.LENGTH_LONG).show();
                     SharedPrefManager.getInstance(getActivity()).setKeyUser(responseUser.getEmail(), responseUser.getPhone_number(), responseUser.getGender(), responseUser.getDate_of_birth(), responseUser.getFirst_name(), responseUser.getLast_name());
@@ -173,30 +165,30 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
                     try {
                         JSONObject jObjError = new JSONObject(response.errorBody().string());
                         Log.e(TAG, "There is an error");
-                        if(jObjError.has("email")){
+                        if (jObjError.has("email")) {
                             Toast.makeText(getActivity(), jObjError.getString("email"), Toast.LENGTH_LONG).show();
-                        }else if(jObjError.has("gender")){
-                            Toast.makeText(getActivity(),jObjError.getString("gender"), Toast.LENGTH_LONG).show();
-                        }else if(jObjError.has("date_of_birth")){
-                            Toast.makeText(getActivity(),jObjError.getString("date_of_birth"), Toast.LENGTH_LONG).show();
-                        }else if(jObjError.has("phone_number")){
-                            Toast.makeText(getActivity(),jObjError.getString("phone_number"), Toast.LENGTH_LONG).show();
-                        }else if(jObjError.has("first_name")){
-                            Toast.makeText(getActivity(),jObjError.getString("first_name"), Toast.LENGTH_LONG).show();
-                        }else if(jObjError.has("last_name")){
-                            Toast.makeText(getActivity(),jObjError.getString("last_name"), Toast.LENGTH_LONG).show();
-                        }else{
-                            Toast.makeText(getActivity(),String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
+                        } else if (jObjError.has("gender")) {
+                            Toast.makeText(getActivity(), jObjError.getString("gender"), Toast.LENGTH_LONG).show();
+                        } else if (jObjError.has("date_of_birth")) {
+                            Toast.makeText(getActivity(), jObjError.getString("date_of_birth"), Toast.LENGTH_LONG).show();
+                        } else if (jObjError.has("phone_number")) {
+                            Toast.makeText(getActivity(), jObjError.getString("phone_number"), Toast.LENGTH_LONG).show();
+                        } else if (jObjError.has("first_name")) {
+                            Toast.makeText(getActivity(), jObjError.getString("first_name"), Toast.LENGTH_LONG).show();
+                        } else if (jObjError.has("last_name")) {
+                            Toast.makeText(getActivity(), jObjError.getString("last_name"), Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(getActivity(), String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(getActivity(),String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
                     } catch (IOException e) {
                         e.printStackTrace();
-                        Toast.makeText(getActivity(),String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
                     }
                 }
-                if(pd != null && pd.isShowing()){
+                if (pd != null && pd.isShowing()) {
                     pd.dismiss();
                     pd = null;
                 }
@@ -205,7 +197,7 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 Log.e(TAG, "Error is " + t.toString());
-                Toast.makeText(getActivity(),  "Error is " + t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Error is " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

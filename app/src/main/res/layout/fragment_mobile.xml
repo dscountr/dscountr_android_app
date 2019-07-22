@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="20dp"
-    android:scrollbars="none"
     android:background="@color/colorWhite"
+    android:clipToPadding="false"
     android:paddingBottom="10dp"
-    android:clipToPadding="false">
+    android:scrollbars="none">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -29,9 +29,9 @@
             android:id="@+id/tlenterNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            app:errorTextAppearance="@style/Error_Appearance"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            app:errorTextAppearance="@style/Error_Appearance"
             app:hintTextAppearance="@style/TextAppearence.TextInputLayout.Primary">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -57,15 +57,40 @@
                 android:textStyle="normal" />
         </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
 
+
+        <RadioGroup
+            android:id="@+id/rgChannel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tlenterNumber"
+            android:layout_marginTop="23dp"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/radioAgree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/agree"
+                android:textColor="@color/colorBottomBorder"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton" />
+        </RadioGroup>
+
         <TextView
             android:id="@+id/tvTerms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tlenterNumber"
+            android:layout_below="@id/tlenterNumber"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
+            android:layout_toEndOf="@+id/rgChannel"
+            android:layout_toRightOf="@+id/rgChannel"
             android:fontFamily="@font/montserrat_regular"
             android:lineSpacingExtra="5sp"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:text="@string/service_terms"
             android:textColor="@color/colorEditCancelUndoButtonLinks"
             android:textSize="13sp"

@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:showIn="@layout/app_bar_main2"
-    android:scrollbars="none"
     android:background="@android:color/white"
+    android:clipToPadding="false"
+    android:paddingBottom="60dp"
+    android:scrollbars="none"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".view.MainActivity"
-    android:paddingBottom="60dp"
-    android:clipToPadding="false">
+    tools:showIn="@layout/app_bar_main2">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
         </LinearLayout>
+
         <RelativeLayout
             android:id="@+id/rlBanner"
             android:layout_width="match_parent"
@@ -32,82 +34,84 @@
                 android:id="@+id/tvBannerTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/colorWhite"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp"
+                android:fontFamily="@font/open_sans_bold"
                 android:lineSpacingExtra="6sp"
                 android:text="@string/discounts_for_your_everyday_purchases"
-                android:layout_marginTop="35dp"
-                android:layout_centerHorizontal="true"
                 android:textAlignment="center"
-                android:fontFamily="@font/open_sans_bold"/>
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tvBannerSubTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:textColor="@color/colorMainBackgroundSomePages"
+                android:layout_below="@+id/tvBannerTitle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/open_sans_regular"
                 android:lineSpacingExtra="4sp"
                 android:text="@string/get_discounts_here"
-                android:layout_marginTop="8dp"
-                android:layout_centerHorizontal="true"
                 android:textAlignment="center"
-                android:fontFamily="@font/open_sans_regular"
-                android:layout_below="@+id/tvBannerTitle"/>
+                android:textColor="@color/colorMainBackgroundSomePages"
+                android:textSize="10sp" />
 
             <Button
                 android:id="@+id/btnLearnMore"
-                android:text="@string/learn_more"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:layout_marginTop="16dp"
-                android:layout_centerHorizontal="true"
-                android:textSize="10sp"
-                android:textColor="@android:color/white"
                 android:layout_below="@+id/tvBannerSubTitle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="35dp"
                 android:background="@drawable/learn_more_btn"
-                android:paddingLeft="9dp"
                 android:paddingStart="9dp"
-                android:paddingRight="9dp"
+                android:paddingLeft="9dp"
                 android:paddingEnd="9dp"
-                android:layout_marginBottom="35dp"/>
+                android:paddingRight="9dp"
+                android:text="@string/learn_more"
+                android:textColor="@android:color/white"
+                android:textSize="10sp" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/colorMainBackground">
+            android:background="@color/colorMainBackground"
+            android:orientation="vertical">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/colorSectionTitle"
-                    android:lineSpacingExtra="4sp"
-                    android:text="@string/featured_retailers"
-                    android:textAllCaps="true"
-                    android:padding="5dp"
-                    android:layout_marginTop="15.5dp"/>
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp"
+                    android:layout_marginTop="15.5dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:lineSpacingExtra="4sp"
+                    android:padding="5dp"
+                    android:text="@string/featured_retailers"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorSectionTitle"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="15.5dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:textColor="@color/colorAccent"
                     android:lineSpacingExtra="3sp"
+                    android:padding="5dp"
                     android:text="@string/view_all"
                     android:textAllCaps="true"
-                    android:padding="5dp"
-                    android:layout_marginTop="15.5dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true" />
+                    android:textColor="@color/colorAccent"
+                    android:textSize="10sp" />
             </RelativeLayout>
 
             <HorizontalScrollView
@@ -133,192 +137,205 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardElevation="6dp"
                 android:layout_marginTop="6dp"
-                android:layout_marginBottom="2.5dp">
+                android:layout_marginBottom="2.5dp"
+                app:cardElevation="6dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
                     android:layout_marginStart="15dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginEnd="15dp"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp">
+                    android:layout_marginRight="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="94dp"
-                        android:orientation="vertical"
-                        android:layout_marginRight="94dp">
+                        android:layout_marginRight="94dp"
+                        android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/tvWriteShoppingList"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/open_sans_semi_bold"
+                            android:lineSpacingExtra="5sp"
                             android:text="@string/write_a_shopping_list"
                             android:textColor="@color/colorSectionTitle"
-                            android:fontFamily="@font/open_sans_semi_bold"
-                            android:textSize="12sp"
-                            android:lineSpacingExtra="5sp"/>
+                            android:textSize="12sp" />
+
                         <TextView
                             android:id="@+id/tvWriteShoppingListDescription"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:fontFamily="@font/open_sans_regular"
+                            android:lineSpacingExtra="4sp"
                             android:text="@string/write_a_shopping_list_description"
                             android:textColor="@color/colorProductName"
-                            android:fontFamily="@font/open_sans_regular"
-                            android:textSize="10sp"
-                            android:lineSpacingExtra="4sp"
-                            android:layout_marginTop="3dp"/>
+                            android:textSize="10sp" />
                     </LinearLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:tint="@color/colorDisabled"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/ic_description_gray_24dp"/>
+                        android:src="@drawable/ic_description_gray_24dp"
+                        android:tint="@color/colorDisabled" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardElevation="6dp"
                 android:layout_marginTop="2.5dp"
-                android:layout_marginBottom="2.5dp">
+                android:layout_marginBottom="2.5dp"
+                app:cardElevation="6dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
                     android:layout_marginStart="15dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginEnd="15dp"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp">
+                    android:layout_marginRight="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="94dp"
-                        android:orientation="vertical"
-                        android:layout_marginRight="94dp">
+                        android:layout_marginRight="94dp"
+                        android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/tvShopNow"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/open_sans_semi_bold"
+                            android:lineSpacingExtra="5sp"
                             android:text="@string/shop_now"
                             android:textColor="@color/colorSectionTitle"
-                            android:fontFamily="@font/open_sans_semi_bold"
-                            android:textSize="12sp"
-                            android:lineSpacingExtra="5sp"/>
+                            android:textSize="12sp" />
+
                         <TextView
                             android:id="@+id/tvShopNowDescription"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:fontFamily="@font/open_sans_regular"
+                            android:lineSpacingExtra="4sp"
                             android:text="@string/shop_now_description"
                             android:textColor="@color/colorProductName"
-                            android:fontFamily="@font/open_sans_regular"
-                            android:textSize="10sp"
-                            android:lineSpacingExtra="4sp"
-                            android:layout_marginTop="3dp"/>
+                            android:textSize="10sp" />
                     </LinearLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:tint="@color/colorDisabled"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/ic_shopping_cart_gray_24dp"/>
+                        android:src="@drawable/ic_shopping_cart_gray_24dp"
+                        android:tint="@color/colorDisabled" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardElevation="6dp"
                 android:layout_marginTop="2.5dp"
-                android:layout_marginBottom="2.5dp">
+                android:layout_marginBottom="2.5dp"
+                app:cardElevation="6dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
                     android:layout_marginStart="15dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginEnd="15dp"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp">
+                    android:layout_marginRight="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="94dp"
-                        android:orientation="vertical"
-                        android:layout_marginRight="94dp">
+                        android:layout_marginRight="94dp"
+                        android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/tvEarnCredits"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/open_sans_semi_bold"
+                            android:lineSpacingExtra="5sp"
                             android:text="@string/earn_credits"
                             android:textColor="@color/colorSectionTitle"
-                            android:fontFamily="@font/open_sans_semi_bold"
-                            android:textSize="12sp"
-                            android:lineSpacingExtra="5sp"/>
+                            android:textSize="12sp" />
+
                         <TextView
                             android:id="@+id/tvEarnCreditsDescription"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:fontFamily="@font/open_sans_regular"
+                            android:lineSpacingExtra="4sp"
                             android:text="@string/earn_credits_description"
                             android:textColor="@color/colorProductName"
-                            android:fontFamily="@font/open_sans_regular"
-                            android:textSize="10sp"
-                            android:lineSpacingExtra="4sp"
-                            android:layout_marginTop="3dp"/>
+                            android:textSize="10sp" />
                     </LinearLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:tint="@color/colorDisabled"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/ic_monetization_on_gray_24dp"/>
+                        android:src="@drawable/ic_monetization_on_gray_24dp"
+                        android:tint="@color/colorDisabled" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/colorSectionTitle"
-                    android:lineSpacingExtra="4sp"
-                    android:text="@string/featured_in_personal_use"
-                    android:textAllCaps="true"
-                    android:padding="5dp"
-                    android:layout_marginTop="18dp"/>
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:lineSpacingExtra="4sp"
+                    android:padding="5dp"
+                    android:text="@string/featured_in_personal_use"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorSectionTitle"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="15.5dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:textColor="@color/colorAccent"
                     android:lineSpacingExtra="3sp"
+                    android:padding="5dp"
                     android:text="@string/view_all"
                     android:textAllCaps="true"
-                    android:padding="5dp"
-                    android:layout_marginTop="15.5dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true" />
+                    android:textColor="@color/colorAccent"
+                    android:textSize="10sp" />
             </RelativeLayout>
 
         </LinearLayout>

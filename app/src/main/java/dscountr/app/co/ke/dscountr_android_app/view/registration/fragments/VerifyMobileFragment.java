@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.CodeEntryEditText;
 
-public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
+public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener {
 
     public static String TAG = VerifyMobileFragment.class.getSimpleName();
     String phone_number = null;
@@ -62,7 +62,7 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
         //initializing objects
         mAuth = FirebaseAuth.getInstance();
         Bundle args = this.getArguments();
-        if(args != null){
+        if (args != null) {
             phone_number = args.getString("phone_number");
             //sending the verification code to the number
             sendVerificationCode(phone_number);
@@ -88,12 +88,15 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.miRegistrationHelp:
-                Toast.makeText(getActivity(), "Mobile verification code help.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Mobile verification code help.", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return false;
         }
     }
+
+    
+
 
     @Override
     public void onClick(View v) {
@@ -102,10 +105,11 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
                 verifyCode();
                 break;
             case R.id.llVerifyBack:
-                Toast.makeText(getActivity(), "You clicked the back button.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "You clicked the back button.", Toast.LENGTH_SHORT).show();
+//                onBackPressed();
                 break;
             case R.id.tvResendVerificationCode:
-                Toast.makeText(getActivity(), "Resend the number verification code.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Resend the number verification code.", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
@@ -113,13 +117,13 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
         }
     }
 
-    private void verifyCode(){
+    private void verifyCode() {
         String phone_number_verification_code = enterNumberVerification.getText().toString();
-        if (TextUtils.isEmpty(phone_number_verification_code)){
-            Toast.makeText(getActivity(), "Please enter phone verification code.",Toast.LENGTH_SHORT).show();
-        }else if (phone_number_verification_code.length() < 6){
-            Toast.makeText(getActivity(), "Phone verification code isn't complete.",Toast.LENGTH_SHORT).show();
-        }else{
+        if (TextUtils.isEmpty(phone_number_verification_code)) {
+            Toast.makeText(getActivity(), "Please enter phone verification code.", Toast.LENGTH_SHORT).show();
+        } else if (phone_number_verification_code.length() < 6) {
+            Toast.makeText(getActivity(), "Phone verification code isn't complete.", Toast.LENGTH_SHORT).show();
+        } else {
             verifyVerificationCode(phone_number_verification_code);
         }
     }
@@ -139,7 +143,7 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
 
         // try to get country code from TelephonyManager service
         TelephonyManager tm = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
-        if(tm != null) {
+        if (tm != null) {
             // query first getSimCountryIso()
             countryCode = tm.getSimCountryIso();
             if (countryCode != null && countryCode.length() == 2)
@@ -165,7 +169,7 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
     //you can take the country id as user input as well
     private void sendVerificationCode(String mobile) {
         String iso = getDeviceCountryCode();
-        if (!mobile.startsWith("+")){
+        if (!mobile.startsWith("+")) {
             switch (iso) {
                 case "KE":
                     mobile = "+254" + mobile;
@@ -250,7 +254,7 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
                                 message = "Invalid code entered...";
                             }
 
-                            Toast.makeText(getActivity(), message,Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
                         }
                     }
                 });

@@ -4,6 +4,7 @@
     <string name="continue_reg">Sign In</string>
     <string name="service_terms"><u>Terms of Service and Privacy Policy</u></string>
     <string name="dscountr">Dscountr</string>
+    <string name="help">Help</string>
     <string name="dot">.</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="enter_verification_code">Enter the 6 digits code sent to your mobile number.</string>
@@ -15,10 +16,13 @@
     <string name="add_your_date_of_birth">Add your date of birth.</string>
     <string name="enter_phone_number">Enter your name</string>
     <string name="enter_number">Let\'s start with your mobile number</string>
+    <string name="enter_email">Perfect! Please enter your email address</string>
+    <string name="enter_dob">Enter you date of birth</string>
     <string name="select_your_gender">Select your gender (male/female)</string>
     <string name="finish">Create Account</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="agree">I agree to the </string>
     <string name="welcome_julie">Hello Julie!</string>
     <string name="enjoy_great_discounts">Enjoy great discounts and rewards everyday on your shopping</string>
     <string name="start_now">Find Offer</string>
@@ -53,7 +57,7 @@
     <string name="enter_your_number">Enter your mobile number</string>
     <string name="are_you_a_new_customer">Are you a new customer?</string>
     <string name="sign_up">Sign up</string>
-    <string name="sign_out">ign out</string>
+    <string name="sign_out">Sign out</string>
     <string name="view_profile_info">View personal info</string>
     <string name="my_account">My Account</string>
     <string name="_346">346</string>
