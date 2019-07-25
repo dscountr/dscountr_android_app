@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +16,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -80,13 +83,18 @@ public class Main2Activity extends AppCompatActivity
 
         navigationView.setNavigationItemSelectedListener(this);
         View hView = navigationView.getHeaderView(0);
+        RelativeLayout layout = hView.findViewById(R.id.rlNavigationHeader);
         TextView headerName = hView.findViewById(R.id.navHeaderTitle);
+        TextView headerProfileName = hView.findViewById(R.id.profViewLink);
 
         if (sharePreferenceManager.getKeyFirstName() != null) {
             headerName.setText(String.format("%s %s", sharePreferenceManager.getKeyFirstName(), sharePreferenceManager.getKeyLastName()));
         } else {
-            headerName.setText("Missing!");
-            headerName.setTextColor(Color.parseColor("#FC4500"));
+            layout.setBackgroundResource(R.drawable.side_nav_signout);
+//            layout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.side_nav_signout, null));
+            headerName.setText(R.string.continue_reg);
+            headerName.setTextColor(Color.parseColor("#FFFFFF"));
+            headerProfileName.setVisibility(View.GONE);
         }
     }
 

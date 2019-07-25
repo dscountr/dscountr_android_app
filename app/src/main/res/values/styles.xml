@@ -64,4 +64,8 @@
     <style name="myToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
         <item name="android:paddingLeft">8dp</item>
     </style>
+
+    <style name="signOutHEADER" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
 </resources>

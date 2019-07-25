@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Dscountr.</string>
     <string name="enter_your_mobile_number">Your mobile number.</string>
-    <string name="continue_reg">Sign In</string>
+    <string name="continue_reg">Sign Up</string>
     <string name="service_terms"><u>Terms of Service and Privacy Policy</u></string>
     <string name="dscountr">Dscountr</string>
     <string name="help">Help</string>
