@@ -1,13 +1,17 @@
 package dscountr.app.co.ke.dscountr_android_app.view;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +38,9 @@ public class Main2Activity extends AppCompatActivity
     SharedPrefManager sharePreferenceManager;
     public static String TAG = Main2Activity.class.getSimpleName();
     private Toolbar toolbar;
+//    Context context;
+
+//    SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +72,8 @@ public class Main2Activity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        sharePreferenceManager = (SharedPrefManager) getSharedPreferences("dscountr", Context.MODE_PRIVATE);
     }
 
     @Override
@@ -86,15 +95,29 @@ public class Main2Activity extends AppCompatActivity
         RelativeLayout layout = hView.findViewById(R.id.rlNavigationHeader);
         TextView headerName = hView.findViewById(R.id.navHeaderTitle);
         TextView headerProfileName = hView.findViewById(R.id.profViewLink);
+        ImageView imageView = hView.findViewById(R.id.imageView1);
+        LinearLayout linearLayout = hView.findViewById(R.id.profileNameLink);
 
         if (sharePreferenceManager.getKeyFirstName() != null) {
             headerName.setText(String.format("%s %s", sharePreferenceManager.getKeyFirstName(), sharePreferenceManager.getKeyLastName()));
+
         } else {
             layout.setBackgroundResource(R.drawable.side_nav_signout);
-//            layout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.side_nav_signout, null));
+            layout.setPadding(0,32,24,0);
             headerName.setText(R.string.continue_reg);
             headerName.setTextColor(Color.parseColor("#FFFFFF"));
+            headerName.getResources().getDimensionPixelOffset(R.dimen.nav_header_title_spacing);
             headerProfileName.setVisibility(View.GONE);
+            imageView.setPadding(32,30,0,0);
+            linearLayout.setPadding(32,40,12,0);
+            headerName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(Main2Activity.this, LoginActivity.class);
+                    startActivity(i);
+                }
+            });
+
         }
     }
 
@@ -136,8 +159,9 @@ public class Main2Activity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         View headView = navigationView.getHeaderView(0);
-        RelativeLayout rlNavigationHeader = headView.findViewById(R.id.rlNavigationHeader);
-        rlNavigationHeader.setOnClickListener(new View.OnClickListener() {
+        TextView textView = headView.findViewById(R.id.profViewLink);
+
+        textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.e(TAG, "clicking textview");
@@ -168,6 +192,9 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.nav_support) {
             Intent i = new Intent(Main2Activity.this,Help.class);
             startActivity(i);
+        } else if (id == R.id.nav_sign_out) {
+            Log.e(TAG, "clicking signout");
+
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
