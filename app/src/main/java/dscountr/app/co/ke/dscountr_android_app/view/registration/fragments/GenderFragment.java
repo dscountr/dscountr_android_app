@@ -188,6 +188,11 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 Toast.makeText(getActivity(), "Error is " + t.getMessage(), Toast.LENGTH_LONG).show();
+
+                if (pd != null && pd.isShowing()) {
+                    pd.dismiss();
+                    pd = null;
+                }
             }
         });
     }

@@ -29,6 +29,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.view.registration.RegisterActivity;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.SharedPrefManager;
 
 public class Main2Activity extends AppCompatActivity
@@ -72,6 +73,13 @@ public class Main2Activity extends AppCompatActivity
     }
 
     @Override
+    public void onResume(){
+        super.onResume();
+
+        loadFullName();
+    }
+
+    @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -93,9 +101,8 @@ public class Main2Activity extends AppCompatActivity
         ImageView imageView = hView.findViewById(R.id.imageView1);
         LinearLayout linearLayout = hView.findViewById(R.id.profileNameLink);
 
-        if (sharePreferenceManager.getKeyFirstName() != null) {
+        if (sharePreferenceManager.getKeyToken() != null) {
             headerName.setText(String.format("%s %s", sharePreferenceManager.getKeyFirstName(), sharePreferenceManager.getKeyLastName()));
-
         } else {
             layout.setBackgroundResource(R.drawable.side_nav_signout);
             layout.setPadding(0,32,24,0);
@@ -161,6 +168,7 @@ public class Main2Activity extends AppCompatActivity
             public void onClick(View view) {
                 Log.e(TAG, "clicking textview");
                 Intent i = new Intent(Main2Activity.this, ProfileActivity.class);
+                overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                 startActivity(i);
             }
         });
@@ -189,6 +197,9 @@ public class Main2Activity extends AppCompatActivity
             startActivity(i);
         } else if (id == R.id.nav_sign_out) {
             sharePreferenceManager.clearAccount();
+            Intent i = new Intent(Main2Activity.this, RegisterActivity.class);
+            startActivity(i);
+            overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
             finish();
         }
 
