@@ -62,27 +62,28 @@
                     android:textColor="@color/colorEditCancelUndoButtonLinks"
                     android:textSize="13sp"
                     android:textStyle="normal" />
-
-                <Button
-                    android:id="@+id/btnNumberVerificaton"
-                    android:layout_width="280dp"
-                    android:layout_height="35dp"
-                    android:layout_below="@+id/tvResendVerificationCode"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="440dp"
-                    android:background="@drawable/button_bg"
-                    android:fontFamily="@font/montserrat_regular"
-                    android:lineSpacingExtra="4sp"
-                    android:text="@string/verify_phone"
-                    android:textAllCaps="false"
-                    android:textColor="@color/buttonColor"
-                    android:textSize="16sp"
-                    android:textStyle="normal" />/>
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
 
+    <Button
+        android:id="@+id/btnNumberVerificaton"
+        android:layout_width="280dp"
+        android:layout_height="35dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_bg"
+        android:fontFamily="@font/montserrat_regular"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/verify_phone"
+        android:textAllCaps="false"
+        android:textColor="@color/buttonColor"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:layout_above="@+id/rlVerifyBack"
+        android:layout_marginBottom="25dp"/>
+
     <RelativeLayout
+        android:id="@+id/rlVerifyBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -101,18 +102,17 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_keyboard_arrow_left_grey_500_24dp"
                 android:layout_gravity="center_vertical"
-                android:tint="@color/colorAccent"
+                android:tint="@color/colorBottomBorder"
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/colorBottomBorder"
+                android:fontFamily="@font/montserrat_regular"
                 android:layout_gravity="center_vertical"
                 android:text="@string/back"
-                android:textAllCaps="true"
                 android:textSize="11sp"
                 android:layout_marginStart="3dp"
                 android:layout_marginLeft="3dp" />

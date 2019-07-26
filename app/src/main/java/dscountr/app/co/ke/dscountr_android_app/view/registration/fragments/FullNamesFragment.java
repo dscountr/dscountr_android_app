@@ -111,7 +111,6 @@ public class FullNamesFragment extends Fragment implements Toolbar.OnMenuItemCli
 
             Bundle bundle = new Bundle();
             bundle.putString("phone_number", phone_number);
-//            bundle.putString("phone_number_verification_code", phone_number_verification_code);
             bundle.putString("first_name", first_name);
             bundle.putString("last_name", last_name);
             Fragment emailFragment = new EmailFragment();

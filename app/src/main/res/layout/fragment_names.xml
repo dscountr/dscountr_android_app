@@ -1,110 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="20dp"
-    android:scrollbars="none"
-    android:background="@color/colorWhite"
-    android:paddingBottom="10dp"
-    android:clipToPadding="false">
+    android:background="@color/colorWhite">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:scrollbars="none"
+        android:paddingBottom="10dp"
+        android:clipToPadding="false">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvNumberLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:lineSpacingExtra="5sp"
+                android:text="@string/enter_phone_number"
+                android:textColor="@color/colorBottomBorder"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+            <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
+                android:id="@+id/tlfirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                app:errorTextAppearance="@style/Error_Appearance"
+                android:layout_centerHorizontal="true"
+                app:hintTextAppearance="@style/TextAppearence.TextInputLayout.Primary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/firstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvMobileLabel"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/textview_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:hint="@string/enter_your_first_name"
+                    android:inputType="text"
+                    android:lineSpacingExtra="5sp"
+                    android:maxLength="10"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/colorProductName"
+                    android:textColorHint="@color/colorBottomBorder"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    android:paddingStart="20dp" />
+            </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
+
+            <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
+                android:id="@+id/tllastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                app:errorTextAppearance="@style/Error_Appearance"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/tlfirstName"
+                app:hintTextAppearance="@style/TextAppearence.TextInputLayout.Primary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tlfirstName"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/textview_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:hint="@string/enter_your_last_name"
+                    android:inputType="text"
+                    android:lineSpacingExtra="5sp"
+                    android:maxLength="10"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/colorProductName"
+                    android:textColorHint="@color/colorBottomBorder"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    android:paddingStart="20dp" />
+            </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnNumber"
+        android:layout_width="280dp"
+        android:layout_height="35dp"
+        android:background="@drawable/button_bg"
+        android:fontFamily="@font/montserrat_regular"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/continue_btn"
+        android:textAllCaps="false"
+        android:textColor="@color/buttonColor"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/rlVerifyBack"
+        android:layout_marginBottom="25dp"/>
 
     <RelativeLayout
+        android:id="@+id/rlVerifyBack"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorMainBackgroundSomePages">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/colorShadow"/>
 
-        <TextView
-            android:id="@+id/tvNumberLabel"
+        <LinearLayout
+            android:id="@+id/llVerifyBack"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:fontFamily="@font/montserrat_regular"
-            android:lineSpacingExtra="5sp"
-            android:text="@string/enter_phone_number"
-            android:textColor="@color/colorBottomBorder"
-            android:textSize="14sp"
-            android:textStyle="normal" />
-
-        <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
-            android:id="@+id/tlfirstName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            app:errorTextAppearance="@style/Error_Appearance"
-            android:layout_centerHorizontal="true"
-            app:hintTextAppearance="@style/TextAppearence.TextInputLayout.Primary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/firstName"
-                android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvMobileLabel"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/textview_bg"
-                android:fontFamily="@font/montserrat_regular"
-                android:hint="@string/enter_your_first_name"
-                android:inputType="text"
-                android:lineSpacingExtra="5sp"
-                android:maxLength="10"
-                android:paddingRight="20dp"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textColor="@color/colorProductName"
-                android:textColorHint="@color/colorBottomBorder"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                android:paddingStart="20dp" />
-        </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
+                android:src="@drawable/ic_keyboard_arrow_left_grey_500_24dp"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/colorBottomBorder"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp" />
 
-        <dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout
-            android:id="@+id/tllastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            app:errorTextAppearance="@style/Error_Appearance"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/tlfirstName"
-            app:hintTextAppearance="@style/TextAppearence.TextInputLayout.Primary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/lastName"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tlfirstName"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/textview_bg"
+                android:textColor="@color/colorBottomBorder"
                 android:fontFamily="@font/montserrat_regular"
-                android:hint="@string/enter_your_last_name"
-                android:inputType="text"
-                android:lineSpacingExtra="5sp"
-                android:maxLength="10"
-                android:paddingRight="20dp"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textColor="@color/colorProductName"
-                android:textColorHint="@color/colorBottomBorder"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                android:paddingStart="20dp" />
-        </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
+                android:layout_gravity="center_vertical"
+                android:text="@string/back"
+                android:textSize="11sp"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/btnNumber"
-            android:layout_width="280dp"
-            android:layout_height="35dp"
-            android:layout_below="@+id/tllastName"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="445dp"
-            android:background="@drawable/button_bg"
-            android:fontFamily="@font/montserrat_regular"
-            android:lineSpacingExtra="4sp"
-            android:text="@string/continue_btn"
-            android:textAllCaps="false"
-            android:textColor="@color/buttonColor"
-            android:textSize="16sp"
-            android:textStyle="normal" />
     </RelativeLayout>
 
-</ScrollView>
+</RelativeLayout>

@@ -296,9 +296,7 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
 
             Bundle bundle = new Bundle();
             bundle.putString("phone_number", phone_number);
-//            bundle.putString("phone_number_verification_code", phone_number_verification_code);
             bundle.putString("email", email);
-//            bundle.putString("email_verification_code", email_verification_code);
             bundle.putString("first_name", first_name);
             bundle.putString("last_name", last_name);
             bundle.putString("date_of_birth", date_of_birth);

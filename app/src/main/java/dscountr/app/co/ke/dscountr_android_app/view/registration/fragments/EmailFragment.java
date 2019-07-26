@@ -108,7 +108,6 @@ public class EmailFragment extends Fragment implements Toolbar.OnMenuItemClickLi
 
             Bundle bundle = new Bundle();
             bundle.putString("phone_number", phone_number);
-//            bundle.putString("phone_number_verification_code", phone_number_verification_code);
             bundle.putString("email", email);
             bundle.putString("first_name", first_name);
             bundle.putString("last_name", last_name);

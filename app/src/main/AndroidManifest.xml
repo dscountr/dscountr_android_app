@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".view.Main2Activity"
+            android:name=".view.registration.RegisterActivity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -26,14 +26,9 @@
         </activity>
 
         <activity
-            android:name=".view.registration.RegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            android:name=".view.Main2Activity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
         <activity
             android:name=".view.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />

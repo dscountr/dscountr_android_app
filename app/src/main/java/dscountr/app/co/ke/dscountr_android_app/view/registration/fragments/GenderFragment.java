@@ -5,7 +5,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -71,12 +70,6 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
                 e.printStackTrace();
                 date_of_birth = "1990-01-01";
             }
-
-
-            Log.e(TAG, phone_number);
-            Log.e(TAG, date_of_birth);
-            Log.e(TAG, first_name);
-            Log.e(TAG, last_name);
         }
 
         RadioGroup rgChannel = view_gender.findViewById(R.id.rgChannel);
@@ -157,15 +150,12 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
             public void onResponse(Call<User> call, Response<User> response) {
                 User responseUser = response.body();
                 if (response.isSuccessful() && responseUser != null) {
-                    Log.e(TAG, responseUser.getPhone_number());
-                    Log.e(TAG, String.valueOf(response.body()));
                     Toast.makeText(getActivity(), "Registration successful.", Toast.LENGTH_LONG).show();
                     SharedPrefManager.getInstance(getActivity()).setKeyUser(responseUser.getEmail(), responseUser.getPhone_number(), responseUser.getGender(), responseUser.getDate_of_birth(), responseUser.getFirst_name(), responseUser.getLast_name());
                     loadFragment(new WelcomeFragment());
                 } else {
                     try {
                         JSONObject jObjError = new JSONObject(response.errorBody().string());
-                        Log.e(TAG, "There is an error");
                         if (jObjError.has("email")) {
                             Toast.makeText(getActivity(), jObjError.getString("email"), Toast.LENGTH_LONG).show();
                         } else if (jObjError.has("gender")) {
@@ -197,7 +187,6 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Log.e(TAG, "Error is " + t.toString());
                 Toast.makeText(getActivity(), "Error is " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

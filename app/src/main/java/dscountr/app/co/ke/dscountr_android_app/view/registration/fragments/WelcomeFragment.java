@@ -21,6 +21,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.view.Main2Activity;
+import dscountr.app.co.ke.dscountr_android_app.view.ProfileActivity;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.SharedPrefManager;
 
 public class WelcomeFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener {
@@ -32,22 +33,22 @@ public class WelcomeFragment extends Fragment implements Toolbar.OnMenuItemClick
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View gender = inflater.inflate(R.layout.fragment_welcome, container, false);
+        View fragment_welcome = inflater.inflate(R.layout.fragment_welcome, container, false);
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         toolbar.setOnMenuItemClickListener(this);
 
-        Button btnStartNow = gender.findViewById(R.id.btnStartNow);
+        Button btnStartNow = fragment_welcome.findViewById(R.id.btnStartNow);
         btnStartNow.setOnClickListener(this);
 
         sharePreferenceManager = SharedPrefManager.getInstance(getActivity().getApplicationContext());
-        tvWelcome = gender.findViewById(R.id.tvWelcome);
+        tvWelcome = fragment_welcome.findViewById(R.id.tvWelcome);
 
-        LinearLayout llVerifyBack = gender.findViewById(R.id.llVerifyBack);
+        LinearLayout llVerifyBack = fragment_welcome.findViewById(R.id.llVerifyBack);
         llVerifyBack.setOnClickListener(this);
 
         loadWelcomeName();
 
-        return gender;
+        return fragment_welcome;
     }
 
     private void loadWelcomeName() {
@@ -91,7 +92,9 @@ public class WelcomeFragment extends Fragment implements Toolbar.OnMenuItemClick
                 getActivity().finish();
                 break;
             case R.id.llVerifyBack:
-                Toast.makeText(getActivity(), "You clicked the back button.", Toast.LENGTH_SHORT).show();
+                Intent profile = new Intent(getActivity(), ProfileActivity.class);
+                getActivity().overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
+                startActivity(profile);
                 break;
             default:
                 break;

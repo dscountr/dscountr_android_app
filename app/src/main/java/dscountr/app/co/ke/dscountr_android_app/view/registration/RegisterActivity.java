@@ -3,6 +3,7 @@ package dscountr.app.co.ke.dscountr_android_app.view.registration;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +12,8 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.firebase.auth.FirebaseAuth;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.view.Main2Activity;
 import dscountr.app.co.ke.dscountr_android_app.view.registration.fragments.MobileFragment;
-import dscountr.app.co.ke.dscountr_android_app.view.registration.fragments.WelcomeFragment;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.SharedPrefManager;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -25,7 +26,10 @@ public class RegisterActivity extends AppCompatActivity {
         toolbar.inflateMenu(R.menu.registration_menu);
         // load Fragment
         if (FirebaseAuth.getInstance().getCurrentUser() != null || SharedPrefManager.getInstance(getApplicationContext()).getKeyPhoneNumber() != null) {
-            loadFragment(new WelcomeFragment());
+            Intent main = new Intent(RegisterActivity.this, Main2Activity.class);
+            startActivity(main);
+            overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
+            finish();
         } else {
             loadFragment(new MobileFragment());
         }

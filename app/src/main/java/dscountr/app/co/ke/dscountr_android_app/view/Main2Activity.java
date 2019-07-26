@@ -38,9 +38,6 @@ public class Main2Activity extends AppCompatActivity
     SharedPrefManager sharePreferenceManager;
     public static String TAG = Main2Activity.class.getSimpleName();
     private Toolbar toolbar;
-//    Context context;
-
-//    SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +69,6 @@ public class Main2Activity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-
-        sharePreferenceManager = (SharedPrefManager) getSharedPreferences("dscountr", Context.MODE_PRIVATE);
     }
 
     @Override
@@ -190,11 +185,11 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.nav_send) {
 
         } else if (id == R.id.nav_support) {
-            Intent i = new Intent(Main2Activity.this,Help.class);
+            Intent i = new Intent(Main2Activity.this, Help.class);
             startActivity(i);
         } else if (id == R.id.nav_sign_out) {
-            Log.e(TAG, "clicking signout");
-
+            sharePreferenceManager.clearAccount();
+            finish();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

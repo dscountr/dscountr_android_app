@@ -26,7 +26,7 @@
     <string name="welcome_julie">Hello Julie!</string>
     <string name="enjoy_great_discounts">Enjoy great discounts and rewards everyday on your shopping</string>
     <string name="start_now">Find Offer</string>
-    <string name="have_any_questions">If you have any questions, open <font fgcolor='#FF1080D0'><u>Help &amp; Support</u></font> for assistance or you can contact us directly to help you.</string>
+    <string name="have_any_questions">Have any questions? Visit our <font fgcolor='#FF1080D0'><u>Help Center</u></font> for answers to all your questions.</string>
     <string name="search">Search</string>
     <string name="notification">Notification</string>
     <string name="profile">Profile</string>
@@ -109,4 +109,5 @@
     <string name="menu_sign_out">Sign Out</string>
     <string name="fb_shop_now">Shop Now</string>
     <string name="icon">icon</string>
+    <string name="view_your_profile">View your profile</string>
 </resources>
