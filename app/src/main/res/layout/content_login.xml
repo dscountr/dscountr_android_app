@@ -93,58 +93,64 @@
             android:background="@drawable/signin_button"
             android:fontFamily="@font/montserrat_regular"
             android:lineSpacingExtra="4sp"
-            android:text="@string/continue_reg"
+            android:text="@string/sign_in"
             android:textAllCaps="true"
             android:textColor="@color/colorWhite"
             android:textSize="11sp"
             android:textStyle="normal"
             app:textAllCaps="false" />
 
-
-        <View
-            android:id="@+id/vNumberHorizontal"
+        <RelativeLayout
+            android:id="@+id/rlSignUp"
             android:layout_width="match_parent"
-            android:layout_height= "0.5dp"
-            android:layout_marginTop="55.5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/colorBottomBorder"
-            android:layout_below="@+id/btnNumber"/>
-
-        <TextView
-            android:id="@+id/tvNewCustomer"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/vNumberHorizontal"
-            android:layout_marginTop="13.5dp"
-            android:fontFamily="@font/montserrat_semi_bold"
-            android:lineSpacingExtra="5sp"
-            android:text="@string/are_you_a_new_customer"
-            android:textColor="@android:color/black"
-            android:textSize="13sp" />
+            android:layout_below="@+id/btnNumber"
+            android:orientation="vertical"
+            android:layout_marginTop="55.5dp">
+            <View
+                android:id="@+id/vNumberHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height= "0.5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorBottomBorder" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/vNumberHorizontal"
-            android:layout_marginStart="76dp"
-            android:layout_marginLeft="76dp"
-            android:layout_marginTop="13.5dp"
-            android:layout_toEndOf="@+id/tvNewCustomer"
-            android:layout_toRightOf="@+id/tvNewCustomer"
-            android:fontFamily="@font/montserrat_regular"
-            android:lineSpacingExtra="5sp"
-            android:text="@string/sign_up"
-            android:textColor="@color/colorEditCancelUndoButtonLinks"
-            android:textSize="13sp" />
+            <TextView
+                android:id="@+id/tvNewCustomer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vNumberHorizontal"
+                android:layout_marginTop="13.5dp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:lineSpacingExtra="5sp"
+                android:text="@string/are_you_a_new_customer"
+                android:textColor="@android:color/black"
+                android:textSize="13sp" />
 
-        <View
-            android:id="@+id/vNewCustomerHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height= "0.5dp"
-            android:layout_marginTop="13.5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/colorBottomBorder"
-            android:layout_below="@+id/tvNewCustomer"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vNumberHorizontal"
+                android:layout_marginStart="76dp"
+                android:layout_marginLeft="76dp"
+                android:layout_marginTop="13.5dp"
+                android:layout_toEndOf="@+id/tvNewCustomer"
+                android:layout_toRightOf="@+id/tvNewCustomer"
+                android:fontFamily="@font/montserrat_regular"
+                android:lineSpacingExtra="5sp"
+                android:text="@string/sign_up"
+                android:textColor="@color/colorEditCancelUndoButtonLinks"
+                android:textSize="13sp" />
+
+            <View
+                android:id="@+id/vNewCustomerHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height= "0.5dp"
+                android:layout_marginTop="13.5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorBottomBorder"
+                android:layout_below="@+id/tvNewCustomer"/>
+        </RelativeLayout>
+
     </RelativeLayout>
 
 </ScrollView>

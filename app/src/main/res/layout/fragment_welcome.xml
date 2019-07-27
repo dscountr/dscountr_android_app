@@ -83,26 +83,28 @@
                     android:textSize="14sp"
                     android:textStyle="normal" />
 
-                <Button
-                    android:id="@+id/btnStartNow"
-                    android:layout_width="280dp"
-                    android:layout_height="35dp"
-                    android:layout_below="@+id/tvWelcomeMessage"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="300dp"
-                    android:background="@drawable/button_bg"
-                    android:fontFamily="@font/montserrat_regular"
-                    android:lineSpacingExtra="4sp"
-                    android:text="@string/start_now"
-                    android:textAllCaps="false"
-                    android:textColor="@color/buttonColor"
-                    android:textSize="16sp"
-                    android:textStyle="normal" />
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
 
+    <Button
+        android:id="@+id/btnStartNow"
+        android:layout_width="280dp"
+        android:layout_height="35dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_bg"
+        android:fontFamily="@font/montserrat_regular"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/start_now"
+        android:textAllCaps="false"
+        android:textColor="@color/buttonColor"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:layout_above="@+id/rlVerifyBack"
+        android:layout_marginBottom="25dp"/>
+
     <RelativeLayout
+        android:id="@+id/rlVerifyBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

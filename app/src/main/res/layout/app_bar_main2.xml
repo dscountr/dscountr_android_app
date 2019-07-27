@@ -52,20 +52,20 @@
     <include layout="@layout/content_main2" />
 
     <TextView
-    android:id="@+id/fab"
-    android:layout_margin="10dp"
-    android:gravity="center"
-    android:background="@drawable/shop_now"
-    android:layout_width="160dp"
-    android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:textColor="#FFF"
-    android:textStyle="bold"
-    android:fontFamily="sans-serif"
-    android:text="@string/shop_now"
-    android:textSize="20sp"
-    android:elevation="2dp"
-    android:layout_gravity="bottom|end"
-    tools:targetApi="lollipop" />
+        android:id="@+id/fab"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:background="@drawable/shop_now"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:text="@string/shop_now"
+        android:textSize="20sp"
+        android:elevation="2dp"
+        android:layout_gravity="bottom|end"
+        tools:targetApi="lollipop" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

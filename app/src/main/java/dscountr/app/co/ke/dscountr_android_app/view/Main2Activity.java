@@ -27,6 +27,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.view.registration.RegisterActivity;
@@ -52,7 +53,7 @@ public class Main2Activity extends AppCompatActivity
 
         initToolBar();
         initNavigation();
-        loadFullName();
+        loadFullName(); // FirebaseAuth.getInstance().getCurrentUser() != null
 
         TextView fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -75,8 +76,6 @@ public class Main2Activity extends AppCompatActivity
     @Override
     public void onResume(){
         super.onResume();
-
-        loadFullName();
     }
 
     @Override
@@ -96,7 +95,7 @@ public class Main2Activity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         View hView = navigationView.getHeaderView(0);
         RelativeLayout layout = hView.findViewById(R.id.rlNavigationHeader);
-        TextView headerName = hView.findViewById(R.id.navHeaderTitle);
+        final TextView headerName = hView.findViewById(R.id.navHeaderTitle);
         TextView headerProfileName = hView.findViewById(R.id.profViewLink);
         ImageView imageView = hView.findViewById(R.id.imageView1);
         LinearLayout linearLayout = hView.findViewById(R.id.profileNameLink);
@@ -106,7 +105,10 @@ public class Main2Activity extends AppCompatActivity
         } else {
             layout.setBackgroundResource(R.drawable.side_nav_signout);
             layout.setPadding(0,32,24,0);
-            headerName.setText(R.string.continue_reg);
+            if (sharePreferenceManager.getKeyFirstName() != null && sharePreferenceManager.getKeyLastName() != null)
+                headerName.setText(R.string.sign_in);
+            else
+                headerName.setText(R.string.continue_reg);
             headerName.setTextColor(Color.parseColor("#FFFFFF"));
             headerName.getResources().getDimensionPixelOffset(R.dimen.nav_header_title_spacing);
             headerProfileName.setVisibility(View.GONE);
@@ -115,8 +117,19 @@ public class Main2Activity extends AppCompatActivity
             headerName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(Main2Activity.this, LoginActivity.class);
-                    startActivity(i);
+                    if (headerName.getText().toString() == getResources().getString(R.string.sign_in)){
+                        Intent i = new Intent(Main2Activity.this, LoginActivity.class);
+                        overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
+                        startActivity(i);
+                    }else if (headerName.getText().toString() == getResources().getString(R.string.continue_reg)){
+                        Intent i = new Intent(Main2Activity.this, RegisterActivity.class);
+                        overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
+                        startActivity(i);
+                    }else{
+                        Intent profile = new Intent(Main2Activity.this, ProfileActivity.class);
+                        overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
+                        startActivity(profile);
+                    }
                 }
             });
 

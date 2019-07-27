@@ -2,6 +2,7 @@ package dscountr.app.co.ke.dscountr_android_app.view;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ import java.util.List;
 import dscountr.app.co.ke.dscountr_android_app.R;
 import dscountr.app.co.ke.dscountr_android_app.model.User;
 import dscountr.app.co.ke.dscountr_android_app.presenter.retrofit.MainApplication;
+import dscountr.app.co.ke.dscountr_android_app.view.registration.RegisterActivity;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.CountryData;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.SharedPrefManager;
 import retrofit2.Call;
@@ -56,6 +59,8 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
 
         enterNumber = findViewById(R.id.enterNumber);
         tlenterNumber = findViewById(R.id.tlenterNumber);
+        RelativeLayout rlSignUp = findViewById(R.id.rlSignUp);
+        rlSignUp.setOnClickListener(this);
     }
 
     @Override
@@ -77,6 +82,13 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
                 break;
             case R.id.tvTerms:
                 Toast.makeText(LoginActivity.this, "Our terms and conditions.", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.rlSignUp:
+                SharedPrefManager.getInstance(getApplicationContext()).clearAccount();
+                Intent sign_up = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(sign_up);
+                overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
+                finish();
                 break;
             default:
                 break;
@@ -165,6 +177,7 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
                     Log.e(TAG, responseUser.getPhone_number());
                     Toast.makeText(LoginActivity.this, "Sign in successful.", Toast.LENGTH_LONG).show();
                     SharedPrefManager.getInstance(getApplicationContext()).setKeyToken(responseUser.getToken());
+                    SharedPrefManager.getInstance(getApplicationContext()).setKeyUser(responseUser.getEmail(), responseUser.getPhone_number(), responseUser.getGender(), responseUser.getDate_of_birth(), responseUser.getFirst_name(), responseUser.getLast_name());
                     finish();
                 } else {
                     Toast.makeText(LoginActivity.this, String.format("Response is %s", String.valueOf(response.code())), Toast.LENGTH_LONG).show();
