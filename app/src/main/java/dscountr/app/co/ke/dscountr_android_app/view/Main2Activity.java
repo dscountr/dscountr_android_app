@@ -102,7 +102,9 @@ public class Main2Activity extends AppCompatActivity
         LinearLayout linearLayout = hView.findViewById(R.id.profileNameLink);
 
         if (sharePreferenceManager.getKeyToken() != null) {
-            headerName.setText(String.format("%s %s", sharePreferenceManager.getKeyFirstName(), sharePreferenceManager.getKeyLastName()));
+            headerName.setText(String.format("%s %s", sharePreferenceManager.getKeyFirstName().substring(0,1).toUpperCase()
+                    + sharePreferenceManager.getKeyFirstName().substring(1), sharePreferenceManager.getKeyLastName().substring(0,1).toUpperCase()
+                    + sharePreferenceManager.getKeyLastName().substring(1)));
             layout.setBackgroundResource(R.drawable.side_nav_bar);
             headerProfileName.setVisibility(View.VISIBLE);
         } else {

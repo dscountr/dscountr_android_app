@@ -48,7 +48,8 @@ public class ProfileActivity extends AppCompatActivity implements Toolbar.OnMenu
 
     private void loadWelcomeName() {
         if (sharePreferenceManager.getKeyFirstName() != null) {
-            tvProfileNameValue.setText(String.format("Hello %s!", sharePreferenceManager.getKeyFirstName()));
+            tvProfileNameValue.setText(String.format("Hello %s!", sharePreferenceManager.getKeyFirstName().substring(0,1).toUpperCase()
+                    + sharePreferenceManager.getKeyFirstName().substring(1)));
         } else {
             tvProfileNameValue.setText("Missing!");
             tvProfileNameValue.setTextColor(Color.parseColor("#FC4500"));

@@ -53,7 +53,8 @@ public class WelcomeFragment extends Fragment implements Toolbar.OnMenuItemClick
 
     private void loadWelcomeName() {
         if (sharePreferenceManager.getKeyFirstName() != null) {
-            tvWelcome.setText(String.format("Welcome %s!", sharePreferenceManager.getKeyFirstName()));
+            tvWelcome.setText(String.format("Welcome %s!", sharePreferenceManager.getKeyFirstName().substring(0,1).toUpperCase()
+                    + sharePreferenceManager.getKeyFirstName().substring(1)));
         } else {
             tvWelcome.setText("Missing!");
             tvWelcome.setTextColor(Color.parseColor("#FC4500"));

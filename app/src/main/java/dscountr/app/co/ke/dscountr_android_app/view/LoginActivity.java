@@ -53,9 +53,7 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
         toolbar.setOnMenuItemClickListener(this);
 
         Button btnNumber = findViewById(R.id.btnNumber);
-        TextView tvTerms = findViewById(R.id.tvTerms);
         btnNumber.setOnClickListener(this);
-        tvTerms.setOnClickListener(this);
 
         enterNumber = findViewById(R.id.enterNumber);
         tlenterNumber = findViewById(R.id.tlenterNumber);
@@ -79,9 +77,6 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
         switch (view.getId()) {
             case R.id.btnNumber:
                 phoneNumberValidation();
-                break;
-            case R.id.tvTerms:
-                Toast.makeText(LoginActivity.this, "Our terms and conditions.", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.rlSignUp:
                 SharedPrefManager.getInstance(getApplicationContext()).clearAccount();
