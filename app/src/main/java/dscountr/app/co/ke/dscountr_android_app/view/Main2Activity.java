@@ -117,12 +117,12 @@ public class Main2Activity extends AppCompatActivity
             headerName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (headerName.getText().toString() == getResources().getString(R.string.sign_in)){
+                    if (headerName.getText().toString().equals(getResources().getString(R.string.sign_in))){
                         Intent i = new Intent(Main2Activity.this, LoginActivity.class);
                         overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                         startActivity(i);
-                    }else if (headerName.getText().toString() == getResources().getString(R.string.continue_reg)){
-                        Intent i = new Intent(Main2Activity.this, RegisterActivity.class);
+                    }else if (headerName.getText().toString().equals(getResources().getString(R.string.continue_reg))){
+                        Intent i = new Intent(Main2Activity.this, LoginActivity.class);
                         overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                         startActivity(i);
                     }else{
