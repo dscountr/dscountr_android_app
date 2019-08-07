@@ -25,10 +25,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="@font/montserrat_regular"
+                    android:fontFamily="@font/montserrat_medium"
                     android:lineSpacingExtra="5sp"
                     android:text="@string/enter_verification_code"
-                    android:textColor="@color/colorBottomBorder"
+                    android:textColor="@color/colorSectionTitle"
                     android:textSize="14sp"
                     android:textStyle="normal" />
 
@@ -42,12 +42,13 @@
                     android:maxLength="6"
                     android:textIsSelectable="false"
                     android:textSize="30sp"
-                    android:fontFamily="@font/roboto_regular"
+                    android:fontFamily="@font/montserrat_regular"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:lineSpacingExtra="5sp"
                     android:layout_below="@+id/tvMobileLabel"
-                    android:background="@drawable/bottom_edittext"/>
+                    android:background="@drawable/bottom_edittext"
+                    android:textColor="@color/colorProductName"/>
 
                 <TextView
                     android:id="@+id/tvResendVerificationCode"
@@ -72,7 +73,7 @@
         android:layout_height="35dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_bg"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_semi_bold"
         android:lineSpacingExtra="4sp"
         android:text="@string/verify_phone"
         android:textAllCaps="false"
@@ -80,14 +81,14 @@
         android:textSize="16sp"
         android:textStyle="normal"
         android:layout_above="@+id/rlVerifyBack"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="40dp"/>
 
     <RelativeLayout
         android:id="@+id/rlVerifyBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorMainBackgroundSomePages">
+        android:background="@color/colorWhite">
         <View
             android:layout_width="match_parent"
             android:layout_height="0.1dp"
@@ -110,10 +111,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBottomBorder"
-                android:fontFamily="@font/montserrat_regular"
+                android:fontFamily="@font/montserrat_semi_bold"
                 android:layout_gravity="center_vertical"
                 android:text="@string/back"
-                android:textSize="11sp"
+                android:textSize="12sp"
                 android:layout_marginStart="3dp"
                 android:layout_marginLeft="3dp" />
         </LinearLayout>

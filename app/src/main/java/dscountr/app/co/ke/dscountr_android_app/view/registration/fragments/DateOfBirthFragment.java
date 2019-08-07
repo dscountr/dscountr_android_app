@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.view.Help;
 
 public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener, TextWatcher {
 
@@ -261,7 +263,9 @@ public class DateOfBirthFragment extends Fragment implements Toolbar.OnMenuItemC
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.miRegistrationHelp:
-                Toast.makeText(getActivity(), "Date of birth help.",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getActivity(), Help.class);
+                startActivity(i);
+                getActivity().overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                 return true;
             default:
                 return false;

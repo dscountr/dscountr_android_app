@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group
         android:id="@+id/menu_top"
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_account_circle_gray_24dp"
-            android:title="@string/menu_home" />
+            android:icon="@drawable/ic_home_nav_24dp"
+            android:title="@string/menu_home"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="12sp"
+            android:textColor="@color/colorBottomBorder"/>
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_apps_gray_24dp"
-            android:title="@string/menu_categories" />
+            android:icon="@drawable/ic_apps_nav_24dp"
+            android:title="@string/menu_categories"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="12sp"
+            android:textColor="@color/colorBottomBorder" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_shopping_cart_gray_24dp"
-            android:title="@string/menu_retailer" />
+            android:icon="@drawable/ic_store_nav_24dp"
+            android:title="@string/menu_retailer"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="12sp"
+            android:textColor="@color/colorBottomBorder"/>
         <item
             android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_notifications_white_24dp"
-            android:title="@string/menu_notifications" />
+            android:icon="@drawable/ic_notifications_nav_24dp"
+            android:title="@string/menu_notifications"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="12sp"
+            android:textColor="@color/colorBottomBorder"/>
     </group>
 
     <group
@@ -29,16 +39,25 @@
         android:checkableBehavior="none">
         <item
             android:id="@+id/nav_share"
-            android:icon="@drawable/ic_local_offer_gray_24dp"
-            android:title="@string/menu_discount_list" />
+            android:icon="@drawable/ic_local_offer_nav_24dp"
+            android:title="@string/menu_discount_list"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="12sp"
+            android:textColor="@color/colorBottomBorder"/>
         <item
             android:id="@+id/nav_send"
-            android:icon="@drawable/ic_favorite_gray_24dp"
-            android:title="@string/menu_wish_list" />
+            android:icon="@drawable/ic_favorite_nav_24dp"
+            android:title="@string/menu_wish_list"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="12sp"
+            android:textColor="@color/colorBottomBorder"/>
         <item
             android:id="@+id/nav_shopping_list"
-            android:icon="@drawable/ic_description_gray_24dp"
-            android:title="@string/menu_shopping_list" />
+            android:icon="@drawable/ic_description_nav_24dp"
+            android:title="@string/menu_shopping_list"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="12sp"
+            android:textColor="@color/colorBottomBorder"/>
     </group>
 
     <group
@@ -46,16 +65,25 @@
         android:checkableBehavior="none">
         <item
             android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_settings_gray_24dp"
-            android:title="@string/menu_settings" />
+            android:icon="@drawable/ic_settings_nav_24dp"
+            android:title="@string/menu_settings"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="12sp"
+            android:textColor="@color/colorBottomBorder"/>
         <item
             android:id="@+id/nav_support"
-            android:icon="@drawable/ic_help_gray_24dp"
-            android:title="@string/menu_support" />
+            android:icon="@drawable/ic_help_nav_24dp"
+            android:title="@string/menu_support"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="12sp"
+            android:textColor="@color/colorBottomBorder"/>
         <item
             android:id="@+id/nav_sign_out"
-            android:icon="@drawable/ic_exit_to_app_gray_24dp"
-            android:title="@string/sign_out" />
+            android:icon="@drawable/ic_exit_to_app_nav_24dp"
+            android:title="@string/sign_out"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="12sp"
+            android:textColor="@color/colorBottomBorder"/>
     </group>
 
 </menu>

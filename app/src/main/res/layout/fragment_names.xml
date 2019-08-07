@@ -21,10 +21,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
-                android:fontFamily="@font/montserrat_regular"
+                android:fontFamily="@font/montserrat_medium"
                 android:lineSpacingExtra="5sp"
                 android:text="@string/enter_phone_number"
-                android:textColor="@color/colorBottomBorder"
+                android:textColor="@color/colorSectionTitle"
                 android:textSize="14sp"
                 android:textStyle="normal" />
 
@@ -54,7 +54,7 @@
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:textColor="@color/colorProductName"
-                    android:textColorHint="@color/colorBottomBorder"
+                    android:textColorHint="@color/colorDisabled"
                     android:textSize="14sp"
                     android:textStyle="normal"
                     android:paddingStart="20dp" />
@@ -87,7 +87,7 @@
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:textColor="@color/colorProductName"
-                    android:textColorHint="@color/colorBottomBorder"
+                    android:textColorHint="@color/colorDisabled"
                     android:textSize="14sp"
                     android:textStyle="normal"
                     android:paddingStart="20dp" />
@@ -101,7 +101,7 @@
         android:layout_width="280dp"
         android:layout_height="35dp"
         android:background="@drawable/button_bg"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_semi_bold"
         android:lineSpacingExtra="4sp"
         android:text="@string/continue_btn"
         android:textAllCaps="false"
@@ -110,14 +110,14 @@
         android:textStyle="normal"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/rlVerifyBack"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="40dp"/>
 
     <RelativeLayout
         android:id="@+id/rlVerifyBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorMainBackgroundSomePages">
+        android:background="@color/colorWhite">
         <View
             android:layout_width="match_parent"
             android:layout_height="0.1dp"
@@ -141,10 +141,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBottomBorder"
-                android:fontFamily="@font/montserrat_regular"
+                android:fontFamily="@font/montserrat_semi_bold"
                 android:layout_gravity="center_vertical"
                 android:text="@string/back"
-                android:textSize="11sp"
+                android:textSize="12sp"
                 android:layout_marginStart="3dp"
                 android:layout_marginLeft="3dp" />
         </LinearLayout>

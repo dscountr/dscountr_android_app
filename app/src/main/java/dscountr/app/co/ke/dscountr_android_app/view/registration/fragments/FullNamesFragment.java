@@ -3,6 +3,7 @@ package dscountr.app.co.ke.dscountr_android_app.view.registration.fragments;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.view.Help;
 
 public class FullNamesFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener {
 
@@ -67,7 +69,9 @@ public class FullNamesFragment extends Fragment implements Toolbar.OnMenuItemCli
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.miRegistrationHelp:
-                Toast.makeText(getActivity(), "Full Name help.",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getActivity(), Help.class);
+                startActivity(i);
+                getActivity().overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                 return true;
             default:
                 return false;

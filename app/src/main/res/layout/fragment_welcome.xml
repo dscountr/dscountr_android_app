@@ -26,9 +26,9 @@
                     android:layout_marginStart="35dp"
                     android:layout_marginLeft="35dp"
                     android:layout_marginTop="54.5dp"
-                    android:fontFamily="@font/montserrat_extra_bold"
+                    android:fontFamily="@font/montserrat_semi_bold"
                     android:lineSpacingExtra="6sp"
-                    android:text="@string/welcome_julie"
+                    android:text="@string/welcome_message"
                     android:textColor="@color/colorWhite"
                     android:textSize="20sp"
                     android:textStyle="normal" />
@@ -52,12 +52,11 @@
                     android:layout_marginTop="20.5dp"
                     android:layout_marginEnd="56dp"
                     android:layout_marginRight="56dp"
-                    android:fontFamily="@font/montserrat_regular"
+                    android:fontFamily="@font/montserrat_medium_italic"
                     android:lineSpacingExtra="5sp"
                     android:text="@string/enjoy_great_discounts"
                     android:textColor="@color/colorMainBackgroundSomePages"
-                    android:textSize="15sp"
-                    android:textStyle="italic" />
+                    android:textSize="14sp" />
 
             </RelativeLayout>
 
@@ -75,7 +74,7 @@
                     android:id="@+id/tvWelcomeMessage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="70dp"
+                    android:layout_marginTop="32dp"
                     android:fontFamily="@font/montserrat_regular"
                     android:lineSpacingExtra="5sp"
                     android:text="@string/have_any_questions"
@@ -93,7 +92,7 @@
         android:layout_height="35dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_bg"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_semi_bold"
         android:lineSpacingExtra="4sp"
         android:text="@string/start_now"
         android:textAllCaps="false"
@@ -101,7 +100,7 @@
         android:textSize="16sp"
         android:textStyle="normal"
         android:layout_above="@+id/rlVerifyBack"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="40dp"/>
 
     <RelativeLayout
         android:id="@+id/rlVerifyBack"
@@ -125,10 +124,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBottomBorder"
-                android:fontFamily="@font/montserrat_regular"
+                android:fontFamily="@font/montserrat_semi_bold"
                 android:layout_gravity="center_vertical"
                 android:text="@string/view_your_profile"
-                android:textSize="11sp"
+                android:textSize="12sp"
                 android:layout_marginStart="3dp"
                 android:layout_marginLeft="3dp" />
 

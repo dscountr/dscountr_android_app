@@ -31,9 +31,9 @@
                 android:layout_marginTop="22dp"
                 android:fontFamily="@font/montserrat_semi_bold"
                 android:lineSpacingExtra="5sp"
-                android:text="@string/welcome_julie"
+                android:text="@string/welcome_message"
                 android:textAlignment="center"
-                android:textColor="@color/colorDot"
+                android:textColor="@color/colorWhite"
                 android:textSize="13sp" />
 
             <TextView
@@ -43,14 +43,14 @@
                 android:layout_below="@+id/tvProfileWelcome"
                 android:layout_marginStart="30dp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="23dp"
-                android:fontFamily="@font/montserrat_regular"
+                android:fontFamily="@font/montserrat_light"
                 android:lineSpacingExtra="4sp"
                 android:text="@string/view_profile_info"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhite"
-                android:textSize="11sp" />
+                android:textSize="12sp" />
         </RelativeLayout>
 
         <LinearLayout
@@ -62,7 +62,7 @@
                 android:id="@+id/llBonusCreditsLeaderboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="5dp"
+                android:paddingTop="6dp"
                 android:paddingBottom="4.5dp"
                 android:orientation="horizontal"
                 android:background="@color/colorWhite">
@@ -87,13 +87,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
-                                android:fontFamily="@font/montserrat_semi_bold"
+                                android:fontFamily="@font/montserrat_bold"
                                 android:lineSpacingExtra="5sp"
-                                android:text="@string/_346"
+                                android:text="@string/_0"
                                 android:textAlignment="center"
                                 android:textColor="@android:color/black"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
+                                android:textSize="15sp" />
 
                             <TextView
                                 android:id="@+id/tvBonusLabel"
@@ -101,12 +100,12 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/tvBonusValue"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="5dp"
-                                android:fontFamily="@font/montserrat_light"
-                                android:text="@string/bonus_points"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="@string/points"
                                 android:textAlignment="center"
                                 android:textColor="@color/colorProductName"
-                                android:textSize="11sp" />
+                                android:textSize="12sp" />
                         </RelativeLayout>
                     </RelativeLayout>
 
@@ -135,13 +134,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
-                                android:fontFamily="@font/montserrat_semi_bold"
+                                android:fontFamily="@font/montserrat_bold"
                                 android:lineSpacingExtra="5sp"
-                                android:text="@string/_5"
+                                android:text="@string/_0"
                                 android:textAlignment="center"
                                 android:textColor="@android:color/black"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
+                                android:textSize="15sp" />
 
                             <TextView
                                 android:id="@+id/tvCreditsLabel"
@@ -149,12 +147,12 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/tvCreditsValue"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="5dp"
-                                android:fontFamily="@font/montserrat_light"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/montserrat_regular"
                                 android:text="@string/credits"
                                 android:textAlignment="center"
                                 android:textColor="@color/colorProductName"
-                                android:textSize="11sp" />
+                                android:textSize="12sp" />
                         </RelativeLayout>
                     </RelativeLayout>
 
@@ -183,13 +181,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
-                                android:fontFamily="@font/montserrat_semi_bold"
+                                android:fontFamily="@font/montserrat_bold"
                                 android:lineSpacingExtra="5sp"
-                                android:text="@string/_16"
+                                android:text="@string/_0"
                                 android:textAlignment="center"
                                 android:textColor="@android:color/black"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
+                                android:textSize="15sp" />
 
                             <TextView
                                 android:id="@+id/tvLeaderboardLabel"
@@ -197,12 +194,12 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/tvLeaderboardValue"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="5dp"
-                                android:fontFamily="@font/montserrat_light"
-                                android:text="@string/leader_board"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="@string/offers"
                                 android:textAlignment="center"
                                 android:textColor="@color/colorProductName"
-                                android:textSize="11sp" />
+                                android:textSize="12sp" />
                         </RelativeLayout>
 
                     </RelativeLayout>
@@ -220,13 +217,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="9.5dp"
-                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:fontFamily="@font/montserrat_bold"
                     android:lineSpacingExtra="4sp"
                     android:padding="5dp"
                     android:text="@string/my_account"
-                    android:textAllCaps="true"
                     android:textColor="@color/colorSectionTitle"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
 
             </RelativeLayout>
 
@@ -249,7 +245,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="17.5dp"
                         android:layout_marginTop="17.5dp"
-                        android:src="@drawable/ic_payment_gray_24dp"/>
+                        android:src="@drawable/ic_payment_gray_24dp"
+                        android:tint="@color/buttonColor"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -257,10 +254,10 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="23dp"
                         android:layout_marginLeft="23dp"
-                        android:fontFamily="@font/montserrat_regular"
+                        android:fontFamily="@font/montserrat_medium"
                         android:lineSpacingExtra="4sp"
                         android:text="@string/payment_methods"
-                        android:textColor="@color/colorSectionTitle"
+                        android:textColor="@color/colorProductName"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -277,7 +274,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="17.5dp"
                         android:layout_marginTop="17.5dp"
-                        android:src="@drawable/ic_history_gray_24dp"/>
+                        android:src="@drawable/ic_history_gray_24dp"
+                        android:tint="@color/buttonColor"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -285,10 +283,10 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="23dp"
                         android:layout_marginLeft="23dp"
-                        android:fontFamily="@font/montserrat_regular"
+                        android:fontFamily="@font/montserrat_medium"
                         android:lineSpacingExtra="4sp"
                         android:text="@string/purchase_history"
-                        android:textColor="@color/colorSectionTitle"
+                        android:textColor="@color/colorProductName"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -305,7 +303,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="17.5dp"
                         android:layout_marginTop="17.5dp"
-                        android:src="@drawable/ic_assessment_gray_24dp"/>
+                        android:src="@drawable/ic_assessment_gray_24dp"
+                        android:tint="@color/buttonColor"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -313,10 +312,10 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="23dp"
                         android:layout_marginLeft="23dp"
-                        android:fontFamily="@font/montserrat_regular"
+                        android:fontFamily="@font/montserrat_medium"
                         android:lineSpacingExtra="4sp"
-                        android:text="@string/leader_board"
-                        android:textColor="@color/colorSectionTitle"
+                        android:text="@string/saved_history"
+                        android:textColor="@color/colorProductName"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -333,7 +332,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="17.5dp"
                         android:layout_marginTop="17.5dp"
-                        android:src="@drawable/ic_youtube_searched_for_gray_24dp"/>
+                        android:src="@drawable/ic_youtube_searched_for_gray_24dp"
+                        android:tint="@color/buttonColor"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -341,10 +341,10 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="23dp"
                         android:layout_marginLeft="23dp"
-                        android:fontFamily="@font/montserrat_regular"
+                        android:fontFamily="@font/montserrat_medium"
                         android:lineSpacingExtra="4sp"
                         android:text="@string/recently_viewed"
-                        android:textColor="@color/colorSectionTitle"
+                        android:textColor="@color/colorProductName"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -361,13 +361,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="9.5dp"
-                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:fontFamily="@font/montserrat_bold"
                     android:lineSpacingExtra="4sp"
                     android:padding="5dp"
-                    android:text="@string/share"
-                    android:textAllCaps="true"
+                    android:text="@string/activity"
                     android:textColor="@color/colorSectionTitle"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
 
             </RelativeLayout>
 
@@ -376,6 +375,35 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorWhite"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginRight="27dp"
+                    android:layout_marginEnd="27dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="17.5dp"
+                        android:layout_marginTop="17.5dp"
+                        android:src="@drawable/ic_group_work_white_24dp"
+                        android:tint="@color/buttonColor"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="23dp"
+                        android:layout_marginLeft="23dp"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:lineSpacingExtra="4sp"
+                        android:text="@string/earn_credits"
+                        android:textColor="@color/colorProductName"
+                        android:textSize="12sp" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -394,7 +422,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="17.5dp"
                             android:layout_marginTop="17.5dp"
-                            android:src="@drawable/ic_payment_gray_24dp"/>
+                            android:src="@drawable/ic_person_add_white_24dp"
+                            android:tint="@color/buttonColor"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -404,10 +433,10 @@
                             android:layout_marginLeft="23dp"
                             android:layout_toEndOf="@+id/ivInviteFriend"
                             android:layout_toRightOf="@+id/ivInviteFriend"
-                            android:fontFamily="@font/montserrat_regular"
+                            android:fontFamily="@font/montserrat_medium"
                             android:lineSpacingExtra="4sp"
-                            android:text="@string/payment_methods"
-                            android:textColor="@color/colorSectionTitle"
+                            android:text="@string/invite_a_friend"
+                            android:textColor="@color/colorProductName"
                             android:textSize="12sp" />
 
                         <TextView
@@ -416,11 +445,11 @@
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:fontFamily="@font/montserrat_regular"
+                            android:fontFamily="@font/montserrat_medium"
                             android:lineSpacingExtra="3sp"
                             android:text="@string/earn_20_points"
                             android:textColor="@color/colorBottomBorder"
-                            android:textSize="10sp" />
+                            android:textSize="13sp" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -437,7 +466,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="17.5dp"
                         android:layout_marginTop="17.5dp"
-                        android:src="@drawable/ic_stars_gray_24dp"/>
+                        android:src="@drawable/ic_stars_gray_24dp"
+                        android:tint="@color/buttonColor"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -445,10 +475,10 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="23dp"
                         android:layout_marginLeft="23dp"
-                        android:fontFamily="@font/montserrat_regular"
+                        android:fontFamily="@font/montserrat_medium"
                         android:lineSpacingExtra="4sp"
                         android:text="@string/transfer_points"
-                        android:textColor="@color/colorSectionTitle"
+                        android:textColor="@color/colorProductName"
                         android:textSize="12sp" />
                 </LinearLayout>
 

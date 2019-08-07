@@ -175,7 +175,7 @@ public class LoginActivity extends AppCompatActivity implements Toolbar.OnMenuIt
                 User responseUser = response.body();
                 if (response.isSuccessful() && responseUser != null) {
                     Log.e(TAG, responseUser.getPhone_number());
-                    Toast.makeText(LoginActivity.this, "Sign in successful.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "You have been successfully signed in!", Toast.LENGTH_SHORT).show();
                     SharedPrefManager.getInstance(getApplicationContext()).setKeyToken(responseUser.getToken());
                     SharedPrefManager.getInstance(getApplicationContext()).setKeyUser(responseUser.getEmail(), responseUser.getPhone_number(), responseUser.getGender(), responseUser.getDate_of_birth(), responseUser.getFirst_name(), responseUser.getLast_name());
                     finish();

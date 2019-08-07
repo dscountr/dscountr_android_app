@@ -24,7 +24,7 @@
                 android:fontFamily="@font/montserrat_regular"
                 android:lineSpacingExtra="5sp"
                 android:text="@string/enter_email"
-                android:textColor="@color/colorBottomBorder"
+                android:textColor="@color/colorSectionTitle"
                 android:textSize="14sp"
                 android:textStyle="normal" />
 
@@ -47,28 +47,19 @@
                     android:hint="@string/enter_your_email_address"
                     android:inputType="textEmailAddress"
                     android:lineSpacingExtra="5sp"
-                    android:paddingLeft="20dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:textColor="@color/colorProductName"
-                    android:textColorHint="@color/colorBottomBorder"
+                    android:textColorHint="@color/colorDisabled"
                     android:textSize="14sp"
-                    android:textStyle="normal" />
+                    android:textStyle="normal"
+                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="0dp"
+                    android:paddingRight="0dp" />
             </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
 
-            <TextView
-                android:id="@+id/tvWhyEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tlenterEmail"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:lineSpacingExtra="5sp"
-                android:text="@string/why_email"
-                android:textColor="@color/colorEditCancelUndoButtonLinks"
-                android:textSize="13sp"
-                android:textStyle="normal" />
+
         </RelativeLayout>
     </ScrollView>
 
@@ -78,7 +69,7 @@
         android:layout_height="35dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_bg"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_semi_bold"
         android:lineSpacingExtra="4sp"
         android:text="@string/continue_btn"
         android:textAllCaps="false"
@@ -86,14 +77,14 @@
         android:textSize="16sp"
         android:textStyle="normal"
         android:layout_above="@+id/rlVerifyBack"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="40dp"/>
 
     <RelativeLayout
         android:id="@+id/rlVerifyBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorMainBackgroundSomePages">
+        android:background="@color/colorWhite">
         <View
             android:layout_width="match_parent"
             android:layout_height="0.1dp"
@@ -117,10 +108,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBottomBorder"
-                android:fontFamily="@font/montserrat_regular"
+                android:fontFamily="@font/montserrat_semi_bold"
                 android:layout_gravity="center_vertical"
                 android:text="@string/back"
-                android:textSize="11sp"
+                android:textSize="12sp"
                 android:layout_marginStart="3dp"
                 android:layout_marginLeft="3dp" />
         </LinearLayout>

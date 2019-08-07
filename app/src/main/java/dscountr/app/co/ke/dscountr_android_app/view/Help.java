@@ -18,7 +18,7 @@ public class Help extends AppCompatActivity implements Toolbar.OnMenuItemClickLi
         setContentView(R.layout.help_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setOnMenuItemClickListener(this);
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_gray_24dp);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

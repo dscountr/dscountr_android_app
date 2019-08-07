@@ -4,9 +4,16 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.TextPaint;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.URLSpan;
+import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +36,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.view.Help;
+import dscountr.app.co.ke.dscountr_android_app.view.Main2Activity;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.CountryData;
 
 public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener {
@@ -52,6 +61,8 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
         tlenterNumber = mobile.findViewById(R.id.tlenterNumber);
         radioAgree = mobile.findViewById(R.id.radioAgree);
 
+        tvTerms.setMovementMethod(LinkMovementMethod.getInstance());
+
         return mobile;
     }
 
@@ -70,7 +81,9 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.miRegistrationHelp:
-                Toast.makeText(getActivity(), "Mobile number help.", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getActivity(), Help.class);
+                startActivity(i);
+                getActivity().overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                 return true;
             default:
                 return false;
@@ -82,9 +95,6 @@ public class MobileFragment extends Fragment implements Toolbar.OnMenuItemClickL
         switch (v.getId()) {
             case R.id.btnNumber:
                 phoneNumberValidation();
-                break;
-            case R.id.tvTerms:
-                Toast.makeText(getActivity(), "Our terms and conditions.", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;

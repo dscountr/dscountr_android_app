@@ -150,7 +150,7 @@ public class GenderFragment extends Fragment implements Toolbar.OnMenuItemClickL
             public void onResponse(Call<User> call, Response<User> response) {
                 User responseUser = response.body();
                 if (response.isSuccessful() && responseUser != null) {
-                    Toast.makeText(getActivity(), "Registration successful.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "You have successfully registered.", Toast.LENGTH_LONG).show();
                     SharedPrefManager.getInstance(getActivity()).setKeyUser(responseUser.getEmail(), responseUser.getPhone_number(), responseUser.getGender(), responseUser.getDate_of_birth(), responseUser.getFirst_name(), responseUser.getLast_name());
                     loadFragment(new WelcomeFragment());
                 } else {

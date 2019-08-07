@@ -3,6 +3,7 @@ package dscountr.app.co.ke.dscountr_android_app.view.registration.fragments;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.view.Help;
 
 public class EmailFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener{
 
@@ -38,9 +40,7 @@ public class EmailFragment extends Fragment implements Toolbar.OnMenuItemClickLi
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         toolbar.setOnMenuItemClickListener(this);
         Button btnEmail = email.findViewById(R.id.btnEmail);
-        TextView tvWhyEmail = email.findViewById(R.id.tvWhyEmail);
         btnEmail.setOnClickListener(this);
-        tvWhyEmail.setOnClickListener(this);
 
         Bundle args = this.getArguments();
         if(args != null){
@@ -71,7 +71,9 @@ public class EmailFragment extends Fragment implements Toolbar.OnMenuItemClickLi
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.miRegistrationHelp:
-                Toast.makeText(getActivity(), "Email address help.",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getActivity(), Help.class);
+                startActivity(i);
+                getActivity().overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                 return true;
             default:
                 return false;
@@ -83,9 +85,6 @@ public class EmailFragment extends Fragment implements Toolbar.OnMenuItemClickLi
         switch (v.getId()) {
             case R.id.btnEmail:
                 emailAddressValidation();
-                break;
-            case R.id.tvWhyEmail:
-                Toast.makeText(getActivity(), "Why do we need your email?",Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;

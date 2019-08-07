@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -33,6 +34,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import java.util.concurrent.TimeUnit;
 
 import dscountr.app.co.ke.dscountr_android_app.R;
+import dscountr.app.co.ke.dscountr_android_app.view.Help;
 import dscountr.app.co.ke.dscountr_android_app.view.utils.CodeEntryEditText;
 
 public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItemClickListener, Button.OnClickListener {
@@ -88,7 +90,9 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.miRegistrationHelp:
-                Toast.makeText(getActivity(), "Mobile verification code help.", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getActivity(), Help.class);
+                startActivity(i);
+                getActivity().overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                 return true;
             default:
                 return false;
@@ -103,7 +107,6 @@ public class VerifyMobileFragment extends Fragment implements Toolbar.OnMenuItem
                 break;
             case R.id.llVerifyBack:
                 Toast.makeText(getActivity(), "You clicked the back button.", Toast.LENGTH_SHORT).show();
-//                onBackPressed();
                 break;
             case R.id.tvResendVerificationCode:
                 Toast.makeText(getActivity(), "Resend the number verification code.", Toast.LENGTH_SHORT).show();

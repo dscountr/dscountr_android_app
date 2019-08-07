@@ -22,10 +22,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
-                android:fontFamily="@font/montserrat_regular"
+                android:fontFamily="@font/montserrat_medium"
                 android:lineSpacingExtra="5sp"
                 android:text="@string/enter_number"
-                android:textColor="@color/colorBottomBorder"
+                android:textColor="@color/colorSectionTitle"
                 android:textSize="14sp"
                 android:textStyle="normal" />
 
@@ -56,7 +56,7 @@
                     android:paddingRight="20dp"
                     android:paddingBottom="10dp"
                     android:textColor="@color/colorProductName"
-                    android:textColorHint="@color/colorBottomBorder"
+                    android:textColorHint="@color/colorDisabled"
                     android:textSize="14sp"
                     android:textStyle="normal" />
             </dscountr.app.co.ke.dscountr_android_app.view.utils.NoChangingBackgroundTextInputLayout>
@@ -75,9 +75,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="@string/agree"
-                    android:textColor="@color/colorBottomBorder"
-                    android:textSize="14sp"
                     android:theme="@style/MyRadioButton" />
             </RadioGroup>
 
@@ -95,10 +92,11 @@
                 android:paddingStart="5dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:text="@string/service_terms"
-                android:textColor="@color/colorEditCancelUndoButtonLinks"
-                android:textSize="13sp"
-                android:textStyle="normal" />
+                android:text="@string/service_terms_privacy_policy"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                android:linksClickable="true"/>
         </RelativeLayout>
     </ScrollView>
 
@@ -107,7 +105,7 @@
         android:layout_width="280dp"
         android:layout_height="35dp"
         android:background="@drawable/button_bg"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_semi_bold"
         android:lineSpacingExtra="4sp"
         android:text="@string/continue_btn"
         android:textAllCaps="false"
@@ -116,14 +114,14 @@
         android:textStyle="normal"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/rlVerifyBack"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="40dp"/>
 
     <RelativeLayout
         android:id="@+id/rlVerifyBack"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorMainBackgroundSomePages">
+        android:background="@color/colorWhite">
         <View
             android:layout_width="match_parent"
             android:layout_height="0.1dp"

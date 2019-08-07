@@ -23,10 +23,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="@font/montserrat_regular"
+                    android:fontFamily="@font/montserrat_medium"
                     android:lineSpacingExtra="5sp"
                     android:text="@string/select_your_gender"
-                    android:textColor="@color/colorBottomBorder"
+                    android:textColor="@color/colorSectionTitle"
                     android:textSize="14sp"
                     android:textStyle="normal" />
 
@@ -69,21 +69,21 @@
         android:layout_height="35dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/signin_button"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_semi_bold"
         android:lineSpacingExtra="4sp"
         android:text="@string/finish"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
         android:layout_above="@+id/rlVerifyBack"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="40dp"/>
 
     <RelativeLayout
         android:id="@+id/rlVerifyBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorMainBackgroundSomePages">
+        android:background="@color/colorWhite">
         <View
             android:layout_width="match_parent"
             android:layout_height="0.1dp"

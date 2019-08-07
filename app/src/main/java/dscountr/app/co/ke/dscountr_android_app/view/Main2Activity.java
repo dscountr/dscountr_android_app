@@ -53,7 +53,7 @@ public class Main2Activity extends AppCompatActivity
 
         initToolBar();
         initNavigation();
-        loadFullName(); // FirebaseAuth.getInstance().getCurrentUser() != null
+        // FirebaseAuth.getInstance().getCurrentUser() != null
 
         TextView fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +76,7 @@ public class Main2Activity extends AppCompatActivity
     @Override
     public void onResume(){
         super.onResume();
+        loadFullName();
     }
 
     @Override
@@ -102,33 +103,27 @@ public class Main2Activity extends AppCompatActivity
 
         if (sharePreferenceManager.getKeyToken() != null) {
             headerName.setText(String.format("%s %s", sharePreferenceManager.getKeyFirstName(), sharePreferenceManager.getKeyLastName()));
+            layout.setBackgroundResource(R.drawable.side_nav_bar);
+            headerProfileName.setVisibility(View.VISIBLE);
         } else {
             layout.setBackgroundResource(R.drawable.side_nav_signout);
-            layout.setPadding(0,32,24,0);
-            if (sharePreferenceManager.getKeyFirstName() != null && sharePreferenceManager.getKeyLastName() != null)
-                headerName.setText(R.string.sign_in);
-            else
-                headerName.setText(R.string.continue_reg);
-            headerName.setTextColor(Color.parseColor("#FFFFFF"));
-            headerName.getResources().getDimensionPixelOffset(R.dimen.nav_header_title_spacing);
+            headerName.setText(R.string.sign_in);
             headerProfileName.setVisibility(View.GONE);
-            imageView.setPadding(32,30,0,0);
-            linearLayout.setPadding(32,40,12,0);
             headerName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (headerName.getText().toString().equals(getResources().getString(R.string.sign_in))){
                         Intent i = new Intent(Main2Activity.this, LoginActivity.class);
-                        overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                         startActivity(i);
+                        overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                     }else if (headerName.getText().toString().equals(getResources().getString(R.string.continue_reg))){
                         Intent i = new Intent(Main2Activity.this, LoginActivity.class);
-                        overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                         startActivity(i);
+                        overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                     }else{
                         Intent profile = new Intent(Main2Activity.this, ProfileActivity.class);
-                        overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                         startActivity(profile);
+                        overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                     }
                 }
             });
@@ -181,8 +176,8 @@ public class Main2Activity extends AppCompatActivity
             public void onClick(View view) {
                 Log.e(TAG, "clicking textview");
                 Intent i = new Intent(Main2Activity.this, ProfileActivity.class);
-                overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
                 startActivity(i);
+                overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
             }
         });
     }
@@ -208,12 +203,14 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.nav_support) {
             Intent i = new Intent(Main2Activity.this, Help.class);
             startActivity(i);
+            overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
         } else if (id == R.id.nav_sign_out) {
             sharePreferenceManager.clearAccount();
-            Intent i = new Intent(Main2Activity.this, RegisterActivity.class);
+            loadFullName();
+            Toast.makeText(Main2Activity.this, "You have been successfully logged out!", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(Main2Activity.this, LoginActivity.class);
             startActivity(i);
             overridePendingTransition(R.transition.slide_in, R.transition.slide_out);
-            finish();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -228,7 +225,6 @@ public class Main2Activity extends AppCompatActivity
                 Log.e(TAG, "clicking notification");
                 Toast.makeText(Main2Activity.this, "Notifications.", Toast.LENGTH_SHORT).show();
                 break;
-
             default:
                 break;
 
